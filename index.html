@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sara | Photography Portfolio</title>
+    <title>Sara | Photography Portfolio — Tehran</title>
     <meta name="description"
-        content="Portfolio of Sara, a freelance photographer specializing in modern, high-contrast, and moody photography.">
-    <!-- Google Fonts: Inter -->
+        content="Sara is a freelance photographer & visual artist based in Tehran, specializing in portrait, landscape, street, and architectural photography.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -16,18 +15,36 @@
 
 <body>
 
+    <!-- NAVIGATION -->
     <nav id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">SARA.</a>
             <ul class="nav-links">
                 <li><a href="#work">Work</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="https://www.instagram.com/sara__photoz/" target="_blank" class="social-icon">IG</a></li>
+                <li><a href="#contact" class="btn btn-nav">Book Now</a></li>
             </ul>
+            <button class="burger" id="burger" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#work" class="mobile-link">Work</a></li>
+            <li><a href="#services" class="mobile-link">Services</a></li>
+            <li><a href="#about" class="mobile-link">About</a></li>
+            <li><a href="#contact" class="mobile-link">Contact</a></li>
+            <li><a href="https://www.instagram.com/sara__photoz/" target="_blank" class="mobile-link">Instagram</a></li>
+        </ul>
+    </div>
+
+    <!-- HERO -->
     <header id="hero">
         <div class="hero-bg">
             <img src="images/hero_bg_1771564801109.png" alt="Moody landscape hero image">
@@ -35,62 +52,203 @@
         <div class="hero-content">
             <h1 class="reveal-text">Capturing<br>the Unseen.</h1>
             <p class="fade-in-up">Freelance Photographer &amp; Visual Artist based in Tehran.</p>
-            <a href="#work" class="btn fade-in-up">Explore Work</a>
+            <div class="hero-btns fade-in-up">
+                <a href="#work" class="btn">Explore Work</a>
+                <a href="#contact" class="btn btn-outline">Book a Session</a>
+            </div>
         </div>
     </header>
 
     <main>
+
+        <!-- PORTFOLIO GALLERY -->
         <section id="work" class="section">
             <div class="container">
                 <h2 class="section-title">Selected Works</h2>
-                <div class="gallery-masonry">
-                    <div class="gallery-item"><img src="images/gallery_1_1771564817778.png" alt="Fashion Portrait">
-                    </div>
-                    <div class="gallery-item"><img src="images/gallery_2_1771564830867.png"
+
+                <!-- Category Filter Tabs -->
+                <div class="filter-tabs" id="filterTabs">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="portrait">Portrait</button>
+                    <button class="filter-btn" data-filter="landscape">Landscape</button>
+                    <button class="filter-btn" data-filter="street">Street</button>
+                    <button class="filter-btn" data-filter="architecture">Architecture</button>
+                </div>
+
+                <div class="gallery-masonry" id="gallery">
+                    <div class="gallery-item" data-category="portrait"><img src="images/gallery_1_1771564817778.png"
+                            alt="Fashion Portrait"></div>
+                    <div class="gallery-item" data-category="architecture"><img src="images/gallery_2_1771564830867.png"
                             alt="Geometric Architecture"></div>
-                    <div class="gallery-item"><img src="images/gallery_3_1771564844008.png" alt="Moody Still Life">
-                    </div>
-                    <div class="gallery-item"><img src="images/gallery_4_1771564857118.png" alt="Dramatic Landscape">
-                    </div>
-                    <div class="gallery-item"><img src="images/gallery_5_1771564871722.png"
+                    <div class="gallery-item" data-category="portrait"><img src="images/gallery_3_1771564844008.png"
+                            alt="Moody Still Life"></div>
+                    <div class="gallery-item" data-category="landscape"><img src="images/gallery_4_1771564857118.png"
+                            alt="Dramatic Landscape"></div>
+                    <div class="gallery-item" data-category="architecture"><img src="images/gallery_5_1771564871722.png"
                             alt="Abstract Concrete Shadows"></div>
-                    <div class="gallery-item"><img src="images/gallery_6_1771564885171.png" alt="Neon Street Rainy">
-                    </div>
-                    <div class="gallery-item"><img src="images/gallery_7_1771564902481.png" alt="Detailed Bark Texture">
-                    </div>
+                    <div class="gallery-item" data-category="street"><img src="images/gallery_6_1771564885171.png"
+                            alt="Neon Street Rainy Night"></div>
+                    <div class="gallery-item" data-category="landscape"><img src="images/gallery_7_1771564902481.png"
+                            alt="Detailed Bark Texture"></div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="section">
+        <!-- SERVICES -->
+        <section id="services" class="section section-dark">
+            <div class="container">
+                <h2 class="section-title">Services</h2>
+                <p class="section-subtitle">Every session is tailored to tell your unique story. Here's what I offer:
+                </p>
+                <div class="services-grid">
+
+                    <div class="service-card reveal-on-scroll">
+                        <div class="service-icon">◈</div>
+                        <h3>Portrait Sessions</h3>
+                        <p>Personal, editorial, and fashion portraits shot on location or in studio. Includes pre-shoot
+                            consultation, 2-hour session, and a curated gallery of 30+ edited images.</p>
+                        <ul class="service-includes">
+                            <li>Pre-shoot style consultation</li>
+                            <li>30+ fully edited images</li>
+                            <li>Private online gallery</li>
+                            <li>Print-ready files included</li>
+                        </ul>
+                        <a href="#contact" class="btn">Book a Session</a>
+                    </div>
+
+                    <div class="service-card reveal-on-scroll">
+                        <div class="service-icon">◉</div>
+                        <h3>Events & Coverage</h3>
+                        <p>Full-day or half-day coverage of corporate events, exhibitions, launches, and gatherings.
+                            Discreet, documentary style with cinematic results.</p>
+                        <ul class="service-includes">
+                            <li>Half or full day coverage</li>
+                            <li>100+ edited images</li>
+                            <li>48-hour turnaround for highlights</li>
+                            <li>Commercial usage license</li>
+                        </ul>
+                        <a href="#contact" class="btn">Check Availability</a>
+                    </div>
+
+                    <div class="service-card reveal-on-scroll">
+                        <div class="service-icon">◇</div>
+                        <h3>Editorial & Brand</h3>
+                        <p>High-impact photography for brands, publications, and creative projects. Art direction
+                            available. Perfect for lookbooks, campaigns, and social content.</p>
+                        <ul class="service-includes">
+                            <li>Creative direction included</li>
+                            <li>Full-day production shoot</li>
+                            <li>50+ edited, brand-ready images</li>
+                            <li>Licensing options available</li>
+                        </ul>
+                        <a href="#contact" class="btn">Get a Quote</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section id="testimonials" class="section">
+            <div class="container">
+                <h2 class="section-title">Client Stories</h2>
+                <div class="testimonials-grid">
+
+                    <div class="testimonial-card reveal-on-scroll">
+                        <div class="stars">★★★★★</div>
+                        <blockquote>"Sara has an extraordinary eye. She captured moments I didn't even know were
+                            happening. The photos from our event were breathtaking — every single one."</blockquote>
+                        <cite>— Neda R., Brand Director</cite>
+                    </div>
+
+                    <div class="testimonial-card reveal-on-scroll">
+                        <div class="stars">★★★★★</div>
+                        <blockquote>"My portrait session with Sara was such a comfortable experience. She knew exactly
+                            how to bring out my best angles and the final images exceeded every expectation."
+                        </blockquote>
+                        <cite>— Arman K., Model</cite>
+                    </div>
+
+                    <div class="testimonial-card reveal-on-scroll">
+                        <div class="stars">★★★★★</div>
+                        <blockquote>"We hired Sara for our product campaign and the results were stunning. Professional,
+                            creative, and incredibly easy to work with. We'll definitely be booking again."</blockquote>
+                        <cite>— Shirin M., Creative Director</cite>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="section section-dark">
             <div class="container about-container">
-                <div class="about-image">
+                <div class="about-image reveal-on-scroll">
                     <img src="images/sara.png" alt="Sara holding a camera">
                 </div>
                 <div class="about-text">
                     <h2 class="section-title">Hi, I'm Sara.</h2>
                     <p>I am a freelance photographer with a passion for finding beauty in the shadows. My work spans
-                        striking portraiture, striking architecture, and moody landscapes. I believe in a cinematic
+                        striking portraiture, architectural studies, and moody landscapes. I believe in a cinematic
                         approach to visual storytelling.</p>
                     <p>With over 7 years of experience, I've developed a signature style that focuses on high contrast,
-                        dynamic composition, and evoking raw emotion.</p>
+                        dynamic composition, and evoking raw emotion — whether I'm working in a quiet studio or the
+                        streets of Tehran.</p>
+                    <div class="about-actions">
+                        <a href="#work" class="btn">View Portfolio</a>
+                        <a href="#contact" class="btn btn-text">Get in Touch →</a>
+                    </div>
                 </div>
             </div>
         </section>
+
     </main>
 
+    <!-- CONTACT / FOOTER -->
     <footer id="contact" class="section">
         <div class="container footer-container">
             <div class="footer-cta">
                 <h2>Let's create something together.</h2>
-                <a href="mailto:hello@saraportfolio.example.com" class="btn email-link">hello@saraportfolio.com</a>
+                <p class="footer-sub">Fill out the form below or reach me directly at <a
+                        href="mailto:hello@saraportfolio.com">hello@saraportfolio.com</a></p>
+
+                <form class="contact-form" id="contactForm" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="session">Session Type</label>
+                        <select id="session" name="session">
+                            <option value="">Select a service...</option>
+                            <option value="portrait">Portrait Session</option>
+                            <option value="events">Events &amp; Coverage</option>
+                            <option value="editorial">Editorial &amp; Brand</option>
+                            <option value="other">Other / Just Saying Hi</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5"
+                            placeholder="Tell me about your project, event date, or just say hello..."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-submit">Send Message</button>
+                </form>
             </div>
+
             <div class="footer-bottom">
                 <p>&copy; 2026 Sara Photography. All rights reserved.</p>
                 <div class="footer-socials">
-                    <a href="#">Instagram</a>
-                    <a href="#">Twitter</a>
+                    <a href="https://www.instagram.com/sara__photoz/" target="_blank">Instagram</a>
                     <a href="#">Behance</a>
+                    <a href="#">LinkedIn</a>
                 </div>
             </div>
         </div>
