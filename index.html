@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sara | Photography Portfolio — Tehran</title>
     <meta name="description"
-        content="Sara is a freelance photographer & visual artist based in Tehran, specializing in portrait, landscape, street, and architectural photography.">
+        content="Sara — freelance photographer and visual artist in Tehran. Editorial portraiture, architecture, street, and commercial work with a cinematic, premium aesthetic.">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Sara | Photography Portfolio — Tehran">
-    <meta property="og:description" content="Sara is a freelance photographer & visual artist based in Tehran, specializing in portrait, landscape, street, and architectural photography.">
+    <meta property="og:description" content="Sara — freelance photographer and visual artist in Tehran. Editorial portraiture, architecture, street, and commercial work.">
     <meta property="og:image" content="images/hero_bg.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="Sara | Photography Portfolio — Tehran">
-    <meta property="twitter:description" content="Sara is a freelance photographer & visual artist based in Tehran, specializing in portrait, landscape, street, and architectural photography.">
+    <meta property="twitter:description" content="Sara — freelance photographer and visual artist in Tehran. Editorial portraiture, architecture, street, and commercial work.">
     <meta property="twitter:image" content="images/hero_bg.webp">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,12 +40,13 @@
             <ul class="nav-links">
                 <li><a href="#work">Work</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Stories</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="https://www.instagram.com/sara__photoz/" target="_blank" class="social-icon">IG</a></li>
+                <li><a href="https://www.instagram.com/sara__photoz/" target="_blank" rel="noopener noreferrer" class="social-icon">IG</a></li>
                 <li><a href="#contact" class="btn btn-nav">Book Now</a></li>
             </ul>
-            <button class="burger" id="burger" aria-label="Open menu">
+            <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
                 <span></span><span></span><span></span>
             </button>
         </div>
@@ -56,23 +57,25 @@
         <ul>
             <li><a href="#work" class="mobile-link">Work</a></li>
             <li><a href="#services" class="mobile-link">Services</a></li>
+            <li><a href="#testimonials" class="mobile-link">Stories</a></li>
             <li><a href="#about" class="mobile-link">About</a></li>
             <li><a href="#contact" class="mobile-link">Contact</a></li>
-            <li><a href="https://www.instagram.com/sara__photoz/" target="_blank" class="mobile-link">Instagram</a></li>
+            <li><a href="https://www.instagram.com/sara__photoz/" target="_blank" rel="noopener noreferrer" class="mobile-link">Instagram</a></li>
         </ul>
     </div>
 
     <!-- HERO -->
     <header id="hero">
         <div class="hero-bg">
-            <img src="images/hero_bg.webp" alt="Moody landscape hero image">
+            <img src="images/hero_bg.webp" alt="Atmospheric landscape — Sara Photography, Tehran" fetchpriority="high">
         </div>
         <div class="hero-content">
+            <p class="hero-kicker label-caps fade-in-up">Tehran — Portfolio 2026</p>
             <h1 class="reveal-text">Capturing<br>the Unseen.</h1>
-            <p class="fade-in-up">Freelance Photographer &amp; Visual Artist based in Tehran.</p>
+            <p class="hero-lead fade-in-up">Freelance photographer and visual artist. Portrait, architecture, and editorial work with a cinematic eye.</p>
             <div class="hero-btns fade-in-up">
-                <a href="#work" class="btn">Explore Work</a>
-                <a href="#contact" class="btn btn-outline">Book a Session</a>
+                <a href="#work" class="btn btn-primary">Explore Work</a>
+                <a href="#contact" class="btn btn-secondary">Book a Session</a>
             </div>
         </div>
     </header>
@@ -82,9 +85,12 @@
         <!-- PORTFOLIO GALLERY -->
         <section id="work" class="section">
             <div class="container">
-                <h2 class="section-title">Selected Works</h2>
+                <div class="section-intro">
+                    <h2 class="section-title">Selected Works</h2>
+                    <p class="section-subtitle">Commissioned and personal projects across architecture, portrait, street, and landscape — 2024–2026.</p>
+                </div>
 
-                <!-- Category Filter Tabs -->
+                <!-- Category index -->
                 <div class="filter-tabs" id="filterTabs">
                     <button class="filter-btn active" data-filter="all">All</button>
                     <button class="filter-btn" data-filter="architecture">Architecture</button>
@@ -96,7 +102,7 @@
 
                 <div class="gallery-masonry" id="gallery">
                     <!-- Image 1 -->
-                    <div class="gallery-item" data-category="architecture">
+                    <div class="gallery-item feature-item" data-category="architecture">
                         <div class="gallery-image-wrapper">
                             <img src="images/gallery_1.webp" alt="Stained Glass Chapel" loading="lazy">
                             <div class="gallery-overlay">
@@ -682,16 +688,17 @@
                     </div>
                 </div>
                 <div class="gallery-actions">
-                    <button class="btn btn-outline" id="loadMoreGallery" type="button">Load More Work</button>
+                    <button class="btn btn-secondary" id="loadMoreGallery" type="button">Load More Work</button>
                 </div>
         </section>
 
         <!-- SERVICES -->
         <section id="services" class="section section-dark">
             <div class="container">
-                <h2 class="section-title">Services</h2>
-                <p class="section-subtitle">Every session is tailored to tell your unique story. Here's what I offer:
-                </p>
+                <div class="section-intro">
+                    <h2 class="section-title">Services</h2>
+                    <p class="section-subtitle">Every session is tailored to tell your story — from intimate portraits to full-day editorial production.</p>
+                </div>
                 <div class="services-grid">
 
                     <div class="service-card reveal-on-scroll">
@@ -705,7 +712,7 @@
                             <li>Private online gallery</li>
                             <li>Print-ready files included</li>
                         </ul>
-                        <a href="#contact" class="btn">Book a Session</a>
+                        <a href="#contact" class="btn btn-primary">Book a Session</a>
                     </div>
 
                     <div class="service-card reveal-on-scroll">
@@ -719,7 +726,7 @@
                             <li>48-hour turnaround for highlights</li>
                             <li>Commercial usage license</li>
                         </ul>
-                        <a href="#contact" class="btn">Check Availability</a>
+                        <a href="#contact" class="btn btn-secondary">Check Availability</a>
                     </div>
 
                     <div class="service-card reveal-on-scroll">
@@ -733,7 +740,7 @@
                             <li>50+ edited, brand-ready images</li>
                             <li>Licensing options available</li>
                         </ul>
-                        <a href="#contact" class="btn">Get a Quote</a>
+                        <a href="#contact" class="btn btn-secondary">Get a Quote</a>
                     </div>
 
                 </div>
@@ -743,7 +750,10 @@
         <!-- TESTIMONIALS -->
         <section id="testimonials" class="section">
             <div class="container">
-                <h2 class="section-title">Client Stories</h2>
+                <div class="section-intro">
+                    <h2 class="section-title">Client Stories</h2>
+                    <p class="section-subtitle">Words from collaborators and clients who trusted the lens.</p>
+                </div>
                 <div class="testimonials-grid">
 
                     <div class="testimonial-card reveal-on-scroll">
@@ -779,6 +789,7 @@
                     <img src="images/sara.png" alt="Sara holding a camera" loading="lazy">
                 </div>
                 <div class="about-text">
+                    <p class="label-caps">About</p>
                     <h2 class="section-title">Hi, I'm Sara.</h2>
                     <p>I am a freelance photographer with a passion for finding beauty in the shadows. My work spans
                         striking portraiture, architectural studies, and moody landscapes. I believe in a cinematic
@@ -787,7 +798,7 @@
                         dynamic composition, and evoking raw emotion — whether I'm working in a quiet studio or the
                         streets of Tehran.</p>
                     <div class="about-actions">
-                        <a href="#work" class="btn">View Portfolio</a>
+                        <a href="#work" class="btn btn-primary">View Portfolio</a>
                         <a href="#contact" class="btn btn-text">Get in Touch →</a>
                     </div>
                 </div>
@@ -800,13 +811,14 @@
     <footer id="contact" class="section">
         <div class="container footer-container">
             <div class="footer-cta">
+                <p class="label-caps">Contact</p>
                 <h2>Let's create something together.</h2>
                 <p class="footer-sub">Fill out the form below or reach me directly at <a
                         href="mailto:hello@saraportfolio.com">hello@saraportfolio.com</a></p>
                 <div class="contact-details">
                     <span>Based in Tehran</span>
                     <span>Portrait, event, and commercial commissions</span>
-                    <a href="https://www.instagram.com/sara__photoz/" target="_blank">Instagram portfolio</a>
+                    <a href="https://www.instagram.com/sara__photoz/" target="_blank" rel="noopener noreferrer">Instagram portfolio</a>
                 </div>
 
                 <form class="contact-form" id="contactForm" novalidate>
@@ -836,16 +848,15 @@
                             placeholder="Tell me about your project, event date, or just say hello..."
                             required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-submit">Send Message</button>
+                    <button type="submit" class="btn btn-submit btn-primary">Send Message</button>
+                    <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
                 </form>
             </div>
 
             <div class="footer-bottom">
                 <p>&copy; 2026 Sara Photography. All rights reserved.</p>
                 <div class="footer-socials">
-                    <a href="https://www.instagram.com/sara__photoz/" target="_blank">Instagram</a>
-                    <a href="#">Behance</a>
-                    <a href="#">LinkedIn</a>
+                    <a href="https://www.instagram.com/sara__photoz/" target="_blank" rel="noopener noreferrer">Instagram</a>
                 </div>
             </div>
         </div>

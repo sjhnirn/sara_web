@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     /* --------------------------------------------------------------------------
        1. Navbar Scroll Effect
        -------------------------------------------------------------------------- */
@@ -28,17 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
        -------------------------------------------------------------------------- */
     const cursor = document.getElementById('customCursor');
     const cursorDot = document.getElementById('customCursorDot');
-    if (cursor && cursorDot) {
+    if (cursor && cursorDot && !prefersReducedMotion) {
         let mouseX = -100, mouseY = -100;
         let cursorX = -100, cursorY = -100;
         let dotX = -100, dotY = -100;
+        let cursorRafId = null;
         
         window.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
         });
 
-        // Loop for smooth trailing interpolation
         const updateCursor = () => {
             cursorX += (mouseX - cursorX) * 0.12;
             cursorY += (mouseY - cursorY) * 0.12;
@@ -50,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cursorDot.style.left = `${dotX}px`;
             cursorDot.style.top = `${dotY}px`;
 
-            requestAnimationFrame(updateCursor);
+            cursorRafId = requestAnimationFrame(updateCursor);
         };
         updateCursor();
 
@@ -76,6 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
             cursor.style.opacity = '1';
             cursorDot.style.opacity = '1';
         });
+    } else if (cursor && cursorDot) {
+        cursor.style.display = 'none';
+        cursorDot.style.display = 'none';
     }
 
     /* --------------------------------------------------------------------------
@@ -89,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!target) return;
             e.preventDefault();
             const offset = window.pageYOffset + target.getBoundingClientRect().top - 80;
-            window.scrollTo({ top: offset, behavior: 'smooth' });
+            window.scrollTo({ top: offset, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
 
             // Ensure mobile menu closes on click
             if (typeof burger !== 'undefined' && typeof mobileMenu !== 'undefined') {
@@ -106,17 +111,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.getElementById('mobileMenu');
 
     if (burger && mobileMenu) {
+        const setMenuState = (isOpen) => {
+            burger.classList.toggle('open', isOpen);
+            mobileMenu.classList.toggle('open', isOpen);
+            burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            burger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        };
+
         burger.addEventListener('click', () => {
-            burger.classList.toggle('open');
-            mobileMenu.classList.toggle('open');
+            setMenuState(!burger.classList.contains('open'));
         });
 
-        // Close mobile overlay on links click
         document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                burger.classList.remove('open');
-                mobileMenu.classList.remove('open');
-            });
+            link.addEventListener('click', () => setMenuState(false));
         });
     }
 
@@ -228,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return Array.from(document.querySelectorAll('.gallery-item:not(.hidden):not(.is-collapsed)'));
     };
 
-    const updateLightboxImage = (index) => {
+    const updateLightboxImage = (index, animate = true) => {
         if (index < 0) index = activeItems.length - 1;
         if (index >= activeItems.length) index = 0;
 
@@ -238,10 +246,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const titleText = targetItem.querySelector('.gallery-title').textContent;
         const categoryText = targetItem.dataset.category;
 
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightboxTitle.textContent = titleText;
-        lightboxCategory.textContent = formatCategory(categoryText);
+        const applyImage = () => {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxTitle.textContent = titleText;
+            lightboxCategory.textContent = formatCategory(categoryText);
+            lightboxImg.classList.remove('is-fading');
+        };
+
+        if (animate && !prefersReducedMotion && lightbox.classList.contains('open')) {
+            lightboxImg.classList.add('is-fading');
+            setTimeout(applyImage, 180);
+        } else {
+            applyImage();
+        }
     };
 
     const openLightbox = (index) => {
@@ -260,14 +278,29 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = ''; // Unlock back scroll
     };
 
-    // Attach click events to gallery items
+    const openGalleryItem = (item) => {
+        activeItems = getActiveItems();
+        const index = activeItems.indexOf(item);
+        if (index !== -1) {
+            openLightbox(index);
+        }
+    };
+
     galleryItems.forEach(item => {
+        const title = item.querySelector('.gallery-title')?.textContent?.trim() || 'photograph';
+        item.setAttribute('role', 'button');
+        item.setAttribute('tabindex', '0');
+        item.setAttribute('aria-label', `View ${title} in lightbox`);
+
         item.addEventListener('click', (e) => {
             e.preventDefault();
-            activeItems = getActiveItems();
-            const index = activeItems.indexOf(item);
-            if (index !== -1) {
-                openLightbox(index);
+            openGalleryItem(item);
+        });
+
+        item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openGalleryItem(item);
             }
         });
     });
@@ -388,16 +421,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealTargets.forEach(el => el.classList.add('reveal-on-scroll'));
 
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                obs.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.12 });
+    if (!prefersReducedMotion) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
 
-    revealTargets.forEach(el => observer.observe(el));
+        revealTargets.forEach(el => observer.observe(el));
+    } else {
+        revealTargets.forEach(el => el.classList.add('is-visible'));
+    }
 
     /* --------------------------------------------------------------------------
        10. Form Validation & Submissions
@@ -416,9 +453,13 @@ document.addEventListener('DOMContentLoaded', () => {
         void errorMsg.offsetWidth; // Force Reflow
         errorMsg.classList.add('show');
         
-        input.classList.add('shake');
-        setTimeout(() => input.classList.remove('shake'), 400);
+        if (!prefersReducedMotion) {
+            input.classList.add('shake');
+            setTimeout(() => input.classList.remove('shake'), 400);
+        }
     };
+
+    const formStatus = document.getElementById('formStatus');
 
     if (form) {
         form.addEventListener('submit', (e) => {
@@ -429,9 +470,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const emailInput = document.getElementById('email');
             const messageInput = document.getElementById('message');
 
-            // Clear previous errors
             form.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
             form.querySelectorAll('.error-message').forEach(el => el.classList.remove('show'));
+            if (formStatus) {
+                formStatus.textContent = '';
+                formStatus.classList.remove('is-success');
+            }
 
             // Name verification
             if (!nameInput.value.trim() || nameInput.value.trim().length < 2) {
@@ -454,26 +498,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!isValid) {
                 const submitBtn = form.querySelector('.btn-submit');
-                submitBtn.classList.add('shake');
-                setTimeout(() => submitBtn.classList.remove('shake'), 400);
+                if (!prefersReducedMotion) {
+                    submitBtn.classList.add('shake');
+                    setTimeout(() => submitBtn.classList.remove('shake'), 400);
+                }
                 return;
             }
 
-            // Valid Form Submission Output
             const btn = form.querySelector('.btn-submit');
             const originalText = btn.textContent;
-            btn.textContent = 'Message Sent ✓';
-            btn.style.borderColor = '#6dbf67';
-            btn.style.color = '#6dbf67';
+            btn.textContent = 'Message Sent';
+            btn.classList.add('is-success');
             btn.disabled = true;
+            if (formStatus) {
+                formStatus.textContent = 'Thank you — your message has been received. I will reply within 48 hours.';
+                formStatus.classList.add('is-success');
+            }
 
             setTimeout(() => {
                 btn.textContent = originalText;
-                btn.style.borderColor = '';
-                btn.style.color = '';
+                btn.classList.remove('is-success');
                 btn.disabled = false;
                 form.reset();
-            }, 4000);
+                if (formStatus) {
+                    formStatus.textContent = '';
+                    formStatus.classList.remove('is-success');
+                }
+            }, 5000);
         });
     }
 
