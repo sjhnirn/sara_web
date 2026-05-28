@@ -125,6 +125,51 @@ document.addEventListener('DOMContentLoaded', () => {
        -------------------------------------------------------------------------- */
     const filterBtns = document.querySelectorAll('.filter-btn');
     const galleryItems = document.querySelectorAll('.gallery-item');
+    const loadMoreBtn = document.getElementById('loadMoreGallery');
+    const initialGalleryLimit = 18;
+    let galleryExpanded = false;
+
+    const formatCategory = (category) => {
+        if (!category) return '';
+        if (category === 'commercial') return 'Commercial';
+        return category.charAt(0).toUpperCase() + category.slice(1);
+    };
+
+    const getActiveFilter = () => {
+        const activeBtn = document.querySelector('.filter-btn.active');
+        return activeBtn ? activeBtn.dataset.filter : 'all';
+    };
+
+    const updateGalleryVisibility = () => {
+        const filter = getActiveFilter();
+        let matchedCount = 0;
+
+        galleryItems.forEach(item => {
+            const category = item.dataset.category;
+            const matchesFilter = filter === 'all' || category === filter;
+
+            if (!matchesFilter) {
+                item.classList.add('hidden');
+                item.classList.remove('is-collapsed', 'fade-out');
+                return;
+            }
+
+            matchedCount += 1;
+            const shouldCollapse = filter === 'all' && !galleryExpanded && matchedCount > initialGalleryLimit;
+
+            item.classList.toggle('is-collapsed', shouldCollapse);
+            item.classList.toggle('hidden', false);
+
+            if (!shouldCollapse) {
+                void item.offsetWidth;
+                item.classList.remove('fade-out');
+            }
+        });
+
+        if (loadMoreBtn) {
+            loadMoreBtn.hidden = filter !== 'all' || galleryExpanded || matchedCount <= initialGalleryLimit;
+        }
+    };
 
     if (filterBtns.length > 0 && galleryItems.length > 0) {
         filterBtns.forEach(btn => {
@@ -134,31 +179,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
-                const filter = btn.dataset.filter;
-
                 // 1. Fade out current view
                 galleryItems.forEach(item => {
-                    item.classList.add('fade-out');
+                    if (!item.classList.contains('hidden') && !item.classList.contains('is-collapsed')) {
+                        item.classList.add('fade-out');
+                    }
                 });
 
                 // 2. Arrange layouts during fade
-                setTimeout(() => {
-                    galleryItems.forEach(item => {
-                        const category = item.dataset.category;
-                        const show = filter === 'all' || category === filter;
-
-                        if (show) {
-                            item.classList.remove('hidden');
-                            // Trigger layout flow recalculation
-                            void item.offsetWidth;
-                            item.classList.remove('fade-out');
-                        } else {
-                            item.classList.add('hidden');
-                        }
-                    });
-                }, 400); // Timing matches style.css transitions
+                setTimeout(updateGalleryVisibility, 300);
             });
         });
+
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', () => {
+                galleryExpanded = true;
+                updateGalleryVisibility();
+            });
+        }
+
+        updateGalleryVisibility();
+
+        if (window.location.hash) {
+            setTimeout(() => {
+                const target = document.querySelector(window.location.hash);
+                if (!target) return;
+                const offset = window.pageYOffset + target.getBoundingClientRect().top - 80;
+                window.scrollTo({ top: offset, behavior: 'auto' });
+            }, 50);
+        }
     }
 
     /* --------------------------------------------------------------------------
@@ -176,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeItems = [];
 
     const getActiveItems = () => {
-        return Array.from(document.querySelectorAll('.gallery-item:not(.hidden)'));
+        return Array.from(document.querySelectorAll('.gallery-item:not(.hidden):not(.is-collapsed)'));
     };
 
     const updateLightboxImage = (index) => {
@@ -192,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxImg.src = img.src;
         lightboxImg.alt = img.alt;
         lightboxTitle.textContent = titleText;
-        lightboxCategory.textContent = categoryText;
+        lightboxCategory.textContent = formatCategory(categoryText);
     };
 
     const openLightbox = (index) => {
