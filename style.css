@@ -543,8 +543,7 @@ a:hover {
     display: none;
 }
 
-.gallery-item:nth-child(2),
-.gallery-item:nth-child(5) {
+.gallery-item.portrait-item {
     grid-row: span 2;
 }
 
@@ -1134,11 +1133,16 @@ a:hover {
 
 @media (max-width: 640px) {
     .gallery-masonry {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
     }
 
     .gallery-item {
-        grid-row: span 1 !important;
+        grid-row: span 1;
+    }
+
+    .gallery-item.portrait-item {
+        grid-row: span 2;
     }
 
     .services-grid {

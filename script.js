@@ -257,6 +257,52 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'ArrowRight') updateLightboxImage(currentImgIndex + 1);
     });
 
+    // Touch swipe gestures for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
+
+    if (lightbox) {
+        lightbox.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipeGesture();
+        }, { passive: true });
+    }
+
+    const handleSwipeGesture = () => {
+        const threshold = 50; // minimum distance to qualify as swipe
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+
+        // Check if horizontal swipe was larger than vertical swipe
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+            if (Math.abs(diffX) > threshold) {
+                if (diffX > 0) {
+                    // Swipe right -> previous image
+                    updateLightboxImage(currentImgIndex - 1);
+                } else {
+                    // Swipe left -> next image
+                    updateLightboxImage(currentImgIndex + 1);
+                }
+            }
+        } else {
+            // Swipe vertically
+            if (Math.abs(diffY) > threshold) {
+                if (diffY > 0) {
+                    // Swipe down -> close lightbox
+                    closeLightbox();
+                }
+            }
+        }
+    };
+
     /* --------------------------------------------------------------------------
        8. ScrollSpy Active Nav Highlighting
        -------------------------------------------------------------------------- */
