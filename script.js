@@ -139,7 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const formatCategory = (category) => {
         if (!category) return '';
-        if (category === 'commercial') return 'Commercial';
         return category.charAt(0).toUpperCase() + category.slice(1);
     };
 
@@ -269,12 +268,14 @@ document.addEventListener('DOMContentLoaded', () => {
         updateLightboxImage(index);
         lightbox.classList.add('open');
         lightbox.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('lightbox-active'); // Restore a visible pointer
         document.body.style.overflow = 'hidden'; // Lock back scroll
     };
 
     const closeLightbox = () => {
         lightbox.classList.remove('open');
         lightbox.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('lightbox-active');
         document.body.style.overflow = ''; // Unlock back scroll
     };
 
