@@ -139,67 +139,6 @@ body::before {
     border-color: var(--border-hover);
 }
 
-/* Custom Cursor (Fine pointer only) */
-@media (pointer: fine) {
-    body {
-        cursor: none;
-    }
-    a, button, input, select, textarea, .gallery-item, .filter-btn {
-        cursor: none !important;
-    }
-    .custom-cursor {
-        width: 32px;
-        height: 32px;
-        border: 1.5px solid var(--accent-pink);
-        border-radius: 50%;
-        position: fixed;
-        transform: translate(-50%, -50%);
-        pointer-events: none;
-        z-index: 10000;
-        transition: width var(--transition-fast), height var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
-        mix-blend-mode: multiply;
-    }
-    .custom-cursor-dot {
-        width: 6px;
-        height: 6px;
-        background-color: var(--accent-blue);
-        border-radius: 50%;
-        position: fixed;
-        transform: translate(-50%, -50%);
-        pointer-events: none;
-        z-index: 10001;
-        transition: transform 0.1s ease-out;
-    }
-    .custom-cursor.cursor-hover {
-        width: 50px;
-        height: 50px;
-        background-color: rgba(255, 46, 126, 0.08);
-        border-color: var(--accent-blue);
-    }
-    .custom-cursor.cursor-view {
-        width: 72px;
-        height: 72px;
-        background: var(--grad-vibrant);
-        border-color: transparent;
-        mix-blend-mode: normal;
-    }
-    .custom-cursor.cursor-view::after {
-        content: 'VIEW';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-family: var(--font-body);
-        font-size: 9px;
-        font-weight: 800;
-        letter-spacing: 0.12em;
-        color: #ffffff;
-    }
-    .custom-cursor.cursor-view + .custom-cursor-dot {
-        opacity: 0;
-    }
-}
-
 /* Scroll Progress Bar */
 .scroll-progress-container {
     position: fixed;
@@ -1235,30 +1174,6 @@ textarea:focus-visible,
     pointer-events: none;
 }
 
-/* Keep the pointer visible while the lightbox is open (custom cursor is hidden) */
-body.lightbox-active {
-    cursor: auto !important;
-}
-
-body.lightbox-active .custom-cursor,
-body.lightbox-active .custom-cursor-dot {
-    opacity: 0 !important;
-}
-
-@media (pointer: fine) {
-    body.lightbox-active,
-    body.lightbox-active a,
-    body.lightbox-active button,
-    body.lightbox-active .gallery-item {
-        cursor: auto !important;
-    }
-
-    body.lightbox-active .lightbox-close,
-    body.lightbox-active .lightbox-nav {
-        cursor: pointer !important;
-    }
-}
-
 .lightbox-nav {
     position: absolute;
     top: 50%;
@@ -1613,20 +1528,6 @@ body.lightbox-active .custom-cursor-dot {
         gap: 1.5rem;
         align-items: flex-start;
     }
-    
-    /* Disable custom cursor on tablets/mobile */
-    .custom-cursor,
-    .custom-cursor-dot {
-        display: none !important;
-    }
-    
-    body {
-        cursor: auto !important;
-    }
-    
-    a, button, input, select, textarea, .gallery-item, .filter-btn {
-        cursor: auto !important;
-    }
 }
 
 @media (max-width: 640px) {
@@ -1754,23 +1655,5 @@ body.lightbox-active .custom-cursor-dot {
         opacity: 1;
         transform: none;
         animation: none;
-    }
-
-    .custom-cursor,
-    .custom-cursor-dot {
-        display: none !important;
-    }
-
-    @media (pointer: fine) {
-        body,
-        a,
-        button,
-        input,
-        select,
-        textarea,
-        .gallery-item,
-        .filter-btn {
-            cursor: auto !important;
-        }
     }
 }
