@@ -1251,6 +1251,7 @@ textarea:focus-visible,
     opacity: 0;
     transform: scale(0.97);
     transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+    perspective: 1500px;
 }
 
 .lightbox.open .lightbox-content {
@@ -1264,11 +1265,32 @@ textarea:focus-visible,
     object-fit: contain;
     border: 1px solid var(--border-color);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
-    transition: opacity 0.35s var(--ease-out-expo);
+    transform-origin: left center;
+    transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.45s ease;
+    backface-visibility: hidden;
 }
 
-.lightbox-content img.is-fading {
+/* 3D Book Page Flip Effect classes */
+.lightbox-content img.flip-next-out {
+    transform: rotateY(-90deg);
     opacity: 0;
+}
+
+.lightbox-content img.flip-next-in {
+    transform: rotateY(90deg);
+    opacity: 0;
+    transition: none !important;
+}
+
+.lightbox-content img.flip-prev-out {
+    transform: rotateY(90deg);
+    opacity: 0;
+}
+
+.lightbox-content img.flip-prev-in {
+    transform: rotateY(-90deg);
+    opacity: 0;
+    transition: none !important;
 }
 
 .lightbox-caption {

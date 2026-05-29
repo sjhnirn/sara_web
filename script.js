@@ -181,6 +181,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (index < 0) index = activeItems.length - 1;
         if (index >= activeItems.length) index = 0;
 
+        // Determine if we are moving forward (next) or backward (prev)
+        const isNext = (index > currentImgIndex && !(currentImgIndex === 0 && index === activeItems.length - 1)) || 
+                       (currentImgIndex === activeItems.length - 1 && index === 0);
+
         currentImgIndex = index;
         const targetItem = activeItems[currentImgIndex];
         const img = targetItem.querySelector('img');
@@ -192,12 +196,23 @@ document.addEventListener('DOMContentLoaded', () => {
             lightboxImg.alt = img.alt;
             lightboxTitle.textContent = titleText;
             lightboxCategory.textContent = formatCategory(categoryText);
-            lightboxImg.classList.remove('is-fading');
         };
 
         if (animate && !prefersReducedMotion && lightbox.classList.contains('open')) {
-            lightboxImg.classList.add('is-fading');
-            setTimeout(applyImage, 180);
+            const outClass = isNext ? 'flip-next-out' : 'flip-prev-out';
+            const inClass = isNext ? 'flip-next-in' : 'flip-prev-in';
+
+            lightboxImg.classList.add(outClass);
+
+            setTimeout(() => {
+                applyImage();
+                lightboxImg.classList.remove(outClass);
+                lightboxImg.classList.add(inClass);
+                
+                void lightboxImg.offsetWidth; // trigger reflow
+                
+                lightboxImg.classList.remove(inClass);
+            }, 400); // Swap at the peak of the 90deg rotation
         } else {
             applyImage();
         }
