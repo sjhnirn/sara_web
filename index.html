@@ -22,8 +22,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=3">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 
 <body>
@@ -69,13 +69,42 @@
         <div class="hero-bg">
             <img src="images/hero_bg.webp" alt="Sara Hosseini Photography — cinematic work, Tehran" fetchpriority="high">
         </div>
-        <div class="hero-content">
-            <p class="hero-kicker label-caps fade-in-up">Tehran — Portfolio 2026</p>
-            <h1 class="reveal-text">Capturing<br>the Unseen.</h1>
-            <p class="hero-lead fade-in-up">Freelance photographer and visual artist. Portrait, food, product and editorial work with a cinematic eye.</p>
-            <div class="hero-btns fade-in-up">
-                <a href="#work" class="btn btn-primary">Explore Work</a>
-                <a href="#contact" class="btn btn-secondary">Book a Session</a>
+        <div class="hero-grid-container">
+            <div class="hero-left-col">
+                <p class="hero-kicker label-caps fade-in-up">Tehran — Portfolio 2026</p>
+                <h1 class="reveal-text">Capturing<br>the Unseen.</h1>
+                <div class="hero-slider-nav fade-in-up">
+                    <a href="#work" class="slider-arrow prev" aria-label="Explore Portfolio">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M19 12H5M5 12L12 19M5 12L12 5"/>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="slider-arrow next" aria-label="Book Session">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-right-col">
+                <!-- Circular Slide Index Badge -->
+                <div class="slide-index-wrapper fade-in-up">
+                    <svg class="progress-ring" width="120" height="120">
+                        <circle class="progress-ring__circle" stroke="rgba(255,255,255,0.15)" stroke-width="1" fill="transparent" r="54" cx="60" cy="60"/>
+                        <circle class="progress-ring__circle-progress" stroke="var(--accent-pink)" stroke-dasharray="339.29" stroke-dashoffset="170" stroke-width="2.5" fill="transparent" r="54" cx="60" cy="60"/>
+                    </svg>
+                    <span class="slide-num">02</span>
+                    <span class="slide-num-total">04</span>
+                </div>
+                
+                <div class="hero-desc-block fade-in-up">
+                    <p class="hero-lead">Freelance photographer and visual artist. Portrait, food, product and editorial work with a cinematic eye.</p>
+                    <div class="hero-btns">
+                        <a href="#work" class="btn btn-primary">Explore Work</a>
+                        <a href="#contact" class="btn btn-secondary">Book a Session</a>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
