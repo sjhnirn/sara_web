@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressRing = document.querySelector('.progress-ring__circle-progress');
 
     const heroSlides = [
-        'images/hero_bg.webp',
+        'images/gallery_2.webp',
         'images/gallery_4.webp',
         'images/gallery_11.webp',
         'images/gallery_13.webp'
