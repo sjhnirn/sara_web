@@ -26,6 +26,69 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* --------------------------------------------------------------------------
+       3. Hero Slider Carousel
+       -------------------------------------------------------------------------- */
+    const heroPrevBtn = document.querySelector('.hero-slider-nav .prev');
+    const heroNextBtn = document.querySelector('.hero-slider-nav .next');
+    const heroImg = document.querySelector('.hero-bg img');
+    const heroSlideNum = document.querySelector('.slide-num');
+    const progressRing = document.querySelector('.progress-ring__circle-progress');
+
+    const heroSlides = [
+        'images/hero_bg.webp',
+        'images/gallery_4.webp',
+        'images/gallery_11.webp',
+        'images/gallery_13.webp'
+    ];
+    let activeSlideIndex = 0;
+    const totalSlides = heroSlides.length;
+    const ringCircumference = 339.29;
+
+    const updateHeroSlide = (index) => {
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+
+        activeSlideIndex = index;
+
+        // Fade image out
+        if (heroImg) {
+            heroImg.style.transition = 'opacity 0.35s ease-in-out';
+            heroImg.style.opacity = '0';
+            
+            setTimeout(() => {
+                heroImg.src = heroSlides[activeSlideIndex];
+                heroImg.style.animation = 'none';
+                void heroImg.offsetHeight; // trigger reflow
+                heroImg.style.animation = 'heroKenBurns 28s ease-out forwards';
+                heroImg.style.opacity = '0.28';
+            }, 350);
+        }
+
+        // Update slide number
+        if (heroSlideNum) {
+            heroSlideNum.textContent = String(activeSlideIndex + 1).padStart(2, '0');
+        }
+
+        // Update progress ring
+        if (progressRing) {
+            const progress = (activeSlideIndex + 1) / totalSlides;
+            const offset = ringCircumference * (1 - progress);
+            progressRing.style.transition = 'stroke-dashoffset 0.4s ease';
+            progressRing.style.strokeDashoffset = offset;
+        }
+    };
+
+    if (heroPrevBtn && heroNextBtn) {
+        heroPrevBtn.addEventListener('click', () => {
+            updateHeroSlide(activeSlideIndex - 1);
+        });
+
+        heroNextBtn.addEventListener('click', () => {
+            updateHeroSlide(activeSlideIndex + 1);
+        });
+    }
+
+    /* --------------------------------------------------------------------------
        4. Smooth Scrolling (Offset adjustments)
        -------------------------------------------------------------------------- */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
