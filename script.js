@@ -164,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
        -------------------------------------------------------------------------- */
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxImgNext = document.getElementById('lightboxImgNext');
     const lightboxTitle = document.getElementById('lightboxTitle');
     const lightboxCategory = document.getElementById('lightboxCategory');
     const lightboxClose = document.getElementById('lightboxClose');
@@ -191,30 +192,43 @@ document.addEventListener('DOMContentLoaded', () => {
         const titleText = targetItem.querySelector('.gallery-title').textContent;
         const categoryText = targetItem.dataset.category;
 
-        const applyImage = () => {
-            lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt;
-            lightboxTitle.textContent = titleText;
-            lightboxCategory.textContent = formatCategory(categoryText);
-        };
+        const activeImg = lightboxImg.classList.contains('active') ? lightboxImg : lightboxImgNext;
+        const inactiveImg = activeImg === lightboxImg ? lightboxImgNext : lightboxImg;
 
         if (animate && !prefersReducedMotion && lightbox.classList.contains('open')) {
             const outClass = isNext ? 'flip-next-out' : 'flip-prev-out';
             const inClass = isNext ? 'flip-next-in' : 'flip-prev-in';
 
-            lightboxImg.classList.add(outClass);
+            // 1. Prepare inactive image (load source & position it)
+            inactiveImg.src = img.src;
+            inactiveImg.alt = img.alt;
+            inactiveImg.className = 'lightbox-img ' + inClass;
 
+            void inactiveImg.offsetWidth; // trigger reflow
+
+            // 2. Trigger concurrent transitions
+            activeImg.className = 'lightbox-img ' + outClass;
+            inactiveImg.className = 'lightbox-img active';
+
+            // Update text details immediately
+            lightboxTitle.textContent = titleText;
+            lightboxCategory.textContent = formatCategory(categoryText);
+
+            // 3. Clear transitions after completion (0.55s in CSS)
             setTimeout(() => {
-                applyImage();
-                lightboxImg.classList.remove(outClass);
-                lightboxImg.classList.add(inClass);
-                
-                void lightboxImg.offsetWidth; // trigger reflow
-                
-                lightboxImg.classList.remove(inClass);
-            }, 400); // Swap at the peak of the 90deg rotation
+                activeImg.className = 'lightbox-img';
+            }, 600);
         } else {
-            applyImage();
+            // Instant snap with no transition
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxImg.className = 'lightbox-img active';
+
+            lightboxImgNext.className = 'lightbox-img';
+            lightboxImgNext.src = '';
+
+            lightboxTitle.textContent = titleText;
+            lightboxCategory.textContent = formatCategory(categoryText);
         }
     };
 

@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=5">
+    <link rel="stylesheet" href="style.css?v=6">
 </head>
 
 <body>
@@ -857,7 +857,10 @@
         <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">&#10229;</button>
         <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">&#10230;</button>
         <div class="lightbox-content">
-            <img src="" alt="" id="lightboxImg">
+            <div class="lightbox-image-container">
+                <img src="" alt="" id="lightboxImg" class="lightbox-img active">
+                <img src="" alt="" id="lightboxImgNext" class="lightbox-img">
+            </div>
             <div class="lightbox-caption">
                 <span class="lightbox-category" id="lightboxCategory">Category</span>
                 <h3 class="lightbox-title" id="lightboxTitle">Title</h3>
@@ -866,7 +869,7 @@
         <p class="lightbox-hint">Click outside or press Esc to close</p>
     </div>
 
-    <script src="script.js?v=6"></script>
+    <script src="script.js?v=7"></script>
 </body>
 
 </html>
