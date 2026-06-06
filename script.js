@@ -81,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let galleryExpanded = false;
 
     const categoryLabels = {
-        all: 'All',
         portrait: 'Portrait',
         food: 'Food',
         editorial: 'Editorial',
@@ -92,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const getActiveFilter = () => {
         const activeBtn = document.querySelector('.filter-btn.active');
-        return activeBtn ? activeBtn.dataset.filter : 'all';
+        return activeBtn ? activeBtn.dataset.filter : 'product';
     };
 
     const updateGalleryVisibility = () => {

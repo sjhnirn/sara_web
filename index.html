@@ -66,9 +66,7 @@
 
     <!-- HERO -->
     <header id="hero">
-        <div class="hero-bg">
-            <img src="images/gallery_2.webp" alt="Sara Hosseini Photography — cinematic work, Tehran" fetchpriority="high">
-        </div>
+        <div class="hero-bg" aria-hidden="true"></div>
         <div class="hero-grid-container">
             <div class="hero-left-col">
                 <p class="hero-kicker label-caps fade-in-up">Tehran — Portfolio 2026</p>
@@ -88,16 +86,6 @@
             </div>
             
             <div class="hero-right-col">
-                <!-- Circular Slide Index Badge -->
-                <div class="slide-index-wrapper fade-in-up">
-                    <svg class="progress-ring" width="120" height="120">
-                        <circle class="progress-ring__circle" stroke="rgba(255,255,255,0.15)" stroke-width="1" fill="transparent" r="54" cx="60" cy="60"/>
-                        <circle class="progress-ring__circle-progress" stroke="var(--accent-pink)" stroke-dasharray="339.29" stroke-dashoffset="254" stroke-width="2.5" fill="transparent" r="54" cx="60" cy="60"/>
-                    </svg>
-                    <span class="slide-num">01</span>
-                    <span class="slide-num-total">04</span>
-                </div>
-                
                 <div class="hero-desc-block fade-in-up">
                     <p class="hero-lead">Freelance photographer and visual artist. Portrait, food, product and editorial work with a cinematic eye.</p>
                     <div class="hero-btns">
@@ -121,11 +109,10 @@
 
                 <!-- Category index -->
                 <div class="filter-tabs" id="filterTabs">
-                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn active" data-filter="product">Product</button>
                     <button class="filter-btn" data-filter="portrait">Portrait</button>
                     <button class="filter-btn" data-filter="food">Food</button>
                     <button class="filter-btn" data-filter="editorial">Editorial</button>
-                    <button class="filter-btn" data-filter="product">Product</button>
                 </div>
 
                 <div class="gallery-masonry" id="gallery">
@@ -695,7 +682,7 @@
                             <li>Private online gallery</li>
                             <li>Print-ready files included</li>
                         </ul>
-                        <a href="#contact" class="btn btn-primary">Book a Session</a>
+                        <a href="#contact" class="btn btn-secondary">Book a Session</a>
                     </div>
 
                     <div class="service-card reveal-on-scroll">
