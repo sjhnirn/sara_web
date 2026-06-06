@@ -74,19 +74,25 @@ document.addEventListener('DOMContentLoaded', () => {
        6. Gallery Filter Transition
        -------------------------------------------------------------------------- */
     const filterBtns = document.querySelectorAll('.filter-btn');
+    const gallery = document.getElementById('gallery');
     const galleryItems = document.querySelectorAll('.gallery-item');
     const loadMoreBtn = document.getElementById('loadMoreGallery');
     const initialGalleryLimit = 18;
     let galleryExpanded = false;
 
-    const formatCategory = (category) => {
-        if (!category) return '';
-        return category.charAt(0).toUpperCase() + category.slice(1);
+    const categoryLabels = {
+        all: 'All',
+        portrait: 'Portrait',
+        food: 'Food',
+        editorial: 'Editorial',
+        product: 'Product',
     };
+
+    const formatCategory = (category) => categoryLabels[category] || '';
 
     const getActiveFilter = () => {
         const activeBtn = document.querySelector('.filter-btn.active');
-        return activeBtn ? activeBtn.dataset.filter : 'product';
+        return activeBtn ? activeBtn.dataset.filter : 'all';
     };
 
     const updateGalleryVisibility = () => {
@@ -117,6 +123,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (loadMoreBtn) {
             loadMoreBtn.hidden = filter !== 'all' || galleryExpanded || matchedCount <= initialGalleryLimit;
+        }
+
+        if (gallery) {
+            const resetGalleryScroll = () => {
+                const previousScrollBehavior = gallery.style.scrollBehavior;
+                gallery.style.scrollBehavior = 'auto';
+                gallery.scrollLeft = 0;
+                gallery.scrollTo({ left: 0, behavior: 'auto' });
+                gallery.style.scrollBehavior = previousScrollBehavior;
+            };
+
+            gallery.classList.add('is-resetting');
+            resetGalleryScroll();
+            requestAnimationFrame(() => {
+                resetGalleryScroll();
+                gallery.classList.remove('is-resetting');
+            });
+            window.setTimeout(resetGalleryScroll, 150);
+            window.setTimeout(resetGalleryScroll, 450);
         }
     };
 
