@@ -79,6 +79,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadMoreBtn = document.getElementById('loadMoreGallery');
     const initialGalleryLimit = 18;
     let galleryExpanded = false;
+    let galleryAutoScrollFrame = null;
+    let galleryAutoScrollLastTime = null;
+    let galleryAutoScrollPaused = false;
+    const galleryAutoScrollSpeed = 26;
 
     const categoryLabels = {
         portrait: 'Portrait',
@@ -92,6 +96,53 @@ document.addEventListener('DOMContentLoaded', () => {
     const getActiveFilter = () => {
         const activeBtn = document.querySelector('.filter-btn.active');
         return activeBtn ? activeBtn.dataset.filter : 'product';
+    };
+
+    const resetGalleryScroll = () => {
+        if (!gallery) return;
+        const previousScrollBehavior = gallery.style.scrollBehavior;
+        gallery.style.scrollBehavior = 'auto';
+        gallery.scrollLeft = 0;
+        gallery.scrollTo({ left: 0, behavior: 'auto' });
+        gallery.style.scrollBehavior = previousScrollBehavior;
+    };
+
+    const stopGalleryAutoScroll = () => {
+        if (!galleryAutoScrollFrame) return;
+        cancelAnimationFrame(galleryAutoScrollFrame);
+        galleryAutoScrollFrame = null;
+        galleryAutoScrollLastTime = null;
+    };
+
+    const startGalleryAutoScroll = () => {
+        if (!gallery || prefersReducedMotion) return;
+
+        stopGalleryAutoScroll();
+        galleryAutoScrollLastTime = null;
+
+        const tick = (timestamp) => {
+            const maxScroll = gallery.scrollWidth - gallery.clientWidth;
+            const lightboxOpen = document.body.classList.contains('lightbox-active');
+
+            if (galleryAutoScrollLastTime === null) {
+                galleryAutoScrollLastTime = timestamp;
+            }
+
+            const elapsedSeconds = (timestamp - galleryAutoScrollLastTime) / 1000;
+            galleryAutoScrollLastTime = timestamp;
+
+            if (maxScroll > 1 && !galleryAutoScrollPaused && !lightboxOpen) {
+                gallery.scrollLeft += galleryAutoScrollSpeed * elapsedSeconds;
+
+                if (gallery.scrollLeft >= maxScroll - 1) {
+                    gallery.scrollLeft = 0;
+                }
+            }
+
+            galleryAutoScrollFrame = requestAnimationFrame(tick);
+        };
+
+        galleryAutoScrollFrame = requestAnimationFrame(tick);
     };
 
     const updateGalleryVisibility = () => {
@@ -125,14 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (gallery) {
-            const resetGalleryScroll = () => {
-                const previousScrollBehavior = gallery.style.scrollBehavior;
-                gallery.style.scrollBehavior = 'auto';
-                gallery.scrollLeft = 0;
-                gallery.scrollTo({ left: 0, behavior: 'auto' });
-                gallery.style.scrollBehavior = previousScrollBehavior;
-            };
-
             gallery.classList.add('is-resetting');
             resetGalleryScroll();
             requestAnimationFrame(() => {
@@ -141,10 +184,35 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             window.setTimeout(resetGalleryScroll, 150);
             window.setTimeout(resetGalleryScroll, 450);
+            window.setTimeout(startGalleryAutoScroll, 500);
         }
     };
 
     if (filterBtns.length > 0 && galleryItems.length > 0) {
+        if (gallery) {
+            gallery.addEventListener('mouseenter', () => {
+                galleryAutoScrollPaused = true;
+            });
+            gallery.addEventListener('mouseleave', () => {
+                galleryAutoScrollPaused = false;
+            });
+            gallery.addEventListener('focusin', () => {
+                galleryAutoScrollPaused = true;
+            });
+            gallery.addEventListener('focusout', () => {
+                galleryAutoScrollPaused = false;
+            });
+            gallery.addEventListener('pointerdown', () => {
+                galleryAutoScrollPaused = true;
+            });
+            gallery.addEventListener('pointerup', () => {
+                galleryAutoScrollPaused = false;
+            });
+            gallery.addEventListener('pointercancel', () => {
+                galleryAutoScrollPaused = false;
+            });
+        }
+
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 if (btn.classList.contains('active')) return;
@@ -172,6 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         updateGalleryVisibility();
+        startGalleryAutoScroll();
 
         if (window.location.hash) {
             setTimeout(() => {
@@ -260,6 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
         activeItems = getActiveItems();
         if (activeItems.length === 0) return;
 
+        galleryAutoScrollPaused = true;
         updateLightboxImage(index);
         lightbox.classList.add('open');
         lightbox.setAttribute('aria-hidden', 'false');
@@ -270,6 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeLightbox = () => {
         lightbox.classList.remove('open');
         lightbox.setAttribute('aria-hidden', 'true');
+        galleryAutoScrollPaused = false;
         document.body.classList.remove('lightbox-active');
         document.body.style.overflow = ''; // Unlock back scroll
     };

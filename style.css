@@ -506,14 +506,15 @@ textarea:focus-visible,
 
 /* ----------------------------- HERO ----------------------------- */
 #hero {
-    min-height: 720px;
-    height: 100svh;
+    min-height: min(860px, 100svh);
+    height: auto;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
     isolation: isolate;
     overflow: hidden;
     padding-top: 80px; /* offset nav */
+    padding-bottom: clamp(3rem, 7vh, 5rem);
     background: #ffffff;
 }
 
@@ -558,12 +559,12 @@ textarea:focus-visible,
 
 .hero-grid-container {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 4rem;
+    grid-template-columns: minmax(0, 0.96fr) minmax(390px, 0.72fr);
+    gap: clamp(2.75rem, 5vw, 5.75rem);
     max-width: var(--container-max);
     margin: 0 auto;
     width: 100%;
-    padding: 0 var(--gutter);
+    padding: clamp(4.4rem, 9vh, 6.8rem) var(--gutter) 0;
     align-items: center;
     position: relative;
     z-index: 10;
@@ -573,16 +574,16 @@ textarea:focus-visible,
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    max-width: 39rem;
 }
 
 .hero-right-col {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    justify-content: space-between;
-    height: 100%;
-    min-height: 380px;
-    text-align: right;
+    justify-content: center;
+    min-height: 0;
+    text-align: left;
 }
 
 .hero-kicker {
@@ -594,18 +595,18 @@ textarea:focus-visible,
 .hero-left-col h1 {
     color: var(--text-color);
     font-family: var(--font-body);
-    font-size: var(--text-display);
+    font-size: clamp(3.25rem, 7vw, 5.9rem);
     margin-bottom: 2.5rem;
     font-weight: 500;
     line-height: 1.02;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
 }
 
 .hero-slider-nav {
     display: flex;
     gap: 1.25rem;
-    margin-top: 1rem;
+    margin-top: 2.3rem;
 }
 
 .slider-arrow {
@@ -631,7 +632,9 @@ textarea:focus-visible,
 .hero-desc-block {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
+    max-width: 29rem;
+    text-align: left;
 }
 
 .hero-lead {
@@ -675,6 +678,33 @@ textarea:focus-visible,
     align-items: center;
 }
 
+.hero-image-panel {
+    position: relative;
+    width: min(100%, 520px);
+    aspect-ratio: 0.78;
+    overflow: hidden;
+    background: #f3f0eb;
+    box-shadow: 0 26px 80px rgba(21, 21, 21, 0.08);
+    margin-left: auto;
+}
+
+.hero-image-panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(21, 21, 21, 0.06);
+    pointer-events: none;
+}
+
+.hero-image-panel img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: 50% 45%;
+    filter: saturate(0.9) contrast(0.98) brightness(1.03);
+}
+
 .reveal-text {
     opacity: 0;
     transform: translateY(30px);
@@ -691,12 +721,16 @@ textarea:focus-visible,
     animation-delay: 0.35s;
 }
 
-.hero-lead.fade-in-up {
+.hero-desc-block.fade-in-up {
     animation-delay: 0.7s;
 }
 
-.hero-btns.fade-in-up {
+.hero-slider-nav.fade-in-up {
     animation-delay: 0.9s;
+}
+
+.hero-image-panel.fade-in-up {
+    animation-delay: 0.55s;
 }
 
 @keyframes fadeUp {
@@ -1644,18 +1678,26 @@ textarea:focus-visible,
     
     .hero-grid-container {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 2.75rem;
+        padding-top: clamp(3.5rem, 8vh, 5rem);
         text-align: left;
     }
     
     .hero-right-col {
         align-items: flex-start;
         text-align: left;
+        width: 100%;
         min-height: auto;
     }
     
     .hero-desc-block {
         align-items: flex-start;
+    }
+
+    .hero-image-panel {
+        width: min(100%, 540px);
+        aspect-ratio: 1.02;
+        margin-left: 0;
     }
     
     /* Disable custom cursor on tablets/mobile */
@@ -1675,7 +1717,7 @@ textarea:focus-visible,
 
 @media (max-width: 640px) {
     #hero {
-        min-height: 760px;
+        min-height: auto;
     }
 
     .gallery-masonry {
@@ -1709,12 +1751,16 @@ textarea:focus-visible,
     }
 
     .hero-btns {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.75rem;
     }
 
     .hero-btns .btn {
-        min-width: 11.5rem;
+        min-width: 0;
+        padding-left: 1.1rem;
+        padding-right: 1.1rem;
         text-align: center;
     }
 
@@ -1789,20 +1835,37 @@ textarea:focus-visible,
     }
 
     #hero {
-        min-height: 100svh;
-        padding-top: 100px;
-        padding-bottom: 4rem;
+        min-height: auto;
+        padding-top: 84px;
+        padding-bottom: 2rem;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
     }
     
     .hero-grid-container {
-        gap: 1.5rem;
+        gap: 1.45rem;
+        padding-top: 1.25rem;
     }
     
     .hero-left-col h1 {
         font-size: clamp(2.4rem, 10vw, 3.4rem);
         margin-bottom: 1.5rem;
+        letter-spacing: 0.1em;
+    }
+
+    .hero-lead {
+        max-width: none;
+        margin-bottom: 1.4rem;
+        font-size: 0.96rem;
+    }
+
+    .hero-slider-nav {
+        margin-top: 1.35rem;
+    }
+
+    .hero-image-panel {
+        width: 100%;
+        aspect-ratio: 1.12;
     }
 }
 
