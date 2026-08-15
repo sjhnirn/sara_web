@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbar');
     if (navbar) {
         window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
+            navbar.classList.toggle('scrolled', window.scrollY > 40);
         });
     }
 
@@ -26,12 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* --------------------------------------------------------------------------
-       4. Smooth Scrolling (Offset adjustments)
+       3. Smooth Scrolling
        -------------------------------------------------------------------------- */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            if (targetId === '#' || targetId === '') return;
             const target = document.querySelector(targetId);
             if (!target) return;
             e.preventDefault();
@@ -42,12 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (typeof burger !== 'undefined' && typeof mobileMenu !== 'undefined') {
                 burger.classList.remove('open');
                 mobileMenu.classList.remove('open');
+                burger.setAttribute('aria-expanded', 'false');
+                burger.setAttribute('aria-label', 'Open menu');
+                document.body.style.overflow = '';
             }
         });
     });
 
     /* --------------------------------------------------------------------------
-       5. Mobile Burger Menu & Transformation
+       4. Mobile Burger Menu
        -------------------------------------------------------------------------- */
     const burger = document.getElementById('burger');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -68,81 +71,76 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', () => setMenuState(false));
         });
+
+        // Close on escape
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                setMenuState(false);
+                burger.focus();
+            }
+        });
     }
 
     /* --------------------------------------------------------------------------
-       6. Gallery Filter Transition
+       5. Hero Interactive Theme Switcher
+       -------------------------------------------------------------------------- */
+    const heroThemeBtns = document.querySelectorAll('.hero-theme-btn');
+    const heroMainImage = document.getElementById('heroMainImage');
+    const heroBadgeCat = document.getElementById('heroBadgeCat');
+
+    if (heroThemeBtns.length > 0 && heroMainImage) {
+        heroThemeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.classList.contains('active')) return;
+
+                heroThemeBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const newSrc = btn.dataset.src;
+                const newAlt = btn.dataset.alt || '';
+                const newCategory = btn.dataset.kicker || '';
+
+                if (!prefersReducedMotion) {
+                    heroMainImage.classList.add('fade-out');
+                    setTimeout(() => {
+                        heroMainImage.src = newSrc;
+                        heroMainImage.alt = newAlt;
+                        if (heroBadgeCat) heroBadgeCat.textContent = newCategory;
+                        heroMainImage.classList.remove('fade-out');
+                    }, 250);
+                } else {
+                    heroMainImage.src = newSrc;
+                    heroMainImage.alt = newAlt;
+                    if (heroBadgeCat) heroBadgeCat.textContent = newCategory;
+                }
+            });
+        });
+    }
+
+    /* --------------------------------------------------------------------------
+       6. Gallery Filter Transition & Loading
        -------------------------------------------------------------------------- */
     const filterBtns = document.querySelectorAll('.filter-btn');
     const gallery = document.getElementById('gallery');
     const galleryItems = document.querySelectorAll('.gallery-item');
     const loadMoreBtn = document.getElementById('loadMoreGallery');
-    const initialGalleryLimit = 18;
+    const initialLimit = 18;
     let galleryExpanded = false;
-    let galleryAutoScrollFrame = null;
-    let galleryAutoScrollLastTime = null;
-    let galleryAutoScrollPaused = false;
-    const galleryAutoScrollSpeed = 26;
 
     const categoryLabels = {
-        portrait: 'Portrait',
-        food: 'Food',
-        editorial: 'Editorial',
-        product: 'Product',
+        product: 'Product & Commercial',
+        portrait: 'Portrait & Fashion',
+        food: 'Food & Beverage',
+        editorial: 'Editorial & Documentary',
+        children: 'Children & Family',
+        all: 'All Works'
     };
 
-    const formatCategory = (category) => categoryLabels[category] || '';
+    const formatCategory = (category) => categoryLabels[category] || category || 'Selected Work';
 
     const getActiveFilter = () => {
         const activeBtn = document.querySelector('.filter-btn.active');
-        return activeBtn ? activeBtn.dataset.filter : 'product';
-    };
-
-    const resetGalleryScroll = () => {
-        if (!gallery) return;
-        const previousScrollBehavior = gallery.style.scrollBehavior;
-        gallery.style.scrollBehavior = 'auto';
-        gallery.scrollLeft = 0;
-        gallery.scrollTo({ left: 0, behavior: 'auto' });
-        gallery.style.scrollBehavior = previousScrollBehavior;
-    };
-
-    const stopGalleryAutoScroll = () => {
-        if (!galleryAutoScrollFrame) return;
-        cancelAnimationFrame(galleryAutoScrollFrame);
-        galleryAutoScrollFrame = null;
-        galleryAutoScrollLastTime = null;
-    };
-
-    const startGalleryAutoScroll = () => {
-        if (!gallery || prefersReducedMotion) return;
-
-        stopGalleryAutoScroll();
-        galleryAutoScrollLastTime = null;
-
-        const tick = (timestamp) => {
-            const maxScroll = gallery.scrollWidth - gallery.clientWidth;
-            const lightboxOpen = document.body.classList.contains('lightbox-active');
-
-            if (galleryAutoScrollLastTime === null) {
-                galleryAutoScrollLastTime = timestamp;
-            }
-
-            const elapsedSeconds = (timestamp - galleryAutoScrollLastTime) / 1000;
-            galleryAutoScrollLastTime = timestamp;
-
-            if (maxScroll > 1 && !galleryAutoScrollPaused && !lightboxOpen) {
-                gallery.scrollLeft += galleryAutoScrollSpeed * elapsedSeconds;
-
-                if (gallery.scrollLeft >= maxScroll - 1) {
-                    gallery.scrollLeft = 0;
-                }
-            }
-
-            galleryAutoScrollFrame = requestAnimationFrame(tick);
-        };
-
-        galleryAutoScrollFrame = requestAnimationFrame(tick);
+        return activeBtn ? activeBtn.dataset.filter : 'all';
     };
 
     const updateGalleryVisibility = () => {
@@ -160,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             matchedCount += 1;
-            const shouldCollapse = filter === 'all' && !galleryExpanded && matchedCount > initialGalleryLimit;
+            const shouldCollapse = filter === 'all' && !galleryExpanded && matchedCount > initialLimit;
 
             item.classList.toggle('is-collapsed', shouldCollapse);
             item.classList.toggle('hidden', false);
@@ -172,63 +170,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (loadMoreBtn) {
-            loadMoreBtn.hidden = filter !== 'all' || galleryExpanded || matchedCount <= initialGalleryLimit;
+            loadMoreBtn.hidden = filter !== 'all' || galleryExpanded || matchedCount <= initialLimit;
         }
 
         if (gallery) {
-            gallery.classList.add('is-resetting');
-            resetGalleryScroll();
-            requestAnimationFrame(() => {
-                resetGalleryScroll();
-                gallery.classList.remove('is-resetting');
-            });
-            window.setTimeout(resetGalleryScroll, 150);
-            window.setTimeout(resetGalleryScroll, 450);
-            window.setTimeout(startGalleryAutoScroll, 500);
+            gallery.scrollLeft = 0;
         }
     };
 
     if (filterBtns.length > 0 && galleryItems.length > 0) {
-        if (gallery) {
-            gallery.addEventListener('mouseenter', () => {
-                galleryAutoScrollPaused = true;
-            });
-            gallery.addEventListener('mouseleave', () => {
-                galleryAutoScrollPaused = false;
-            });
-            gallery.addEventListener('focusin', () => {
-                galleryAutoScrollPaused = true;
-            });
-            gallery.addEventListener('focusout', () => {
-                galleryAutoScrollPaused = false;
-            });
-            gallery.addEventListener('pointerdown', () => {
-                galleryAutoScrollPaused = true;
-            });
-            gallery.addEventListener('pointerup', () => {
-                galleryAutoScrollPaused = false;
-            });
-            gallery.addEventListener('pointercancel', () => {
-                galleryAutoScrollPaused = false;
-            });
-        }
-
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 if (btn.classList.contains('active')) return;
 
-                filterBtns.forEach(b => b.classList.remove('active'));
+                filterBtns.forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
                 btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
 
-                // 1. Fade out current view
+                // Fade out current items
                 galleryItems.forEach(item => {
                     if (!item.classList.contains('hidden') && !item.classList.contains('is-collapsed')) {
                         item.classList.add('fade-out');
                     }
                 });
 
-                // 2. Arrange layouts during fade
-                setTimeout(updateGalleryVisibility, 300);
+                setTimeout(updateGalleryVisibility, 200);
             });
         });
 
@@ -240,32 +209,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         updateGalleryVisibility();
-        startGalleryAutoScroll();
-
-        if (window.location.hash) {
-            setTimeout(() => {
-                const target = document.querySelector(window.location.hash);
-                if (!target) return;
-                const offset = window.pageYOffset + target.getBoundingClientRect().top - 80;
-                window.scrollTo({ top: offset, behavior: 'auto' });
-            }, 50);
-        }
     }
 
     /* --------------------------------------------------------------------------
-       7. Interactive Lightbox Modal
+       7. Interactive Lightbox Modal with Rich Metadata
        -------------------------------------------------------------------------- */
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxImgNext = document.getElementById('lightboxImgNext');
     const lightboxTitle = document.getElementById('lightboxTitle');
     const lightboxCategory = document.getElementById('lightboxCategory');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+    const lightboxClientBadge = document.getElementById('lightboxClientBadge');
     const lightboxClose = document.getElementById('lightboxClose');
     const lightboxPrev = document.getElementById('lightboxPrev');
     const lightboxNext = document.getElementById('lightboxNext');
 
     let currentImgIndex = 0;
     let activeItems = [];
+    let lastActiveElement = null;
 
     const getActiveItems = () => {
         return Array.from(document.querySelectorAll('.gallery-item:not(.hidden):not(.is-collapsed)'));
@@ -275,89 +237,93 @@ document.addEventListener('DOMContentLoaded', () => {
         if (index < 0) index = activeItems.length - 1;
         if (index >= activeItems.length) index = 0;
 
-        // Determine if we are moving forward (next) or backward (prev)
         const isNext = (index > currentImgIndex && !(currentImgIndex === 0 && index === activeItems.length - 1)) || 
                        (currentImgIndex === activeItems.length - 1 && index === 0);
 
         currentImgIndex = index;
         const targetItem = activeItems[currentImgIndex];
         const img = targetItem.querySelector('img');
-        const titleText = targetItem.querySelector('.gallery-title').textContent;
-        const categoryText = targetItem.dataset.category;
+        const titleText = targetItem.dataset.title || targetItem.querySelector('.gallery-title')?.textContent || 'Untitled';
+        const categoryKey = targetItem.dataset.category || 'work';
+        const clientNote = targetItem.dataset.client || '';
+        const year = targetItem.dataset.year || '';
 
         const activeImg = lightboxImg.classList.contains('active') ? lightboxImg : lightboxImgNext;
         const inactiveImg = activeImg === lightboxImg ? lightboxImgNext : lightboxImg;
+
+        // Update Text & Counter
+        if (lightboxTitle) lightboxTitle.textContent = titleText;
+        if (lightboxCategory) lightboxCategory.textContent = formatCategory(categoryKey);
+        if (lightboxCounter) {
+            const formattedIndex = String(currentImgIndex + 1).padStart(2, '0');
+            const formattedTotal = String(activeItems.length).padStart(2, '0');
+            lightboxCounter.textContent = `${formattedIndex} / ${formattedTotal}`;
+        }
+        if (lightboxClientBadge) {
+            lightboxClientBadge.textContent = clientNote || (year ? `Commission Year: ${year}` : '');
+            lightboxClientBadge.style.display = (clientNote || year) ? 'block' : 'none';
+        }
 
         if (animate && !prefersReducedMotion && lightbox.classList.contains('open')) {
             const outClass = isNext ? 'flip-next-out' : 'flip-prev-out';
             const inClass = isNext ? 'flip-next-in' : 'flip-prev-in';
 
-            // 1. Prepare inactive image (load source & position it)
             inactiveImg.src = img.src;
-            inactiveImg.alt = img.alt;
+            inactiveImg.alt = img.alt || titleText;
             inactiveImg.className = 'lightbox-img ' + inClass;
 
-            void inactiveImg.offsetWidth; // trigger reflow
+            void inactiveImg.offsetWidth; // Force Reflow
 
-            // 2. Trigger concurrent transitions
             activeImg.className = 'lightbox-img ' + outClass;
             inactiveImg.className = 'lightbox-img active';
 
-            // Update text details immediately
-            lightboxTitle.textContent = titleText;
-            lightboxCategory.textContent = formatCategory(categoryText);
-
-            // 3. Clear transitions after completion (0.55s in CSS)
             setTimeout(() => {
                 activeImg.className = 'lightbox-img';
-            }, 600);
+            }, 550);
         } else {
-            // Instant snap with no transition
             lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt;
+            lightboxImg.alt = img.alt || titleText;
             lightboxImg.className = 'lightbox-img active';
-
             lightboxImgNext.className = 'lightbox-img';
             lightboxImgNext.src = '';
-
-            lightboxTitle.textContent = titleText;
-            lightboxCategory.textContent = formatCategory(categoryText);
         }
     };
 
-    const openLightbox = (index) => {
+    const openLightbox = (index, triggerElement) => {
         activeItems = getActiveItems();
         if (activeItems.length === 0) return;
 
-        galleryAutoScrollPaused = true;
-        updateLightboxImage(index);
+        lastActiveElement = triggerElement;
+        updateLightboxImage(index, false);
         lightbox.classList.add('open');
         lightbox.setAttribute('aria-hidden', 'false');
-        document.body.classList.add('lightbox-active'); // Restore a visible pointer
-        document.body.style.overflow = 'hidden'; // Lock back scroll
+        document.body.style.overflow = 'hidden';
+        lightbox.focus();
     };
 
     const closeLightbox = () => {
         lightbox.classList.remove('open');
         lightbox.setAttribute('aria-hidden', 'true');
-        galleryAutoScrollPaused = false;
-        document.body.classList.remove('lightbox-active');
-        document.body.style.overflow = ''; // Unlock back scroll
+        document.body.style.overflow = '';
+
+        if (lastActiveElement) {
+            lastActiveElement.focus();
+        }
     };
 
     const openGalleryItem = (item) => {
         activeItems = getActiveItems();
         const index = activeItems.indexOf(item);
         if (index !== -1) {
-            openLightbox(index);
+            openLightbox(index, item);
         }
     };
 
     galleryItems.forEach(item => {
-        const title = item.querySelector('.gallery-title')?.textContent?.trim() || 'photograph';
+        const title = item.dataset.title || item.querySelector('.gallery-title')?.textContent?.trim() || 'photograph';
         item.setAttribute('role', 'button');
         item.setAttribute('tabindex', '0');
-        item.setAttribute('aria-label', `View ${title} in lightbox`);
+        item.setAttribute('aria-label', `View ${title} in full screen lightbox`);
 
         item.addEventListener('click', (e) => {
             e.preventDefault();
@@ -398,12 +364,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Keyboard navigation inside lightbox
+    // Keyboard navigation inside lightbox & focus trap
     window.addEventListener('keydown', (e) => {
         if (!lightbox || !lightbox.classList.contains('open')) return;
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowLeft') updateLightboxImage(currentImgIndex - 1);
-        if (e.key === 'ArrowRight') updateLightboxImage(currentImgIndex + 1);
+
+        if (e.key === 'Escape') {
+            closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+            updateLightboxImage(currentImgIndex - 1);
+        } else if (e.key === 'ArrowRight') {
+            updateLightboxImage(currentImgIndex + 1);
+        } else if (e.key === 'Tab') {
+            // Trap focus within lightbox controls
+            const focusable = lightbox.querySelectorAll('button:not([disabled])');
+            const firstFocusable = focusable[0];
+            const lastFocusable = focusable[focusable.length - 1];
+
+            if (e.shiftKey) {
+                if (document.activeElement === firstFocusable) {
+                    e.preventDefault();
+                    lastFocusable.focus();
+                }
+            } else {
+                if (document.activeElement === lastFocusable) {
+                    e.preventDefault();
+                    firstFocusable.focus();
+                }
+            }
+        }
     });
 
     // Touch swipe gestures for mobile
@@ -421,36 +409,24 @@ document.addEventListener('DOMContentLoaded', () => {
         lightbox.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].screenX;
             touchEndY = e.changedTouches[0].screenY;
-            handleSwipeGesture();
-        }, { passive: true });
-    }
+            const diffX = touchEndX - touchStartX;
+            const diffY = touchEndY - touchStartY;
 
-    const handleSwipeGesture = () => {
-        const threshold = 50; // minimum distance to qualify as swipe
-        const diffX = touchEndX - touchStartX;
-        const diffY = touchEndY - touchStartY;
-
-        // Check if horizontal swipe was larger than vertical swipe
-        if (Math.abs(diffX) > Math.abs(diffY)) {
-            if (Math.abs(diffX) > threshold) {
-                if (diffX > 0) {
-                    // Swipe right -> previous image
-                    updateLightboxImage(currentImgIndex - 1);
-                } else {
-                    // Swipe left -> next image
-                    updateLightboxImage(currentImgIndex + 1);
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+                if (Math.abs(diffX) > 50) {
+                    if (diffX > 0) {
+                        updateLightboxImage(currentImgIndex - 1);
+                    } else {
+                        updateLightboxImage(currentImgIndex + 1);
+                    }
                 }
-            }
-        } else {
-            // Swipe vertically
-            if (Math.abs(diffY) > threshold) {
-                if (diffY > 0) {
-                    // Swipe down -> close lightbox
+            } else {
+                if (Math.abs(diffY) > 80 && diffY > 0) {
                     closeLightbox();
                 }
             }
-        }
-    };
+        }, { passive: true });
+    }
 
     /* --------------------------------------------------------------------------
        8. ScrollSpy Active Nav Highlighting
@@ -462,7 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const scrollPos = window.scrollY || document.documentElement.scrollTop;
 
         spySections.forEach(section => {
-            const sectionTop = section.offsetTop - 150; // offset header line
+            const sectionTop = section.offsetTop - 150;
             const sectionHeight = section.offsetHeight;
             const sectionId = section.getAttribute('id');
 
@@ -477,16 +453,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
     window.addEventListener('scroll', scrollSpy);
-    scrollSpy(); // Initial run on boot
+    scrollSpy();
 
     /* --------------------------------------------------------------------------
        9. Scroll Reveal Observer
        -------------------------------------------------------------------------- */
-    const revealTargets = document.querySelectorAll(
-        '.gallery-item, .service-card, .testimonial-card, .about-text h2, .about-text p, .about-image, .footer-cta h2, .footer-cta .footer-sub'
-    );
-
-    revealTargets.forEach(el => el.classList.add('reveal-on-scroll'));
+    const revealTargets = document.querySelectorAll('.reveal-on-scroll');
 
     if (!prefersReducedMotion) {
         const observer = new IntersectionObserver((entries, obs) => {
@@ -496,7 +468,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     obs.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.12 });
+        }, { threshold: 0.1 });
 
         revealTargets.forEach(el => observer.observe(el));
     } else {
@@ -504,41 +476,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* --------------------------------------------------------------------------
-       10. Form Validation & Submissions
+       10. Form Validation & Submissions with Accessible ARIA Feedback
        -------------------------------------------------------------------------- */
     const form = document.getElementById('contactForm');
-    
-    const showError = (input, message) => {
+    const formStatus = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+
+    const setInputError = (input, errorSpanId, message) => {
         input.classList.add('invalid');
-        let errorMsg = input.parentNode.querySelector('.error-message');
-        if (!errorMsg) {
-            errorMsg = document.createElement('span');
-            errorMsg.className = 'error-message';
-            input.parentNode.appendChild(errorMsg);
+        input.setAttribute('aria-invalid', 'true');
+        const errorSpan = document.getElementById(errorSpanId);
+        if (errorSpan) {
+            errorSpan.textContent = message;
+            errorSpan.classList.add('show');
         }
-        errorMsg.textContent = message;
-        void errorMsg.offsetWidth; // Force Reflow
-        errorMsg.classList.add('show');
-        
         if (!prefersReducedMotion) {
             input.classList.add('shake');
             setTimeout(() => input.classList.remove('shake'), 400);
         }
     };
 
-    const formStatus = document.getElementById('formStatus');
+    const clearInputError = (input, errorSpanId) => {
+        input.classList.remove('invalid');
+        input.removeAttribute('aria-invalid');
+        const errorSpan = document.getElementById(errorSpanId);
+        if (errorSpan) {
+            errorSpan.textContent = '';
+            errorSpan.classList.remove('show');
+        }
+    };
 
     if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             
             let isValid = true;
+            let firstInvalidField = null;
+
             const nameInput = document.getElementById('name');
             const emailInput = document.getElementById('email');
             const messageInput = document.getElementById('message');
 
-            form.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
-            form.querySelectorAll('.error-message').forEach(el => el.classList.remove('show'));
+            clearInputError(nameInput, 'nameError');
+            clearInputError(emailInput, 'emailError');
+            clearInputError(messageInput, 'msgError');
+
             if (formStatus) {
                 formStatus.textContent = '';
                 formStatus.classList.remove('is-success');
@@ -546,52 +528,65 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Name verification
             if (!nameInput.value.trim() || nameInput.value.trim().length < 2) {
-                showError(nameInput, 'Full Name is required (at least 2 letters)');
+                setInputError(nameInput, 'nameError', 'Please enter your full name or company (at least 2 letters)');
                 isValid = false;
+                if (!firstInvalidField) firstInvalidField = nameInput;
             }
 
-            // Email verification (RFC Standard regex)
+            // Email verification
             const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
-                showError(emailInput, 'A valid email address is required');
+                setInputError(emailInput, 'emailError', 'Please enter a valid email address');
                 isValid = false;
+                if (!firstInvalidField) firstInvalidField = emailInput;
             }
 
             // Message verification
             if (!messageInput.value.trim() || messageInput.value.trim().length < 10) {
-                showError(messageInput, 'Message is required (at least 10 letters)');
+                setInputError(messageInput, 'msgError', 'Please include project details (at least 10 characters)');
                 isValid = false;
+                if (!firstInvalidField) firstInvalidField = messageInput;
             }
 
             if (!isValid) {
-                const submitBtn = form.querySelector('.btn-submit');
-                if (!prefersReducedMotion) {
-                    submitBtn.classList.add('shake');
-                    setTimeout(() => submitBtn.classList.remove('shake'), 400);
+                if (firstInvalidField) {
+                    firstInvalidField.focus();
                 }
                 return;
             }
 
-            const btn = form.querySelector('.btn-submit');
-            const originalText = btn.textContent;
-            btn.textContent = 'Message Sent';
-            btn.classList.add('is-success');
-            btn.disabled = true;
-            if (formStatus) {
-                formStatus.textContent = 'Thank you — your message has been received. I will reply within 48 hours.';
-                formStatus.classList.add('is-success');
-            }
+            // Simulation with real-feeling states
+            const textDefault = submitBtn.querySelector('.btn-text-default');
+            const textLoading = submitBtn.querySelector('.btn-text-loading');
+
+            submitBtn.disabled = true;
+            if (textDefault) textDefault.style.display = 'none';
+            if (textLoading) textLoading.style.display = 'inline';
 
             setTimeout(() => {
-                btn.textContent = originalText;
-                btn.classList.remove('is-success');
-                btn.disabled = false;
-                form.reset();
-                if (formStatus) {
-                    formStatus.textContent = '';
-                    formStatus.classList.remove('is-success');
+                if (textLoading) textLoading.style.display = 'none';
+                if (textDefault) {
+                    textDefault.textContent = 'Inquiry Received ✓';
+                    textDefault.style.display = 'inline';
                 }
-            }, 5000);
+                submitBtn.classList.add('is-success');
+
+                if (formStatus) {
+                    formStatus.textContent = 'Thank you! Your message has been received. Sara will review your project and reply within 24–48 hours.';
+                    formStatus.classList.add('is-success');
+                }
+
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('is-success');
+                    if (textDefault) textDefault.textContent = 'Send Inquiry';
+                    form.reset();
+                    if (formStatus) {
+                        formStatus.textContent = '';
+                        formStatus.classList.remove('is-success');
+                    }
+                }, 6000);
+            }, 600);
         });
     }
 

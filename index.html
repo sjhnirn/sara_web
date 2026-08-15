@@ -6,24 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sara Hosseini | Photography Portfolio — Tehran</title>
     <meta name="description"
-        content="Sara Hosseini — freelance photographer and visual artist in Tehran. Portrait, food, product, and editorial photography with a cinematic, premium aesthetic.">
+        content="Sara Hosseini — commercial, portrait, food, product, and editorial photographer in Tehran. Major advertising campaigns for Steel Alborz, Kaveh Glass, and ShamimAra.">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Sara Hosseini | Photography Portfolio — Tehran">
-    <meta property="og:description" content="Sara Hosseini — freelance photographer and visual artist in Tehran. Portrait, food, product, and editorial photography with a cinematic eye.">
+    <meta property="og:description" content="Sara Hosseini — commercial, portrait, food, product, and editorial photographer in Tehran. High-impact visual storytelling.">
     <meta property="og:image" content="images/hero_spoon_still_life.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="Sara Hosseini | Photography Portfolio — Tehran">
-    <meta property="twitter:description" content="Sara Hosseini — freelance photographer and visual artist in Tehran. Portrait, food, product, and editorial photography with a cinematic eye.">
+    <meta property="twitter:description" content="Sara Hosseini — commercial, portrait, food, product, and editorial photographer in Tehran.">
     <meta property="twitter:image" content="images/hero_spoon_still_life.webp">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=10">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20">
 </head>
 
 <body>
@@ -39,7 +39,9 @@
             <a href="#" class="logo">Sara Hosseini</a>
             <ul class="nav-links">
                 <li><a href="#work">Work</a></li>
+                <li><a href="#clients">Clients</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#testimonials">Stories</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -56,7 +58,9 @@
     <div class="mobile-menu" id="mobileMenu">
         <ul>
             <li><a href="#work" class="mobile-link">Work</a></li>
+            <li><a href="#clients" class="mobile-link">Clients</a></li>
             <li><a href="#services" class="mobile-link">Services</a></li>
+            <li><a href="#faq" class="mobile-link">FAQ</a></li>
             <li><a href="#testimonials" class="mobile-link">Stories</a></li>
             <li><a href="#about" class="mobile-link">About</a></li>
             <li><a href="#contact" class="mobile-link">Contact</a></li>
@@ -69,32 +73,35 @@
         <div class="hero-bg" aria-hidden="true"></div>
         <div class="hero-grid-container">
             <div class="hero-left-col">
-                <p class="hero-kicker label-caps fade-in-up">Tehran — Portfolio 2026</p>
+                <p class="hero-kicker label-caps fade-in-up">Tehran — Commercial &amp; Fine-Art Photography</p>
                 <h1 class="reveal-text">Sara<br> Hosseini.</h1>
                 <div class="hero-desc-block fade-in-up">
-                    <p class="hero-lead">Freelance photographer and visual artist. Portrait, food, product and editorial work with a cinematic eye.</p>
+                    <p class="hero-lead">Commercial photographer and visual artist. Advertising campaigns, striking portraiture, luxury product still life, and cinematic editorial narratives.</p>
                     <div class="hero-btns">
-                        <a href="#work" class="btn btn-primary">Explore Work</a>
+                        <a href="#work" class="btn btn-primary">Explore Selected Works</a>
                         <a href="#contact" class="btn btn-secondary">Book a Session</a>
                     </div>
                 </div>
-                <div class="hero-slider-nav fade-in-up">
-                    <a href="#contact" class="slider-arrow prev" aria-label="Book Session">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M19 12H5M5 12L12 19M5 12L12 5"/>
-                        </svg>
-                    </a>
-                    <a href="#work" class="slider-arrow next" aria-label="Explore Portfolio">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M5 12H19M19 12L12 5M19 12L12 19"/>
-                        </svg>
-                    </a>
+
+                <!-- Interactive Hero Signature Switcher -->
+                <div class="hero-theme-switcher fade-in-up" role="region" aria-label="Featured showcase themes">
+                    <span class="switcher-label">Featured Works:</span>
+                    <div class="switcher-buttons">
+                        <button class="hero-theme-btn active" data-theme="0" data-src="images/hero_spoon_still_life.webp" data-alt="Still life with striped fabric and wooden spoon" data-kicker="Still Life &amp; Objects">01 Still Life</button>
+                        <button class="hero-theme-btn" data-theme="1" data-src="images/hero_cocktail.webp" data-alt="Emerald luxury perfume bottle with glassware" data-kicker="Luxury Fragrance">02 Fragrance Concept</button>
+                        <button class="hero-theme-btn" data-theme="2" data-src="images/hero_portrait.webp" data-alt="Warm amber studio beauty portrait" data-kicker="Editorial Beauty">03 Fashion &amp; Beauty</button>
+                    </div>
                 </div>
             </div>
             
             <div class="hero-right-col">
-                <div class="hero-image-panel fade-in-up">
-                    <img src="images/hero_spoon_still_life.webp" alt="Neutral tabletop still life with striped fabric, dried flowers, and a wooden spoon" loading="eager" fetchpriority="high" decoding="async">
+                <div class="hero-image-panel fade-in-up" id="heroImageContainer">
+                    <div class="hero-image-wrapper">
+                        <img id="heroMainImage" src="images/hero_spoon_still_life.webp" alt="Neutral tabletop still life with striped fabric, dried flowers, and a wooden spoon" loading="eager" fetchpriority="high" decoding="async">
+                        <div class="hero-image-badge" id="heroImageCaption">
+                            <span class="badge-cat" id="heroBadgeCat">Still Life &amp; Objects</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -102,558 +109,1036 @@
 
     <main>
 
+        <!-- BRAND & COMMERCIAL CLIENTS TRUST BAR -->
+        <section id="clients" class="section-clients">
+            <div class="container">
+                <div class="clients-header">
+                    <p class="label-caps">Trusted by Leading Brands &amp; Commercial Campaigns</p>
+                </div>
+                <div class="clients-grid">
+                    <div class="client-item">
+                        <span class="client-name">STEEL ALBORZ</span>
+                        <span class="client-type">Kitchen Appliances &amp; Billboards</span>
+                    </div>
+                    <div class="client-divider">/</div>
+                    <div class="client-item">
+                        <span class="client-name">KAVEH GLASS</span>
+                        <span class="client-type">Glassware &amp; Factory Documentary</span>
+                    </div>
+                    <div class="client-divider">/</div>
+                    <div class="client-item">
+                        <span class="client-name">TAKDANE</span>
+                        <span class="client-type">Food &amp; Beverage Advertising</span>
+                    </div>
+                    <div class="client-divider">/</div>
+                    <div class="client-item">
+                        <span class="client-name">SHAMIM ARA</span>
+                        <span class="client-type">Perfume &amp; Retail Malls</span>
+                    </div>
+                    <div class="client-divider">/</div>
+                    <div class="client-item">
+                        <span class="client-name">MY LOVELY TEHRAN</span>
+                        <span class="client-type">Brand Ambassador Campaign</span>
+                    </div>
+                    <div class="client-divider">/</div>
+                    <div class="client-item">
+                        <span class="client-name">ROJA COSMETICS</span>
+                        <span class="client-type">Retail Visual Merchandising</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- PORTFOLIO GALLERY -->
         <section id="work" class="section">
             <div class="container">
                 <div class="section-intro">
                     <h2 class="section-title">Selected Works</h2>
-                    <p class="section-subtitle">Selected portrait, food, product, and editorial commissions — 2024–2026.</p>
+                    <p class="section-subtitle">Commercial campaigns, fine-art portraiture, food, children, and editorial commissions — 2024–2026.</p>
                 </div>
 
-                <!-- Category index -->
-                <div class="filter-tabs" id="filterTabs">
-                    <button class="filter-btn active" data-filter="product">Product</button>
-                    <button class="filter-btn" data-filter="portrait">Portrait</button>
-                    <button class="filter-btn" data-filter="food">Food</button>
-                    <button class="filter-btn" data-filter="editorial">Editorial</button>
+                <!-- Category index with counts -->
+                <div class="filter-tabs" id="filterTabs" role="tablist" aria-label="Portfolio Categories">
+                    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All <span class="filter-count">61</span></button>
+                    <button class="filter-btn" data-filter="product" role="tab" aria-selected="false">Product &amp; Commercial <span class="filter-count">23</span></button>
+                    <button class="filter-btn" data-filter="portrait" role="tab" aria-selected="false">Portrait &amp; Fashion <span class="filter-count">7</span></button>
+                    <button class="filter-btn" data-filter="food" role="tab" aria-selected="false">Food &amp; Culinary <span class="filter-count">12</span></button>
+                    <button class="filter-btn" data-filter="editorial" role="tab" aria-selected="false">Editorial &amp; Documentary <span class="filter-count">16</span></button>
+                    <button class="filter-btn" data-filter="children" role="tab" aria-selected="false">Children &amp; Fine Art <span class="filter-count">3</span></button>
                 </div>
 
                 <div class="gallery-masonry" id="gallery">
-                    <div class="gallery-item portrait-item" data-category="portrait">
+                    <div class="gallery-item product-item" data-category="product" data-client="Steel Alborz • Commercial Campaign" data-year="2025" data-title="Steel Alborz Kitchen Suite" data-index="0">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_16.webp" alt="Athletic Portrait" loading="lazy">
+                            <img src="images/gallery_45.webp" alt="Steel Alborz Kitchen Suite" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Portrait</span>
-                                    <h3 class="gallery-title">Athletic Portrait</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Steel Alborz Kitchen Suite</h3>
+                                    <span class="gallery-client-note">Steel Alborz • Commercial Campaign</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="portrait">
+                    <div class="gallery-item product-item" data-category="product" data-client="Steel Alborz • Studio Product Packshot" data-year="2025" data-title="Steel Alborz Gas Cooktop Study" data-index="1">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_17.webp" alt="Back Training Study" loading="lazy">
+                            <img src="images/gallery_46.webp" alt="Steel Alborz Gas Cooktop Study" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Portrait</span>
-                                    <h3 class="gallery-title">Back Training Study</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Steel Alborz Gas Cooktop Study</h3>
+                                    <span class="gallery-client-note">Steel Alborz • Studio Product Packshot</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="portrait">
+                    <div class="gallery-item product-item" data-category="product" data-client="Steel Alborz • Studio Product Packshot" data-year="2025" data-title="Steel Alborz Built-in Appliance" data-index="2">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_19.webp" alt="Seated Strength Study" loading="lazy">
+                            <img src="images/gallery_47.webp" alt="Steel Alborz Built-in Appliance" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Portrait</span>
-                                    <h3 class="gallery-title">Seated Strength Study</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Steel Alborz Built-in Appliance</h3>
+                                    <span class="gallery-client-note">Steel Alborz • Studio Product Packshot</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="portrait">
+                    <div class="gallery-item product-item" data-category="product" data-client="Kaveh Glass • Billboard Campaign" data-year="2025" data-title="Kaveh Crystal Refraction Study" data-index="3">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_20.webp" alt="Dumbbell Training Study" loading="lazy">
+                            <img src="images/gallery_48.webp" alt="Kaveh Crystal Refraction Study" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Portrait</span>
-                                    <h3 class="gallery-title">Dumbbell Training Study</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Kaveh Crystal Refraction Study</h3>
+                                    <span class="gallery-client-note">Kaveh Glass • Billboard Campaign</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="food">
+                    <div class="gallery-item product-item" data-category="product" data-client="ShamimAra • Luxury Fragrance Series" data-year="2025" data-title="Emerald Perfume Cocktail Concept" data-index="4">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_25.webp" alt="Station Burger Poster" loading="lazy">
+                            <img src="images/gallery_60.webp" alt="Emerald Perfume Cocktail Concept" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Food</span>
-                                    <h3 class="gallery-title">Station Burger Poster</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Emerald Perfume Cocktail Concept</h3>
+                                    <span class="gallery-client-note">ShamimAra • Luxury Fragrance Series</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="food">
+                    <div class="gallery-item product-item" data-category="product" data-client="Editorial Still Life Commission" data-year="2025" data-title="Botanical Chiaroscuro Still Life" data-index="5">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_26.webp" alt="Boxed Burger Campaign" loading="lazy">
+                            <img src="images/gallery_58.webp" alt="Botanical Chiaroscuro Still Life" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Food</span>
-                                    <h3 class="gallery-title">Boxed Burger Campaign</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Botanical Chiaroscuro Still Life</h3>
+                                    <span class="gallery-client-note">Editorial Still Life Commission</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="food">
+                    <div class="gallery-item product-item" data-category="product" data-client="ShamimAra • E-Commerce Catalog Suite" data-year="2025" data-title="Cosmetics Suite on Pure White" data-index="6">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_28.webp" alt="Ready Burger Campaign" loading="lazy">
+                            <img src="images/gallery_59.webp" alt="Cosmetics Suite on Pure White" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Food</span>
-                                    <h3 class="gallery-title">Ready Burger Campaign</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Cosmetics Suite on Pure White</h3>
+                                    <span class="gallery-client-note">ShamimAra • E-Commerce Catalog Suite</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="food">
+                    <div class="gallery-item product-item" data-category="product" data-client="Editorial Fragrance Commission" data-year="2024" data-title="Fragrance Cocktail Study" data-index="7">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_18.webp" alt="Hot Dog Flat Lay" loading="lazy">
+                            <img src="images/gallery_32.webp" alt="Fragrance Cocktail Study" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Food</span>
-                                    <h3 class="gallery-title">Hot Dog Flat Lay</h3>
-                                </div>
-                                <div class="gallery-view-btn">View</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-item portrait-item" data-category="food">
-                        <div class="gallery-image-wrapper">
-                            <img src="images/gallery_23.webp" alt="Sausage Product Still Life" loading="lazy">
-                            <div class="gallery-overlay">
-                                <div class="gallery-info">
-                                    <span class="gallery-category">Food</span>
-                                    <h3 class="gallery-title">Sausage Product Still Life</h3>
-                                </div>
-                                <div class="gallery-view-btn">View</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-item portrait-item" data-category="food">
-                        <div class="gallery-image-wrapper">
-                            <img src="images/gallery_30.webp" alt="Sausage Campaign Poster" loading="lazy">
-                            <div class="gallery-overlay">
-                                <div class="gallery-info">
-                                    <span class="gallery-category">Food</span>
-                                    <h3 class="gallery-title">Sausage Campaign Poster</h3>
-                                </div>
-                                <div class="gallery-view-btn">View</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-item portrait-item" data-category="food">
-                        <div class="gallery-image-wrapper">
-                            <img src="images/gallery_24.webp" alt="Deli Package Poster" loading="lazy">
-                            <div class="gallery-overlay">
-                                <div class="gallery-info">
-                                    <span class="gallery-category">Food</span>
-                                    <h3 class="gallery-title">Deli Package Poster</h3>
-                                </div>
-                                <div class="gallery-view-btn">View</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-item portrait-item" data-category="food">
-                        <div class="gallery-image-wrapper">
-                            <img src="images/gallery_22.webp" alt="Kookoo Package Study" loading="lazy">
-                            <div class="gallery-overlay">
-                                <div class="gallery-info">
-                                    <span class="gallery-category">Food</span>
-                                    <h3 class="gallery-title">Kookoo Package Study</h3>
-                                </div>
-                                <div class="gallery-view-btn">View</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-item portrait-item" data-category="food">
-                        <div class="gallery-image-wrapper">
-                            <img src="images/gallery_27.webp" alt="Prepared Greens Poster" loading="lazy">
-                            <div class="gallery-overlay">
-                                <div class="gallery-info">
-                                    <span class="gallery-category">Food</span>
-                                    <h3 class="gallery-title">Prepared Greens Poster</h3>
-                                </div>
-                                <div class="gallery-view-btn">View</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-item portrait-item" data-category="food">
-                        <div class="gallery-image-wrapper">
-                            <img src="images/gallery_29.webp" alt="Green Package Display" loading="lazy">
-                            <div class="gallery-overlay">
-                                <div class="gallery-info">
-                                    <span class="gallery-category">Food</span>
-                                    <h3 class="gallery-title">Green Package Display</h3>
-                                </div>
-                                <div class="gallery-view-btn">View</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-item portrait-item" data-category="product">
-                        <div class="gallery-image-wrapper">
-                            <img src="images/gallery_32.webp" alt="Fragrance Cocktail Study" loading="lazy">
-                            <div class="gallery-overlay">
-                                <div class="gallery-info">
-                                    <span class="gallery-category">Product</span>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
                                     <h3 class="gallery-title">Fragrance Cocktail Study</h3>
+                                    <span class="gallery-client-note">Editorial Fragrance Commission</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="product">
+                    <div class="gallery-item product-item" data-category="product" data-client="Commercial Cosmetic Campaign" data-year="2025" data-title="Ruby Red Fragrance Study" data-index="8">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_41.webp" alt="Ruby Red Fragrance Study" loading="lazy">
+                            <img src="images/gallery_41.webp" alt="Ruby Red Fragrance Study" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Product</span>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
                                     <h3 class="gallery-title">Ruby Red Fragrance Study</h3>
+                                    <span class="gallery-client-note">Commercial Cosmetic Campaign</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="product">
+                    <div class="gallery-item product-item" data-category="product" data-client="Studio Still Life" data-year="2024" data-title="Perfume and Petals" data-index="9">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_31.webp" alt="Perfume and Petals" loading="lazy">
+                            <img src="images/gallery_31.webp" alt="Perfume and Petals" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Product</span>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
                                     <h3 class="gallery-title">Perfume and Petals</h3>
+                                    <span class="gallery-client-note">Studio Still Life</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="product">
+                    <div class="gallery-item product-item" data-category="product" data-client="Commercial Campaign" data-year="2025" data-title="Berry Scent Campaign" data-index="10">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_34.webp" alt="Berry Scent Campaign" loading="lazy">
+                            <img src="images/gallery_34.webp" alt="Berry Scent Campaign" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Product</span>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
                                     <h3 class="gallery-title">Berry Scent Campaign</h3>
+                                    <span class="gallery-client-note">Commercial Campaign</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="product">
+                    <div class="gallery-item product-item" data-category="product" data-client="Studio Packshot" data-year="2024" data-title="Perfume Flat Lay" data-index="11">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_35.webp" alt="Perfume Flat Lay" loading="lazy">
+                            <img src="images/gallery_35.webp" alt="Perfume Flat Lay" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Product</span>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
                                     <h3 class="gallery-title">Perfume Flat Lay</h3>
+                                    <span class="gallery-client-note">Studio Packshot</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="product">
+                    <div class="gallery-item product-item" data-category="product" data-client="Editorial Poster Commission" data-year="2025" data-title="Paris Scent Poster" data-index="12">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_42.webp" alt="Paris Scent Poster" loading="lazy">
+                            <img src="images/gallery_42.webp" alt="Paris Scent Poster" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Product</span>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
                                     <h3 class="gallery-title">Paris Scent Poster</h3>
+                                    <span class="gallery-client-note">Editorial Poster Commission</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="product">
+                    <div class="gallery-item product-item" data-category="product" data-client="Still Life Study" data-year="2024" data-title="Magenta Bottle Study" data-index="13">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_33.webp" alt="Magenta Bottle Study" loading="lazy">
+                            <img src="images/gallery_33.webp" alt="Magenta Bottle Study" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Product</span>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
                                     <h3 class="gallery-title">Magenta Bottle Study</h3>
+                                    <span class="gallery-client-note">Still Life Study</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="product">
+                    <div class="gallery-item product-item" data-category="product" data-client="Editorial Commission" data-year="2025" data-title="Mirror Scent Study" data-index="14">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_40.webp" alt="Mirror Scent Study" loading="lazy">
+                            <img src="images/gallery_40.webp" alt="Mirror Scent Study" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Product</span>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
                                     <h3 class="gallery-title">Mirror Scent Study</h3>
+                                    <span class="gallery-client-note">Editorial Commission</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="product">
+                    <div class="gallery-item product-item" data-category="product" data-client="Commercial Packaging" data-year="2024" data-title="Fragrance Shelf Study" data-index="15">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_37.webp" alt="Fragrance Shelf Study" loading="lazy">
+                            <img src="images/gallery_37.webp" alt="Fragrance Shelf Study" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Product</span>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
                                     <h3 class="gallery-title">Fragrance Shelf Study</h3>
+                                    <span class="gallery-client-note">Commercial Packaging</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="product">
+                    <div class="gallery-item product-item" data-category="product" data-client="Commercial Campaign" data-year="2025" data-title="Citrus Product Study" data-index="16">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_36.webp" alt="Citrus Product Study" loading="lazy">
+                            <img src="images/gallery_36.webp" alt="Citrus Product Study" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Product</span>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
                                     <h3 class="gallery-title">Citrus Product Study</h3>
+                                    <span class="gallery-client-note">Commercial Campaign</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="product">
+                    <div class="gallery-item product-item" data-category="product" data-client="Editorial Still Life" data-year="2024" data-title="Shadowed Product Set" data-index="17">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_38.webp" alt="Shadowed Product Set" loading="lazy">
+                            <img src="images/gallery_38.webp" alt="Shadowed Product Set" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Product</span>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
                                     <h3 class="gallery-title">Shadowed Product Set</h3>
+                                    <span class="gallery-client-note">Editorial Still Life</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="product">
+                    <div class="gallery-item product-item" data-category="product" data-client="Editorial Concept" data-year="2025" data-title="Gummy Scent Study" data-index="18">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_39.webp" alt="Gummy Scent Study" loading="lazy">
+                            <img src="images/gallery_39.webp" alt="Gummy Scent Study" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Product</span>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
                                     <h3 class="gallery-title">Gummy Scent Study</h3>
+                                    <span class="gallery-client-note">Editorial Concept</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="product">
+                    <div class="gallery-item product-item" data-category="product" data-client="Commercial Commission" data-year="2024" data-title="Botanical Product Study" data-index="19">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_44.webp" alt="Botanical Product Study" loading="lazy">
+                            <img src="images/gallery_44.webp" alt="Botanical Product Study" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Product</span>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
                                     <h3 class="gallery-title">Botanical Product Study</h3>
+                                    <span class="gallery-client-note">Commercial Commission</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="product">
+                    <div class="gallery-item product-item" data-category="product" data-client="Studio Packshot" data-year="2025" data-title="Bordeaux Bottle Study" data-index="20">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_43.webp" alt="Bordeaux Bottle Study" loading="lazy">
+                            <img src="images/gallery_43.webp" alt="Bordeaux Bottle Study" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Product</span>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
                                     <h3 class="gallery-title">Bordeaux Bottle Study</h3>
+                                    <span class="gallery-client-note">Studio Packshot</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="product">
+                    <div class="gallery-item product-item" data-category="product" data-client="Commercial Still Life" data-year="2024" data-title="Lowball Still Life" data-index="21">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_14.webp" alt="Lowball Still Life" loading="lazy">
+                            <img src="images/gallery_14.webp" alt="Lowball Still Life" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Product</span>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
                                     <h3 class="gallery-title">Lowball Still Life</h3>
+                                    <span class="gallery-client-note">Commercial Still Life</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="product">
+                    <div class="gallery-item product-item" data-category="product" data-client="Studio Packshot" data-year="2024" data-title="Warm Drape Study" data-index="22">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_15.webp" alt="Warm Drape Study" loading="lazy">
+                            <img src="images/gallery_15.webp" alt="Warm Drape Study" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Product</span>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Product & Commercial</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
                                     <h3 class="gallery-title">Warm Drape Study</h3>
+                                    <span class="gallery-client-note">Studio Packshot</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="editorial">
+                    <div class="gallery-item portrait-item" data-category="portrait" data-client="Parmida & Sairo • Editorial Beauty" data-year="2025" data-title="Amber Glow Beauty Editorial" data-index="23">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_1.webp" alt="Stained Glass Chapel" loading="lazy">
+                            <img src="images/gallery_50.webp" alt="Amber Glow Beauty Editorial" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Editorial</span>
-                                    <h3 class="gallery-title">Stained Glass Chapel</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Portrait & Fashion</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Amber Glow Beauty Editorial</h3>
+                                    <span class="gallery-client-note">Parmida & Sairo • Editorial Beauty</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="editorial">
+                    <div class="gallery-item portrait-item" data-category="portrait" data-client="Shamim Styling • Studio Editorial" data-year="2025" data-title="Emerald Drape Fashion Portrait" data-index="24">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_4.webp" alt="Mirror Hall Interior" loading="lazy">
+                            <img src="images/gallery_51.webp" alt="Emerald Drape Fashion Portrait" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Editorial</span>
-                                    <h3 class="gallery-title">Mirror Hall Interior</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Portrait & Fashion</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Emerald Drape Fashion Portrait</h3>
+                                    <span class="gallery-client-note">Shamim Styling • Studio Editorial</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="editorial">
+                    <div class="gallery-item portrait-item" data-category="portrait" data-client="Tehran Municipality • Majid Bahremand" data-year="2025" data-title="My Lovely Tehran — Ambassador Study" data-index="25">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_11.webp" alt="Curved Glass Atrium" loading="lazy">
+                            <img src="images/gallery_49.webp" alt="My Lovely Tehran — Ambassador Study" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Editorial</span>
-                                    <h3 class="gallery-title">Curved Glass Atrium</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Portrait & Fashion</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">My Lovely Tehran — Ambassador Study</h3>
+                                    <span class="gallery-client-note">Tehran Municipality • Majid Bahremand</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="editorial">
+                    <div class="gallery-item portrait-item" data-category="portrait" data-client="Fitness Editorial Study" data-year="2024" data-title="Athletic Portrait" data-index="26">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_2.webp" alt="Curved Concrete Facade" loading="lazy">
+                            <img src="images/gallery_16.webp" alt="Athletic Portrait" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Editorial</span>
-                                    <h3 class="gallery-title">Curved Concrete Facade</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Portrait & Fashion</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Athletic Portrait</h3>
+                                    <span class="gallery-client-note">Fitness Editorial Study</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="editorial">
+                    <div class="gallery-item portrait-item" data-category="portrait" data-client="Studio Athletic Commission" data-year="2024" data-title="Back Training Study" data-index="27">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_3.webp" alt="Tilework Facade Study" loading="lazy">
+                            <img src="images/gallery_17.webp" alt="Back Training Study" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Editorial</span>
-                                    <h3 class="gallery-title">Tilework Facade Study</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Portrait & Fashion</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Back Training Study</h3>
+                                    <span class="gallery-client-note">Studio Athletic Commission</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="editorial">
+                    <div class="gallery-item portrait-item" data-category="portrait" data-client="Studio Portrait Commission" data-year="2024" data-title="Seated Strength Study" data-index="28">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_13.webp" alt="Azadi Tower Geometry" loading="lazy">
+                            <img src="images/gallery_19.webp" alt="Seated Strength Study" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Editorial</span>
-                                    <h3 class="gallery-title">Azadi Tower Geometry</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Portrait & Fashion</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Seated Strength Study</h3>
+                                    <span class="gallery-client-note">Studio Portrait Commission</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="editorial">
+                    <div class="gallery-item portrait-item" data-category="portrait" data-client="Fitness Editorial Study" data-year="2024" data-title="Dumbbell Training Study" data-index="29">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_12.webp" alt="Tower in Fog" loading="lazy">
+                            <img src="images/gallery_20.webp" alt="Dumbbell Training Study" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Editorial</span>
-                                    <h3 class="gallery-title">Tower in Fog</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Portrait & Fashion</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Dumbbell Training Study</h3>
+                                    <span class="gallery-client-note">Fitness Editorial Study</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="editorial">
+                    <div class="gallery-item children-item" data-category="children" data-client="Private Commission • Fine-Art Studio" data-year="2025" data-title="Noora — Floral Studio Portrait" data-index="30">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_6.webp" alt="Side Street Morning" loading="lazy">
+                            <img src="images/gallery_52.webp" alt="Noora — Floral Studio Portrait" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Editorial</span>
-                                    <h3 class="gallery-title">Side Street Morning</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Children & Family</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Noora — Floral Studio Portrait</h3>
+                                    <span class="gallery-client-note">Private Commission • Fine-Art Studio</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="editorial">
+                    <div class="gallery-item children-item" data-category="children" data-client="Private Commission • Chiaroscuro Child Study" data-year="2025" data-title="Nocturne Toddler Study" data-index="31">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_7.webp" alt="Shadow Crosswalk" loading="lazy">
+                            <img src="images/gallery_53.webp" alt="Nocturne Toddler Study" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Editorial</span>
-                                    <h3 class="gallery-title">Shadow Crosswalk</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Children & Family</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Nocturne Toddler Study</h3>
+                                    <span class="gallery-client-note">Private Commission • Chiaroscuro Child Study</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="editorial">
+                    <div class="gallery-item children-item" data-category="children" data-client="Private Commission • Studio Birthday Session" data-year="2025" data-title="Celebration Studio Story" data-index="32">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_5.webp" alt="Metro Platform Lines" loading="lazy">
+                            <img src="images/gallery_54.webp" alt="Celebration Studio Story" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Editorial</span>
-                                    <h3 class="gallery-title">Metro Platform Lines</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Children & Family</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Celebration Studio Story</h3>
+                                    <span class="gallery-client-note">Private Commission • Studio Birthday Session</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="editorial">
+                    <div class="gallery-item food-item" data-category="food" data-client="Commercial Food Commission" data-year="2025" data-title="Artisan Burger & Truffle Spread" data-index="33">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_8.webp" alt="Observation Wheel Study" loading="lazy">
+                            <img src="images/gallery_57.webp" alt="Artisan Burger & Truffle Spread" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Editorial</span>
-                                    <h3 class="gallery-title">Observation Wheel Study</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Food & Beverage</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Artisan Burger & Truffle Spread</h3>
+                                    <span class="gallery-client-note">Commercial Food Commission</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="editorial">
+                    <div class="gallery-item food-item" data-category="food" data-client="Station Burger • Brand Campaign" data-year="2025" data-title="Station Burger Poster" data-index="34">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_9.webp" alt="Night Wheel Detail" loading="lazy">
+                            <img src="images/gallery_25.webp" alt="Station Burger Poster" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Editorial</span>
-                                    <h3 class="gallery-title">Night Wheel Detail</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Food & Beverage</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Station Burger Poster</h3>
+                                    <span class="gallery-client-note">Station Burger • Brand Campaign</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="editorial">
+                    <div class="gallery-item food-item" data-category="food" data-client="Brand Advertising Campaign" data-year="2025" data-title="Boxed Burger Campaign" data-index="35">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_10.webp" alt="Neon Wheel Lights" loading="lazy">
+                            <img src="images/gallery_26.webp" alt="Boxed Burger Campaign" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Editorial</span>
-                                    <h3 class="gallery-title">Neon Wheel Lights</h3>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Food & Beverage</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Boxed Burger Campaign</h3>
+                                    <span class="gallery-client-note">Brand Advertising Campaign</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="food">
+                    <div class="gallery-item food-item" data-category="food" data-client="Commercial Packaging" data-year="2025" data-title="Ready Burger Campaign" data-index="36">
                         <div class="gallery-image-wrapper">
-                            <img src="images/gallery_21.webp" alt="Transit Food Campaign Poster" loading="lazy">
+                            <img src="images/gallery_28.webp" alt="Ready Burger Campaign" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Food</span>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Food & Beverage</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Ready Burger Campaign</h3>
+                                    <span class="gallery-client-note">Commercial Packaging</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item food-item" data-category="food" data-client="Studio Food Styling" data-year="2024" data-title="Hot Dog Flat Lay" data-index="37">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_18.webp" alt="Hot Dog Flat Lay" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Food & Beverage</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Hot Dog Flat Lay</h3>
+                                    <span class="gallery-client-note">Studio Food Styling</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item food-item" data-category="food" data-client="Commercial Packaging" data-year="2024" data-title="Sausage Product Still Life" data-index="38">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_23.webp" alt="Sausage Product Still Life" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Food & Beverage</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Sausage Product Still Life</h3>
+                                    <span class="gallery-client-note">Commercial Packaging</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item food-item" data-category="food" data-client="Billboard Campaign Poster" data-year="2025" data-title="Sausage Campaign Poster" data-index="39">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_30.webp" alt="Sausage Campaign Poster" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Food & Beverage</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Sausage Campaign Poster</h3>
+                                    <span class="gallery-client-note">Billboard Campaign Poster</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item food-item" data-category="food" data-client="Commercial Food Packshot" data-year="2024" data-title="Deli Package Poster" data-index="40">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_24.webp" alt="Deli Package Poster" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Food & Beverage</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Deli Package Poster</h3>
+                                    <span class="gallery-client-note">Commercial Food Packshot</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item food-item" data-category="food" data-client="Commercial Packaging" data-year="2024" data-title="Kookoo Package Study" data-index="41">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_22.webp" alt="Kookoo Package Study" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Food & Beverage</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Kookoo Package Study</h3>
+                                    <span class="gallery-client-note">Commercial Packaging</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item food-item" data-category="food" data-client="Commercial Food Campaign" data-year="2025" data-title="Prepared Greens Poster" data-index="42">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_27.webp" alt="Prepared Greens Poster" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Food & Beverage</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Prepared Greens Poster</h3>
+                                    <span class="gallery-client-note">Commercial Food Campaign</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item food-item" data-category="food" data-client="Commercial Packaging" data-year="2024" data-title="Green Package Display" data-index="43">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_29.webp" alt="Green Package Display" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Food & Beverage</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Green Package Display</h3>
+                                    <span class="gallery-client-note">Commercial Packaging</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item food-item" data-category="food" data-client="Station Food Poster" data-year="2025" data-title="Transit Food Campaign Poster" data-index="44">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_21.webp" alt="Transit Food Campaign Poster" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Food & Beverage</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
                                     <h3 class="gallery-title">Transit Food Campaign Poster</h3>
+                                    <span class="gallery-client-note">Station Food Poster</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item portrait-item" data-category="editorial">
+                    <div class="gallery-item editorial-item" data-category="editorial" data-client="Kaveh Glass Factory Documentary" data-year="2025" data-title="Molten Glass Kiln & Craft" data-index="45">
                         <div class="gallery-image-wrapper">
-                            <img src="images/hero_bg.webp" alt="Misty Forest Path" loading="lazy">
+                            <img src="images/gallery_55.webp" alt="Molten Glass Kiln & Craft" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <span class="gallery-category">Editorial</span>
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Editorial & Documentary</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Molten Glass Kiln & Craft</h3>
+                                    <span class="gallery-client-note">Kaveh Glass Factory Documentary</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item editorial-item" data-category="editorial" data-client="Tehran Transit Narrative Series" data-year="2025" data-title="Transit Story — Morning Train" data-index="46">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_56.webp" alt="Transit Story — Morning Train" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Editorial & Documentary</span>
+                                        <span class="gallery-year">2025</span>
+                                    </div>
+                                    <h3 class="gallery-title">Transit Story — Morning Train</h3>
+                                    <span class="gallery-client-note">Tehran Transit Narrative Series</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item editorial-item" data-category="editorial" data-client="Architectural Light Study" data-year="2024" data-title="Stained Glass Chapel" data-index="47">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_1.webp" alt="Stained Glass Chapel" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Editorial & Documentary</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Stained Glass Chapel</h3>
+                                    <span class="gallery-client-note">Architectural Light Study</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item editorial-item" data-category="editorial" data-client="Heritage Interior Study" data-year="2024" data-title="Mirror Hall Interior" data-index="48">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_4.webp" alt="Mirror Hall Interior" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Editorial & Documentary</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Mirror Hall Interior</h3>
+                                    <span class="gallery-client-note">Heritage Interior Study</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item editorial-item" data-category="editorial" data-client="Modern Architecture Series" data-year="2024" data-title="Curved Glass Atrium" data-index="49">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_11.webp" alt="Curved Glass Atrium" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Editorial & Documentary</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Curved Glass Atrium</h3>
+                                    <span class="gallery-client-note">Modern Architecture Series</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item editorial-item" data-category="editorial" data-client="Urban Geometry Study" data-year="2024" data-title="Curved Concrete Facade" data-index="50">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_2.webp" alt="Curved Concrete Facade" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Editorial & Documentary</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Curved Concrete Facade</h3>
+                                    <span class="gallery-client-note">Urban Geometry Study</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item editorial-item" data-category="editorial" data-client="Persian Heritage Detail" data-year="2024" data-title="Tilework Facade Study" data-index="51">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_3.webp" alt="Tilework Facade Study" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Editorial & Documentary</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Tilework Facade Study</h3>
+                                    <span class="gallery-client-note">Persian Heritage Detail</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item editorial-item" data-category="editorial" data-client="Tehran Landmark Commission" data-year="2024" data-title="Azadi Tower Geometry" data-index="52">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_13.webp" alt="Azadi Tower Geometry" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Editorial & Documentary</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Azadi Tower Geometry</h3>
+                                    <span class="gallery-client-note">Tehran Landmark Commission</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item editorial-item" data-category="editorial" data-client="Atmospheric Tehran Landscape" data-year="2024" data-title="Tower in Fog" data-index="53">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_12.webp" alt="Tower in Fog" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Editorial & Documentary</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Tower in Fog</h3>
+                                    <span class="gallery-client-note">Atmospheric Tehran Landscape</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item editorial-item" data-category="editorial" data-client="Urban Street Narrative" data-year="2024" data-title="Side Street Morning" data-index="54">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_6.webp" alt="Side Street Morning" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Editorial & Documentary</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Side Street Morning</h3>
+                                    <span class="gallery-client-note">Urban Street Narrative</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item editorial-item" data-category="editorial" data-client="Street Composition" data-year="2024" data-title="Shadow Crosswalk" data-index="55">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_7.webp" alt="Shadow Crosswalk" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Editorial & Documentary</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Shadow Crosswalk</h3>
+                                    <span class="gallery-client-note">Street Composition</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item editorial-item" data-category="editorial" data-client="Transit Architecture" data-year="2024" data-title="Metro Platform Lines" data-index="56">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_5.webp" alt="Metro Platform Lines" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Editorial & Documentary</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Metro Platform Lines</h3>
+                                    <span class="gallery-client-note">Transit Architecture</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item editorial-item" data-category="editorial" data-client="Cityscape Study" data-year="2024" data-title="Observation Wheel Study" data-index="57">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_8.webp" alt="Observation Wheel Study" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Editorial & Documentary</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Observation Wheel Study</h3>
+                                    <span class="gallery-client-note">Cityscape Study</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item editorial-item" data-category="editorial" data-client="Nocturne City Light" data-year="2024" data-title="Night Wheel Detail" data-index="58">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_9.webp" alt="Night Wheel Detail" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Editorial & Documentary</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Night Wheel Detail</h3>
+                                    <span class="gallery-client-note">Nocturne City Light</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item editorial-item" data-category="editorial" data-client="Urban Nocturne Series" data-year="2024" data-title="Neon Wheel Lights" data-index="59">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/gallery_10.webp" alt="Neon Wheel Lights" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Editorial & Documentary</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
+                                    <h3 class="gallery-title">Neon Wheel Lights</h3>
+                                    <span class="gallery-client-note">Urban Nocturne Series</span>
+                                </div>
+                                <div class="gallery-view-btn">View</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item editorial-item" data-category="editorial" data-client="Landscape Fine Art" data-year="2024" data-title="Misty Forest Path" data-index="60">
+                        <div class="gallery-image-wrapper">
+                            <img src="images/hero_bg.webp" alt="Misty Forest Path" loading="lazy" decoding="async">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <div class="gallery-meta-row">
+                                        <span class="gallery-category">Editorial & Documentary</span>
+                                        <span class="gallery-year">2024</span>
+                                    </div>
                                     <h3 class="gallery-title">Misty Forest Path</h3>
+                                    <span class="gallery-client-note">Landscape Fine Art</span>
                                 </div>
                                 <div class="gallery-view-btn">View</div>
                             </div>
@@ -663,6 +1148,7 @@
                 <div class="gallery-actions">
                     <button class="btn btn-secondary" id="loadMoreGallery" type="button">Load More Work</button>
                 </div>
+            </div>
         </section>
 
         <!-- SERVICES -->
@@ -670,84 +1156,141 @@
             <div class="container">
                 <div class="section-intro">
                     <h2 class="section-title">Services</h2>
-                    <p class="section-subtitle">Every session is tailored to tell your story — from intimate portraits to full-day editorial production.</p>
+                    <p class="section-subtitle">Every project is custom-crafted to elevate your visual identity — from enterprise advertising campaigns to intimate studio portraiture.</p>
                 </div>
                 <div class="services-grid">
 
                     <div class="service-card reveal-on-scroll">
                         <div class="service-icon">◈</div>
-                        <h3>Portrait Sessions</h3>
-                        <p>Personal, editorial, and fashion portraits shot on location or in studio. Includes pre-shoot
-                            consultation, 2-hour session, and a curated gallery of 30+ edited images.</p>
+                        <h3>Commercial &amp; Brand Campaigns</h3>
+                        <p>Enterprise photography for brands, manufacturers, and advertising agencies. High-resolution 50MP+ billboard deliverables, product packshots, and art-directed brand storytelling.</p>
                         <ul class="service-includes">
-                            <li>Pre-shoot style consultation</li>
-                            <li>30+ fully edited images</li>
-                            <li>Private online gallery</li>
-                            <li>Print-ready files included</li>
+                            <li>Pre-production &amp; creative direction</li>
+                            <li>Full billboard &amp; print resolution files</li>
+                            <li>Commercial usage &amp; advertising license</li>
+                            <li>Trusted by Steel Alborz, Kaveh Glass &amp; ShamimAra</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary">Request Commercial Quote</a>
+                    </div>
+
+                    <div class="service-card reveal-on-scroll">
+                        <div class="service-icon">◉</div>
+                        <h3>Portrait &amp; Fashion Editorial</h3>
+                        <p>Cinematic portraits for artists, executives, models, and fashion labels. Available on location across Tehran or in our private studio with bespoke lighting.</p>
+                        <ul class="service-includes">
+                            <li>Styling &amp; moodboard consultation</li>
+                            <li>2 to 4-hour dedicated studio session</li>
+                            <li>30+ master retouched high-res images</li>
+                            <li>Private high-speed proofing gallery</li>
                         </ul>
                         <a href="#contact" class="btn btn-secondary">Book a Session</a>
                     </div>
 
                     <div class="service-card reveal-on-scroll">
-                        <div class="service-icon">◉</div>
-                        <h3>Events & Coverage</h3>
-                        <p>Full-day or half-day coverage of corporate events, exhibitions, launches, and gatherings.
-                            Discreet, documentary style with cinematic results.</p>
+                        <div class="service-icon">◇</div>
+                        <h3>Food &amp; Culinary Production</h3>
+                        <p>Mouth-watering culinary and beverage photography for restaurants, artisan brands, and food packaging. Dynamic composition with high textural appeal.</p>
                         <ul class="service-includes">
-                            <li>Half or full day coverage</li>
-                            <li>100+ edited images</li>
-                            <li>48-hour turnaround for highlights</li>
-                            <li>Commercial usage license</li>
+                            <li>On-site restaurant or studio lighting</li>
+                            <li>Food styling &amp; prop coordination</li>
+                            <li>Print-ready menu &amp; campaign assets</li>
+                            <li>Social media &amp; delivery app crop suites</li>
                         </ul>
-                        <a href="#contact" class="btn btn-secondary">Check Availability</a>
+                        <a href="#contact" class="btn btn-secondary">Book Culinary Shoot</a>
                     </div>
 
                     <div class="service-card reveal-on-scroll">
-                        <div class="service-icon">◇</div>
-                        <h3>Editorial & Brand</h3>
-                        <p>High-impact photography for brands, publications, and creative projects. Art direction
-                            available. Perfect for lookbooks, campaigns, and social content.</p>
+                        <div class="service-icon">✦</div>
+                        <h3>Children &amp; Fine-Art Family</h3>
+                        <p>Timeless, emotional studio and environmental portraits for children and families. Gentle pacing, natural expressions, and fine-art lighting.</p>
                         <ul class="service-includes">
-                            <li>Creative direction included</li>
-                            <li>Full-day production shoot</li>
-                            <li>50+ edited, brand-ready images</li>
-                            <li>Licensing options available</li>
+                            <li>Comfort-first, child-friendly studio pace</li>
+                            <li>Curated wardrobe &amp; props assistance</li>
+                            <li>20+ heirloom retouched fine-art portraits</li>
+                            <li>Archival print-ready master files</li>
                         </ul>
-                        <a href="#contact" class="btn btn-secondary">Get a Quote</a>
+                        <a href="#contact" class="btn btn-secondary">Book Family Session</a>
                     </div>
 
                 </div>
             </div>
         </section>
 
+        <!-- FAQ SECTION -->
+        <section id="faq" class="section">
+            <div class="container">
+                <div class="section-intro">
+                    <h2 class="section-title">Frequently Asked</h2>
+                    <p class="section-subtitle">Key information on booking, timelines, licensing, and production.</p>
+                </div>
+                <div class="faq-accordion">
+                    <details class="faq-item reveal-on-scroll">
+                        <summary class="faq-question">
+                            <span>What is your typical turnaround time for deliverables?</span>
+                            <span class="faq-icon">+</span>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>For portrait and culinary sessions, a preview gallery of highlights is ready within <strong>48 hours</strong>. The complete suite of master-retouched images is delivered within <strong>7 to 10 business days</strong>. Commercial and billboard campaigns follow custom expedited schedules upon agreement.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item reveal-on-scroll">
+                        <summary class="faq-question">
+                            <span>Do you shoot on-location or in-studio in Tehran?</span>
+                            <span class="faq-icon">+</span>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Both. We maintain a fully equipped private studio in Tehran for controlled lighting, product packshots, and portraits. We also bring mobile high-end studio lighting on-location throughout Iran for architectural, industrial, culinary, and brand campaigns.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item reveal-on-scroll">
+                        <summary class="faq-question">
+                            <span>How are commercial licensing and billboard rights handled?</span>
+                            <span class="faq-icon">+</span>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>All commercial commissions include full digital and print usage rights for web, social media, and marketing collateral. Comprehensive billboard, out-of-home (OOH), and nationwide advertising licenses are available and clearly defined in your agreement.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item reveal-on-scroll">
+                        <summary class="faq-question">
+                            <span>How do we prepare for creative direction and styling?</span>
+                            <span class="faq-icon">+</span>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Every booking includes a pre-production consultation. We will develop a collaborative moodboard, discuss lighting concepts, recommend wardrobe or props, and align on exact deliverable formats to ensure a seamless shoot day.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
         <!-- TESTIMONIALS -->
-        <section id="testimonials" class="section">
+        <section id="testimonials" class="section section-dark">
             <div class="container">
                 <div class="section-intro">
                     <h2 class="section-title">Client Stories</h2>
-                    <p class="section-subtitle">Words from collaborators and clients who trusted the lens.</p>
+                    <p class="section-subtitle">Words from collaborators and brand directors who trusted the lens.</p>
                 </div>
                 <div class="testimonials-grid">
 
                     <div class="testimonial-card reveal-on-scroll">
                         <div class="stars">★★★★★</div>
-                        <blockquote>"Sara has an extraordinary eye. She captured moments I didn't even know were
-                            happening. The photos from our event were breathtaking — every single one."</blockquote>
+                        <blockquote>"Sara has an extraordinary eye for texture and light. Her work on our national billboard and product campaign exceeded every expectation — the precision was flawless."</blockquote>
                         <cite>— Neda R., Brand Director</cite>
                     </div>
 
                     <div class="testimonial-card reveal-on-scroll">
                         <div class="stars">★★★★★</div>
-                        <blockquote>"My portrait session with Sara was such a comfortable experience. She knew exactly
-                            how to bring out my best angles and the final images exceeded every expectation."
-                        </blockquote>
-                        <cite>— Arman K., Model</cite>
+                        <blockquote>"My portrait session with Sara was such a comfortable, inspiring experience. She directed natural expressions effortlessly and the final editorial grades were stunning."</blockquote>
+                        <cite>— Arman K., Model &amp; Creative</cite>
                     </div>
 
                     <div class="testimonial-card reveal-on-scroll">
                         <div class="stars">★★★★★</div>
-                        <blockquote>"We hired Sara for our product campaign and the results were stunning. Professional,
-                            creative, and incredibly easy to work with. We'll definitely be booking again."</blockquote>
+                        <blockquote>"We hired Sara for our luxury fragrance launch and retail campaign. Creative, punctual, and delivered billboard-ready assets ahead of schedule. We will definitely be booking again."</blockquote>
                         <cite>— Shirin M., Creative Director</cite>
                     </div>
 
@@ -756,20 +1299,36 @@
         </section>
 
         <!-- ABOUT -->
-        <section id="about" class="section section-dark">
+        <section id="about" class="section">
             <div class="container about-container">
                 <div class="about-image reveal-on-scroll">
                     <img src="images/sara.png" alt="Sara holding a camera" loading="lazy">
                 </div>
                 <div class="about-text">
-                    <p class="label-caps">About</p>
+                    <p class="label-caps">About the Artist</p>
                     <h2 class="section-title">Hi, I'm Sara Hosseini.</h2>
-                    <p>I am a freelance photographer with a passion for finding beauty in the everyday. My work spans
-                        striking portraiture, mouth-watering food, and refined product photography. I believe in a cinematic
-                        approach to visual storytelling.</p>
-                    <p>With over 7 years of experience, I've developed a signature style that focuses on rich color,
-                        dynamic composition, and evoking real emotion — whether I'm working in a quiet studio or on
-                        location in Tehran.</p>
+                    <p>I am a commercial and fine-art photographer based in Tehran. With over 7 years behind the lens, my work spans national advertising campaigns, refined product and fragrance still lifes, expressive portraits, and cinematic editorial stories.</p>
+                    <p>I believe every image should carry intentional weight — whether capturing a high-precision commercial cooktop for Steel Alborz, molten glass in a factory furnace, or a quiet chiaroscuro child study. My signature style is rooted in rich tonal depth, nuanced lighting, and authentic emotion.</p>
+                    
+                    <div class="about-stats-grid">
+                        <div class="about-stat-item">
+                            <span class="stat-num">7+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="about-stat-item">
+                            <span class="stat-num">120+</span>
+                            <span class="stat-label">Commissions</span>
+                        </div>
+                        <div class="about-stat-item">
+                            <span class="stat-num">6</span>
+                            <span class="stat-label">National Campaigns</span>
+                        </div>
+                        <div class="about-stat-item">
+                            <span class="stat-num">100%</span>
+                            <span class="stat-label">Master Delivery</span>
+                        </div>
+                    </div>
+
                     <div class="about-actions">
                         <a href="#work" class="btn btn-primary">View Portfolio</a>
                         <a href="#contact" class="btn btn-text">Get in Touch →</a>
@@ -781,52 +1340,62 @@
     </main>
 
     <!-- CONTACT / FOOTER -->
-    <footer id="contact" class="section">
+    <footer id="contact" class="section section-dark">
         <div class="container footer-container">
             <div class="footer-cta">
-                <p class="label-caps">Contact</p>
-                <h2>Let's create something together.</h2>
-                <p class="footer-sub">Fill out the form below or reach me directly at <a
-                        href="mailto:hello@saraportfolio.com">hello@saraportfolio.com</a></p>
-                <div class="contact-details">
-                    <span>Based in Tehran</span>
-                    <span>Portrait, food, product &amp; editorial commissions</span>
-                    <a href="https://wa.me/989128449396" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                    <a href="https://www.linkedin.com/in/sara-hosseini-35735a85" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a href="https://www.instagram.com/sara__photoz/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <div class="footer-cta-text">
+                    <p class="label-caps">Inquire &amp; Book</p>
+                    <h2>Let's create something memorable together.</h2>
+                    <p class="footer-sub">Fill out the form below or reach me directly at <a
+                            href="mailto:hello@saraportfolio.com">hello@saraportfolio.com</a></p>
+                    <div class="contact-details">
+                        <span>Based in Tehran, Iran</span>
+                        <span>Commercial, Editorial &amp; Studio Bookings</span>
+                        <div class="contact-pill-links">
+                            <a href="https://wa.me/989128449396" target="_blank" rel="noopener noreferrer" class="contact-pill-link">WhatsApp Direct</a>
+                            <a href="https://www.linkedin.com/in/sara-hosseini-35735a85" target="_blank" rel="noopener noreferrer" class="contact-pill-link">LinkedIn</a>
+                            <a href="https://www.instagram.com/sara__photoz/" target="_blank" rel="noopener noreferrer" class="contact-pill-link">Instagram</a>
+                        </div>
+                    </div>
                 </div>
 
                 <form class="contact-form" id="contactForm" novalidate>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                            <label for="name">Full Name <span class="req">*</span></label>
+                            <input type="text" id="name" name="name" placeholder="Your name or company" required aria-describedby="nameError">
+                            <span id="nameError" class="error-message" role="alert"></span>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                            <label for="email">Email Address <span class="req">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" required aria-describedby="emailError">
+                            <span id="emailError" class="error-message" role="alert"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="session">Session Type</label>
+                        <label for="session">Project / Commission Type</label>
                         <select id="session" name="session">
                             <option value="">Select a service...</option>
-                            <option value="portrait">Portrait Session</option>
-                            <option value="food">Food Photography</option>
-                            <option value="product">Product Photography</option>
-                            <option value="children">Children Photography</option>
-                            <option value="events">Events &amp; Coverage</option>
-                            <option value="editorial">Editorial &amp; Brand</option>
-                            <option value="other">Other / Just Saying Hi</option>
+                            <option value="commercial">Commercial, Brand &amp; Billboard Campaign</option>
+                            <option value="product">Product &amp; E-Commerce Packshots</option>
+                            <option value="portrait">Portrait &amp; Fashion Editorial</option>
+                            <option value="food">Food &amp; Culinary Photography</option>
+                            <option value="children">Children &amp; Family Fine Art</option>
+                            <option value="editorial">Editorial &amp; Documentary</option>
+                            <option value="other">Other / Custom Collaboration</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="message">Message</label>
+                        <label for="message">Project Details <span class="req">*</span></label>
                         <textarea id="message" name="message" rows="5"
-                            placeholder="Tell me about your project, event date, or just say hello..."
-                            required></textarea>
+                            placeholder="Tell me about your project, target dates, scope of deliverables, or just say hello..."
+                            required aria-describedby="msgError"></textarea>
+                        <span id="msgError" class="error-message" role="alert"></span>
                     </div>
-                    <button type="submit" class="btn btn-submit btn-primary">Send Message</button>
+                    <button type="submit" class="btn btn-submit btn-primary" id="submitBtn">
+                        <span class="btn-text-default">Send Inquiry</span>
+                        <span class="btn-text-loading" style="display:none;">Sending...</span>
+                    </button>
                     <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
                 </form>
             </div>
@@ -842,8 +1411,8 @@
         </div>
     </footer>
 
-    <!-- Lightbox Modal -->
-    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image gallery lightbox">
+    <!-- Interactive Lightbox Modal -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image gallery lightbox" tabindex="-1">
         <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">&times;</button>
         <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">&#10229;</button>
         <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">&#10230;</button>
@@ -853,14 +1422,18 @@
                 <img src="" alt="" id="lightboxImgNext" class="lightbox-img">
             </div>
             <div class="lightbox-caption">
-                <span class="lightbox-category" id="lightboxCategory">Category</span>
+                <div class="lightbox-meta-header">
+                    <span class="lightbox-category" id="lightboxCategory">Category</span>
+                    <span class="lightbox-counter" id="lightboxCounter">01 / 61</span>
+                </div>
                 <h3 class="lightbox-title" id="lightboxTitle">Title</h3>
+                <p class="lightbox-client-badge" id="lightboxClientBadge"></p>
             </div>
         </div>
-        <p class="lightbox-hint">Click outside or press Esc to close</p>
+        <p class="lightbox-hint">Click outside or press Esc to close • Use ← → arrows to navigate</p>
     </div>
 
-    <script src="script.js?v=8"></script>
+    <script src="script.js?v=20"></script>
 </body>
 
 </html>

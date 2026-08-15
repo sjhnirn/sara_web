@@ -7,8 +7,19 @@
 ehthumbs.db
 Thumbs.db
 
-# Virtual environments
+# Virtual environments & Dependencies
 venv/
 .venv/
 ENV/
 env/
+node_modules/
+
+# Non-production & non-rendering project folders
+audit/
+inbox/
+sara-video-ad/
+scratch/
+
+# IDE & Editor configs
+.vscode/
+.idea/
