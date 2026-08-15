@@ -20,10 +20,11 @@
     <meta property="twitter:description" content="Sara Hosseini — commercial, portrait, food, product, and editorial photographer in Tehran.">
     <meta property="twitter:image" content="images/hero_spoon_still_life.webp">
 
+    <!-- High-Fashion Editorial Google Fonts: Cormorant Garamond, Playfair Display, Plus Jakarta Sans & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=21">
 </head>
 
 <body>
@@ -68,37 +69,65 @@
         </ul>
     </div>
 
-    <!-- HERO -->
-    <header id="hero">
+    <!-- HERO: High-Fashion Asymmetric 60/40 Storytelling Layout -->
+    <header id="hero" class="hero-section">
         <div class="hero-bg" aria-hidden="true"></div>
         <div class="hero-grid-container">
+            <!-- 60% Left Narrative Column -->
             <div class="hero-left-col">
-                <p class="hero-kicker label-caps fade-in-up">Tehran — Commercial &amp; Fine-Art Photography</p>
-                <h1 class="reveal-text">Sara<br> Hosseini.</h1>
+                <!-- Edition Kicker Stamp -->
+                <div class="hero-edition-stamp fade-in-up">
+                    <span class="stamp-prefix">01 //</span>
+                    <span class="stamp-text">TEHRAN ARCHIVES — COMMERCIAL &amp; FINE-ART</span>
+                </div>
+
+                <!-- High-Contrast Editorial Serif Headline -->
+                <h1 class="hero-title reveal-text">
+                    Sara<br>
+                    <span class="hero-title-italic">Hosseini.</span>
+                </h1>
+
+                <!-- Narrative Lead Block -->
                 <div class="hero-desc-block fade-in-up">
-                    <p class="hero-lead">Commercial photographer and visual artist. Advertising campaigns, striking portraiture, luxury product still life, and cinematic editorial narratives.</p>
+                    <p class="hero-lead">
+                        Commercial photographer &amp; visual artist crafting high-fashion campaigns, luxury still life, striking portraiture, and cinematic editorial narratives for global brands.
+                    </p>
                     <div class="hero-btns">
-                        <a href="#work" class="btn btn-primary">Explore Selected Works</a>
-                        <a href="#contact" class="btn btn-secondary">Book a Session</a>
+                        <a href="#work" class="btn btn-primary">
+                            <span>Explore Selected Works</span>
+                            <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span>Book a Session</span>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Interactive Hero Signature Switcher -->
+                <!-- Interactive Signature Switcher -->
                 <div class="hero-theme-switcher fade-in-up" role="region" aria-label="Featured showcase themes">
-                    <span class="switcher-label">Featured Works:</span>
+                    <span class="switcher-label">Curated Series Selection</span>
                     <div class="switcher-buttons">
-                        <button class="hero-theme-btn active" data-theme="0" data-src="images/hero_spoon_still_life.webp" data-alt="Still life with striped fabric and wooden spoon" data-kicker="Still Life &amp; Objects">01 Still Life</button>
-                        <button class="hero-theme-btn" data-theme="1" data-src="images/hero_cocktail.webp" data-alt="Emerald luxury perfume bottle with glassware" data-kicker="Luxury Fragrance">02 Fragrance Concept</button>
-                        <button class="hero-theme-btn" data-theme="2" data-src="images/hero_portrait.webp" data-alt="Warm amber studio beauty portrait" data-kicker="Editorial Beauty">03 Fashion &amp; Beauty</button>
+                        <button class="hero-theme-btn active" data-theme="0" data-src="images/hero_spoon_still_life.webp" data-alt="Still life with striped fabric and wooden spoon" data-kicker="Still Life &amp; Objects">
+                            <span class="theme-num">01</span> Still Life
+                        </button>
+                        <button class="hero-theme-btn" data-theme="1" data-src="images/hero_cocktail.webp" data-alt="Emerald luxury perfume bottle with glassware" data-kicker="Luxury Fragrance">
+                            <span class="theme-num">02</span> Fragrance Concept
+                        </button>
+                        <button class="hero-theme-btn" data-theme="2" data-src="images/hero_portrait.webp" data-alt="Warm amber studio beauty portrait" data-kicker="Editorial Beauty">
+                            <span class="theme-num">03</span> Fashion &amp; Beauty
+                        </button>
                     </div>
                 </div>
             </div>
-            
+
+            <!-- 40% Right Gilded Showcase Column -->
             <div class="hero-right-col">
                 <div class="hero-image-panel fade-in-up" id="heroImageContainer">
+                    <div class="hero-frame-gilded" aria-hidden="true"></div>
                     <div class="hero-image-wrapper">
                         <img id="heroMainImage" src="images/hero_spoon_still_life.webp" alt="Neutral tabletop still life with striped fabric, dried flowers, and a wooden spoon" loading="eager" fetchpriority="high" decoding="async">
                         <div class="hero-image-badge" id="heroImageCaption">
+                            <span class="badge-dot" aria-hidden="true"></span>
                             <span class="badge-cat" id="heroBadgeCat">Still Life &amp; Objects</span>
                         </div>
                     </div>
@@ -110,39 +139,39 @@
     <main>
 
         <!-- BRAND & COMMERCIAL CLIENTS TRUST BAR -->
-        <section id="clients" class="section-clients">
+        <section id="clients" class="section-clients" aria-label="Selected Commercial Client Commissions">
             <div class="container">
                 <div class="clients-header">
-                    <p class="label-caps">Trusted by Leading Brands &amp; Commercial Campaigns</p>
+                    <p class="label-caps">Trusted Commercial Commissions &amp; National Campaigns</p>
                 </div>
                 <div class="clients-grid">
-                    <div class="client-item">
-                        <span class="client-name">STEEL ALBORZ</span>
+                    <div class="client-item" tabindex="0">
+                        <span class="client-name">Steel Alborz</span>
                         <span class="client-type">Kitchen Appliances &amp; Billboards</span>
                     </div>
-                    <div class="client-divider">/</div>
-                    <div class="client-item">
-                        <span class="client-name">KAVEH GLASS</span>
+                    <div class="client-divider" aria-hidden="true">/</div>
+                    <div class="client-item" tabindex="0">
+                        <span class="client-name">Kaveh Glass</span>
                         <span class="client-type">Glassware &amp; Factory Documentary</span>
                     </div>
-                    <div class="client-divider">/</div>
-                    <div class="client-item">
-                        <span class="client-name">TAKDANE</span>
+                    <div class="client-divider" aria-hidden="true">/</div>
+                    <div class="client-item" tabindex="0">
+                        <span class="client-name">Takdane</span>
                         <span class="client-type">Food &amp; Beverage Advertising</span>
                     </div>
-                    <div class="client-divider">/</div>
-                    <div class="client-item">
-                        <span class="client-name">SHAMIM ARA</span>
+                    <div class="client-divider" aria-hidden="true">/</div>
+                    <div class="client-item" tabindex="0">
+                        <span class="client-name">ShamimAra</span>
                         <span class="client-type">Perfume &amp; Retail Malls</span>
                     </div>
-                    <div class="client-divider">/</div>
-                    <div class="client-item">
-                        <span class="client-name">MY LOVELY TEHRAN</span>
+                    <div class="client-divider" aria-hidden="true">/</div>
+                    <div class="client-item" tabindex="0">
+                        <span class="client-name">My Lovely Tehran</span>
                         <span class="client-type">Brand Ambassador Campaign</span>
                     </div>
-                    <div class="client-divider">/</div>
-                    <div class="client-item">
-                        <span class="client-name">ROJA COSMETICS</span>
+                    <div class="client-divider" aria-hidden="true">/</div>
+                    <div class="client-item" tabindex="0">
+                        <span class="client-name">Roja Cosmetics</span>
                         <span class="client-type">Retail Visual Merchandising</span>
                     </div>
                 </div>
@@ -1155,61 +1184,86 @@
         <section id="services" class="section section-dark">
             <div class="container">
                 <div class="section-intro">
-                    <h2 class="section-title">Services</h2>
-                    <p class="section-subtitle">Every project is custom-crafted to elevate your visual identity — from enterprise advertising campaigns to intimate studio portraiture.</p>
+                    <p class="label-caps">Atelier &amp; Commissions</p>
+                    <h2 class="section-title">Curated Photography Services</h2>
+                    <p class="section-subtitle">Every commission is custom-crafted to elevate your brand identity — from enterprise advertising campaigns to intimate fine-art portraiture.</p>
                 </div>
                 <div class="services-grid">
 
+                    <!-- Card 01 -->
                     <div class="service-card reveal-on-scroll">
-                        <div class="service-icon">◈</div>
-                        <h3>Commercial &amp; Brand Campaigns</h3>
-                        <p>Enterprise photography for brands, manufacturers, and advertising agencies. High-resolution 50MP+ billboard deliverables, product packshots, and art-directed brand storytelling.</p>
+                        <div class="service-card-header">
+                            <span class="service-edition">01 // COMMERCIAL</span>
+                            <div class="service-icon-wrap"><span class="service-icon">◈</span></div>
+                        </div>
+                        <h3 class="service-title">Commercial &amp; Brand Campaigns</h3>
+                        <p class="service-desc">Enterprise photography for luxury brands, manufacturers, and advertising agencies. High-resolution 50MP+ billboard deliverables, product packshots, and art-directed visual storytelling.</p>
                         <ul class="service-includes">
-                            <li>Pre-production &amp; creative direction</li>
-                            <li>Full billboard &amp; print resolution files</li>
-                            <li>Commercial usage &amp; advertising license</li>
+                            <li>Pre-production &amp; creative direction moodboards</li>
+                            <li>Full billboard &amp; print-resolution master files</li>
+                            <li>Commercial usage &amp; nationwide advertising license</li>
                             <li>Trusted by Steel Alborz, Kaveh Glass &amp; ShamimAra</li>
                         </ul>
-                        <a href="#contact" class="btn btn-secondary">Request Commercial Quote</a>
+                        <div class="service-card-footer">
+                            <a href="#contact" class="btn btn-secondary service-cta">Request Commercial Quote ↗</a>
+                        </div>
                     </div>
 
+                    <!-- Card 02 -->
                     <div class="service-card reveal-on-scroll">
-                        <div class="service-icon">◉</div>
-                        <h3>Portrait &amp; Fashion Editorial</h3>
-                        <p>Cinematic portraits for artists, executives, models, and fashion labels. Available on location across Tehran or in our private studio with bespoke lighting.</p>
+                        <div class="service-card-header">
+                            <span class="service-edition">02 // PORTRAITURE</span>
+                            <div class="service-icon-wrap"><span class="service-icon">◉</span></div>
+                        </div>
+                        <h3 class="service-title">Portrait &amp; Fashion Editorial</h3>
+                        <p class="service-desc">Cinematic portraits for artists, executives, models, and fashion labels. Available on location across Tehran or in our private studio with bespoke lighting and styling.</p>
                         <ul class="service-includes">
                             <li>Styling &amp; moodboard consultation</li>
                             <li>2 to 4-hour dedicated studio session</li>
                             <li>30+ master retouched high-res images</li>
                             <li>Private high-speed proofing gallery</li>
                         </ul>
-                        <a href="#contact" class="btn btn-secondary">Book a Session</a>
+                        <div class="service-card-footer">
+                            <a href="#contact" class="btn btn-secondary service-cta">Book a Session ↗</a>
+                        </div>
                     </div>
 
+                    <!-- Card 03 -->
                     <div class="service-card reveal-on-scroll">
-                        <div class="service-icon">◇</div>
-                        <h3>Food &amp; Culinary Production</h3>
-                        <p>Mouth-watering culinary and beverage photography for restaurants, artisan brands, and food packaging. Dynamic composition with high textural appeal.</p>
+                        <div class="service-card-header">
+                            <span class="service-edition">03 // CULINARY</span>
+                            <div class="service-icon-wrap"><span class="service-icon">◇</span></div>
+                        </div>
+                        <h3 class="service-title">Food &amp; Culinary Production</h3>
+                        <p class="service-desc">Mouth-watering culinary and beverage photography for restaurants, artisan brands, and food packaging. Dynamic composition with high textural appeal and rich lighting.</p>
                         <ul class="service-includes">
-                            <li>On-site restaurant or studio lighting</li>
+                            <li>On-site restaurant or studio lighting setup</li>
                             <li>Food styling &amp; prop coordination</li>
-                            <li>Print-ready menu &amp; campaign assets</li>
+                            <li>Print-ready menu &amp; billboard campaign assets</li>
                             <li>Social media &amp; delivery app crop suites</li>
                         </ul>
-                        <a href="#contact" class="btn btn-secondary">Book Culinary Shoot</a>
+                        <div class="service-card-footer">
+                            <a href="#contact" class="btn btn-secondary service-cta">Book Culinary Shoot ↗</a>
+                        </div>
                     </div>
 
+                    <!-- Card 04 -->
                     <div class="service-card reveal-on-scroll">
-                        <div class="service-icon">✦</div>
-                        <h3>Children &amp; Fine-Art Family</h3>
-                        <p>Timeless, emotional studio and environmental portraits for children and families. Gentle pacing, natural expressions, and fine-art lighting.</p>
+                        <div class="service-card-header">
+                            <span class="service-edition">04 // FINE ART</span>
+                            <div class="service-icon-wrap"><span class="service-icon">✦</span></div>
+                        </div>
+                        <h3 class="service-title">Children &amp; Fine-Art Family</h3>
+                        <p class="service-desc">Timeless, emotional studio and environmental portraits for children and families. Gentle pacing, natural expressions, and fine-art museum grade lighting.</p>
                         <ul class="service-includes">
                             <li>Comfort-first, child-friendly studio pace</li>
                             <li>Curated wardrobe &amp; props assistance</li>
                             <li>20+ heirloom retouched fine-art portraits</li>
                             <li>Archival print-ready master files</li>
                         </ul>
-                        <a href="#contact" class="btn btn-secondary">Book Family Session</a>
+                        <div class="service-card-footer">
+                            <a href="#contact" class="btn btn-secondary service-cta">Book Family Session ↗</a>
+                        </div>
                     </div>
 
                 </div>
@@ -1220,49 +1274,60 @@
         <section id="faq" class="section">
             <div class="container">
                 <div class="section-intro">
-                    <h2 class="section-title">Frequently Asked</h2>
-                    <p class="section-subtitle">Key information on booking, timelines, licensing, and production.</p>
+                    <p class="label-caps">Client Inquiries &amp; Information</p>
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Key information on commission booking, turnaround timelines, licensing rights, and creative production.</p>
                 </div>
                 <div class="faq-accordion">
+
                     <details class="faq-item reveal-on-scroll">
                         <summary class="faq-question">
                             <span>What is your typical turnaround time for deliverables?</span>
-                            <span class="faq-icon">+</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
                         </summary>
-                        <div class="faq-answer">
-                            <p>For portrait and culinary sessions, a preview gallery of highlights is ready within <strong>48 hours</strong>. The complete suite of master-retouched images is delivered within <strong>7 to 10 business days</strong>. Commercial and billboard campaigns follow custom expedited schedules upon agreement.</p>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                <p>For portrait and culinary sessions, a preview proofing gallery of highlights is ready within <strong>48 hours</strong>. The complete suite of master-retouched images is delivered within <strong>7 to 10 business days</strong>. Commercial and billboard campaigns follow custom expedited schedules upon production agreement.</p>
+                            </div>
                         </div>
                     </details>
 
                     <details class="faq-item reveal-on-scroll">
                         <summary class="faq-question">
                             <span>Do you shoot on-location or in-studio in Tehran?</span>
-                            <span class="faq-icon">+</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
                         </summary>
-                        <div class="faq-answer">
-                            <p>Both. We maintain a fully equipped private studio in Tehran for controlled lighting, product packshots, and portraits. We also bring mobile high-end studio lighting on-location throughout Iran for architectural, industrial, culinary, and brand campaigns.</p>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                <p>Both. We maintain a fully equipped private studio in Tehran for controlled lighting, product packshots, and portraits. We also bring mobile high-end studio lighting on-location throughout Iran for architectural, industrial, culinary, and brand campaigns.</p>
+                            </div>
                         </div>
                     </details>
 
                     <details class="faq-item reveal-on-scroll">
                         <summary class="faq-question">
                             <span>How are commercial licensing and billboard rights handled?</span>
-                            <span class="faq-icon">+</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
                         </summary>
-                        <div class="faq-answer">
-                            <p>All commercial commissions include full digital and print usage rights for web, social media, and marketing collateral. Comprehensive billboard, out-of-home (OOH), and nationwide advertising licenses are available and clearly defined in your agreement.</p>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                <p>All commercial commissions include full digital and print usage rights for web, social media, and marketing collateral. Comprehensive billboard, out-of-home (OOH), and nationwide advertising licenses are available and clearly defined in your agreement.</p>
+                            </div>
                         </div>
                     </details>
 
                     <details class="faq-item reveal-on-scroll">
                         <summary class="faq-question">
                             <span>How do we prepare for creative direction and styling?</span>
-                            <span class="faq-icon">+</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
                         </summary>
-                        <div class="faq-answer">
-                            <p>Every booking includes a pre-production consultation. We will develop a collaborative moodboard, discuss lighting concepts, recommend wardrobe or props, and align on exact deliverable formats to ensure a seamless shoot day.</p>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                <p>Every booking includes a pre-production consultation. We will develop a collaborative moodboard, discuss lighting concepts, recommend wardrobe or props, and align on exact deliverable formats to ensure a seamless shoot day.</p>
+                            </div>
                         </div>
                     </details>
+
                 </div>
             </div>
         </section>
@@ -1271,27 +1336,31 @@
         <section id="testimonials" class="section section-dark">
             <div class="container">
                 <div class="section-intro">
-                    <h2 class="section-title">Client Stories</h2>
-                    <p class="section-subtitle">Words from collaborators and brand directors who trusted the lens.</p>
+                    <p class="label-caps">Client Endorsements</p>
+                    <h2 class="section-title">Client Stories &amp; Collaborations</h2>
+                    <p class="section-subtitle">Reflections from brand directors, creative leads, and collaborators who trusted the lens.</p>
                 </div>
                 <div class="testimonials-grid">
 
                     <div class="testimonial-card reveal-on-scroll">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>"Sara has an extraordinary eye for texture and light. Her work on our national billboard and product campaign exceeded every expectation — the precision was flawless."</blockquote>
-                        <cite>— Neda R., Brand Director</cite>
+                        <div class="testimonial-quote-mark" aria-hidden="true">“</div>
+                        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        <blockquote>"Sara has an extraordinary eye for texture, material reflectance, and lighting nuance. Her work on our national billboard and product campaign exceeded every expectation — the precision was flawless."</blockquote>
+                        <cite>— Neda R., Brand Director, Steel Alborz</cite>
                     </div>
 
                     <div class="testimonial-card reveal-on-scroll">
-                        <div class="stars">★★★★★</div>
+                        <div class="testimonial-quote-mark" aria-hidden="true">“</div>
+                        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
                         <blockquote>"My portrait session with Sara was such a comfortable, inspiring experience. She directed natural expressions effortlessly and the final editorial grades were stunning."</blockquote>
                         <cite>— Arman K., Model &amp; Creative</cite>
                     </div>
 
                     <div class="testimonial-card reveal-on-scroll">
-                        <div class="stars">★★★★★</div>
+                        <div class="testimonial-quote-mark" aria-hidden="true">“</div>
+                        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
                         <blockquote>"We hired Sara for our luxury fragrance launch and retail campaign. Creative, punctual, and delivered billboard-ready assets ahead of schedule. We will definitely be booking again."</blockquote>
-                        <cite>— Shirin M., Creative Director</cite>
+                        <cite>— Shirin M., Creative Director, ShamimAra</cite>
                     </div>
 
                 </div>
@@ -1301,14 +1370,17 @@
         <!-- ABOUT -->
         <section id="about" class="section">
             <div class="container about-container">
-                <div class="about-image reveal-on-scroll">
-                    <img src="images/sara.png" alt="Sara holding a camera" loading="lazy">
+                <div class="about-image-wrapper reveal-on-scroll">
+                    <div class="about-image">
+                        <img src="images/sara.png" alt="Sara Hosseini holding camera in studio" loading="lazy">
+                    </div>
+                    <div class="about-image-stamp" aria-hidden="true">SARA HOSSEINI // ATELIER TEHRAN</div>
                 </div>
                 <div class="about-text">
-                    <p class="label-caps">About the Artist</p>
+                    <p class="label-caps">Photographer &amp; Visual Director</p>
                     <h2 class="section-title">Hi, I'm Sara Hosseini.</h2>
-                    <p>I am a commercial and fine-art photographer based in Tehran. With over 7 years behind the lens, my work spans national advertising campaigns, refined product and fragrance still lifes, expressive portraits, and cinematic editorial stories.</p>
-                    <p>I believe every image should carry intentional weight — whether capturing a high-precision commercial cooktop for Steel Alborz, molten glass in a factory furnace, or a quiet chiaroscuro child study. My signature style is rooted in rich tonal depth, nuanced lighting, and authentic emotion.</p>
+                    <p class="about-lead">I am a commercial and fine-art photographer based in Tehran, crafting visual identities with intentional tonal depth, nuanced lighting, and authentic human emotion.</p>
+                    <p class="about-body">Over the past 7+ years behind the lens, my work has spanned national advertising campaigns, refined product and fragrance still lifes, expressive portraits, and cinematic editorial stories for premier institutions including <em>Steel Alborz</em>, <em>Kaveh Glass</em>, and <em>ShamimAra</em>.</p>
                     
                     <div class="about-stats-grid">
                         <div class="about-stat-item">
@@ -1331,7 +1403,7 @@
 
                     <div class="about-actions">
                         <a href="#work" class="btn btn-primary">View Portfolio</a>
-                        <a href="#contact" class="btn btn-text">Get in Touch →</a>
+                        <a href="#contact" class="btn btn-secondary">Get in Touch →</a>
                     </div>
                 </div>
             </div>
@@ -1345,9 +1417,8 @@
             <div class="footer-cta">
                 <div class="footer-cta-text">
                     <p class="label-caps">Inquire &amp; Book</p>
-                    <h2>Let's create something memorable together.</h2>
-                    <p class="footer-sub">Fill out the form below or reach me directly at <a
-                            href="mailto:hello@saraportfolio.com">hello@saraportfolio.com</a></p>
+                    <h2 class="footer-title">Let's create something memorable together.</h2>
+                    <p class="footer-sub">Fill out the form below or reach me directly at <a href="mailto:hello@saraportfolio.com">hello@saraportfolio.com</a></p>
                     <div class="contact-details">
                         <span>Based in Tehran, Iran</span>
                         <span>Commercial, Editorial &amp; Studio Bookings</span>
@@ -1362,13 +1433,13 @@
                 <form class="contact-form" id="contactForm" novalidate>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="name">Full Name <span class="req">*</span></label>
-                            <input type="text" id="name" name="name" placeholder="Your name or company" required aria-describedby="nameError">
+                            <label for="name">Full Name <span class="req" aria-hidden="true">*</span></label>
+                            <input type="text" id="name" name="name" placeholder="Your name or company" required aria-describedby="nameError" autocomplete="name">
                             <span id="nameError" class="error-message" role="alert"></span>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Address <span class="req">*</span></label>
-                            <input type="email" id="email" name="email" placeholder="you@example.com" required aria-describedby="emailError">
+                            <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" required aria-describedby="emailError" autocomplete="email">
                             <span id="emailError" class="error-message" role="alert"></span>
                         </div>
                     </div>
@@ -1386,10 +1457,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="message">Project Details <span class="req">*</span></label>
-                        <textarea id="message" name="message" rows="5"
-                            placeholder="Tell me about your project, target dates, scope of deliverables, or just say hello..."
-                            required aria-describedby="msgError"></textarea>
+                        <label for="message">Project Details <span class="req" aria-hidden="true">*</span></label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project, target dates, scope of deliverables, or just say hello..." required aria-describedby="msgError"></textarea>
                         <span id="msgError" class="error-message" role="alert"></span>
                     </div>
                     <button type="submit" class="btn btn-submit btn-primary" id="submitBtn">
