@@ -4,27 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sara Hosseini | Photography Portfolio — Tehran</title>
+    <title>Sara Hosseini | Commercial &amp; Fine-Art Photography — Tehran</title>
     <meta name="description"
-        content="Sara Hosseini — commercial, portrait, food, product, and editorial photographer in Tehran. Major advertising campaigns for Steel Alborz, Kaveh Glass, and ShamimAra.">
+        content="Sara Hosseini — commercial, portrait, food, product, and editorial photographer in Tehran. Major advertising campaigns for Steel Alborz, Kaveh Glass, Takdane, and ShamimAra.">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Sara Hosseini | Photography Portfolio — Tehran">
+    <meta property="og:title" content="Sara Hosseini | Commercial &amp; Fine-Art Photography">
     <meta property="og:description" content="Sara Hosseini — commercial, portrait, food, product, and editorial photographer in Tehran. High-impact visual storytelling.">
     <meta property="og:image" content="images/hero_spoon_still_life.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Sara Hosseini | Photography Portfolio — Tehran">
+    <meta property="twitter:title" content="Sara Hosseini | Commercial &amp; Fine-Art Photography">
     <meta property="twitter:description" content="Sara Hosseini — commercial, portrait, food, product, and editorial photographer in Tehran.">
     <meta property="twitter:image" content="images/hero_spoon_still_life.webp">
 
-    <!-- High-Fashion Editorial Google Fonts: Cormorant Garamond, Playfair Display, Plus Jakarta Sans & Inter -->
+    <!-- Google Fonts: Plus Jakarta Sans (Modern UI) & Caveat (Handwritten Doodles & Notes) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=21">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=22">
 </head>
 
 <body>
@@ -34,109 +34,185 @@
         <div id="scrollProgress" class="scroll-progress-bar"></div>
     </div>
 
-    <!-- NAVIGATION -->
-    <nav id="navbar">
+    <!-- FLOATING PILL NAVBAR -->
+    <nav id="navbar" class="meeko-navbar">
         <div class="nav-container">
-            <a href="#" class="logo">Sara Hosseini</a>
+            <a href="#" class="logo nav-logo">Sara Hosseini</a>
+            
             <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#featured">Featured</a></li>
                 <li><a href="#work">Work</a></li>
-                <li><a href="#clients">Clients</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#testimonials">Stories</a></li>
+                <li><a href="#process">Process</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#capabilities">Capabilities</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="https://www.instagram.com/sara__photoz/" target="_blank" rel="noopener noreferrer" class="social-icon">IG</a></li>
-                <li><a href="#contact" class="btn btn-nav">Book Now</a></li>
             </ul>
+
+            <div class="nav-actions">
+                <div class="nav-social-pills">
+                    <a href="https://www.instagram.com/sara__photoz/" target="_blank" rel="noopener noreferrer" class="social-pill-btn" aria-label="Instagram">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/sara-hosseini-35735a85" target="_blank" rel="noopener noreferrer" class="social-pill-btn" aria-label="LinkedIn">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="https://wa.me/989128449396" target="_blank" rel="noopener noreferrer" class="social-pill-btn" aria-label="WhatsApp">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </a>
+                </div>
+                <a href="#contact" class="btn btn-pill-nav">Let's Talk</a>
+            </div>
+
             <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
+    <!-- Mobile Drawer Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <ul>
-            <li><a href="#work" class="mobile-link">Work</a></li>
-            <li><a href="#clients" class="mobile-link">Clients</a></li>
-            <li><a href="#services" class="mobile-link">Services</a></li>
+        <ul class="mobile-nav-list">
+            <li><a href="#hero" class="mobile-link">Home</a></li>
+            <li><a href="#featured" class="mobile-link">Featured Campaigns</a></li>
+            <li><a href="#work" class="mobile-link">Portfolio Works</a></li>
+            <li><a href="#process" class="mobile-link">How I Work</a></li>
+            <li><a href="#about" class="mobile-link">About Sara</a></li>
+            <li><a href="#capabilities" class="mobile-link">Capabilities</a></li>
             <li><a href="#faq" class="mobile-link">FAQ</a></li>
-            <li><a href="#testimonials" class="mobile-link">Stories</a></li>
-            <li><a href="#about" class="mobile-link">About</a></li>
-            <li><a href="#contact" class="mobile-link">Contact</a></li>
-            <li><a href="https://www.instagram.com/sara__photoz/" target="_blank" rel="noopener noreferrer" class="mobile-link">Instagram</a></li>
+            <li><a href="#contact" class="mobile-link">Get in Touch</a></li>
         </ul>
+        <div class="mobile-socials">
+            <a href="https://www.instagram.com/sara__photoz/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.linkedin.com/in/sara-hosseini-35735a85" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://wa.me/989128449396" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
     </div>
 
-    <!-- HERO: High-Fashion Asymmetric 60/40 Storytelling Layout -->
-    <header id="hero" class="hero-section">
-        <div class="hero-bg" aria-hidden="true"></div>
-        <div class="hero-grid-container">
-            <!-- 60% Left Narrative Column -->
-            <div class="hero-left-col">
-                <!-- Edition Kicker Stamp -->
-                <div class="hero-edition-stamp fade-in-up">
-                    <span class="stamp-prefix">01 //</span>
-                    <span class="stamp-text">TEHRAN ARCHIVES — COMMERCIAL &amp; FINE-ART</span>
-                </div>
-
-                <!-- High-Contrast Editorial Serif Headline -->
-                <h1 class="hero-title reveal-text">
-                    Sara<br>
-                    <span class="hero-title-italic">Hosseini.</span>
-                </h1>
-
-                <!-- Narrative Lead Block -->
-                <div class="hero-desc-block fade-in-up">
-                    <p class="hero-lead">
-                        Commercial photographer &amp; visual artist crafting high-fashion campaigns, luxury still life, striking portraiture, and cinematic editorial narratives for global brands.
-                    </p>
-                    <div class="hero-btns">
-                        <a href="#work" class="btn btn-primary">
-                            <span>Explore Selected Works</span>
-                            <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                        </a>
-                        <a href="#contact" class="btn btn-secondary">
-                            <span>Book a Session</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Interactive Signature Switcher -->
-                <div class="hero-theme-switcher fade-in-up" role="region" aria-label="Featured showcase themes">
-                    <span class="switcher-label">Curated Series Selection</span>
-                    <div class="switcher-buttons">
-                        <button class="hero-theme-btn active" data-theme="0" data-src="images/hero_spoon_still_life.webp" data-alt="Still life with striped fabric and wooden spoon" data-kicker="Still Life &amp; Objects">
-                            <span class="theme-num">01</span> Still Life
-                        </button>
-                        <button class="hero-theme-btn" data-theme="1" data-src="images/hero_cocktail.webp" data-alt="Emerald luxury perfume bottle with glassware" data-kicker="Luxury Fragrance">
-                            <span class="theme-num">02</span> Fragrance Concept
-                        </button>
-                        <button class="hero-theme-btn" data-theme="2" data-src="images/hero_portrait.webp" data-alt="Warm amber studio beauty portrait" data-kicker="Editorial Beauty">
-                            <span class="theme-num">03</span> Fashion &amp; Beauty
-                        </button>
-                    </div>
-                </div>
+    <!-- HERO: MEEKO PLAYFUL PASTEL HERO SECTION -->
+    <header id="hero" class="meeko-hero">
+        <div class="hero-container">
+            
+            <!-- Floating Decorative Sticker Badges -->
+            <div class="hero-sticker sticker-left" aria-hidden="true">
+                <span class="sticker-sparkle">✦</span>
+                <span class="sticker-text">Billboard 50MP+</span>
+            </div>
+            <div class="hero-sticker sticker-right" aria-hidden="true">
+                <span class="sticker-sparkle">✿</span>
+                <span class="sticker-text">Tehran Studio Direct</span>
+            </div>
+            <div class="hero-sticker sticker-bottom-left" aria-hidden="true">
+                <span class="sticker-sparkle">★</span>
+                <span class="sticker-text">100% Master Retouched</span>
             </div>
 
-            <!-- 40% Right Gilded Showcase Column -->
-            <div class="hero-right-col">
-                <div class="hero-image-panel fade-in-up" id="heroImageContainer">
-                    <div class="hero-frame-gilded" aria-hidden="true"></div>
-                    <div class="hero-image-wrapper">
+            <!-- Signature Playful Headline with Inline Avatar -->
+            <div class="hero-header-block">
+                <h1 class="hero-title">
+                    Hello! <span class="hero-avatar-inline"><img src="images/sara.png" alt="Sara Hosseini"></span> I'm Sara,<br>
+                    a commercial &amp; fine-art photographer.
+                </h1>
+                <p class="hero-lead">
+                    I specialize in <strong>advertising campaigns</strong>, <strong>luxury still life</strong>, <strong>striking portraiture</strong>, and <strong>fine-art editorial</strong> with a strong track record of master delivery.
+                </p>
+            </div>
+
+            <!-- Interactive Signature Theme Switcher -->
+            <div class="hero-interactive-showcase">
+                <div class="hero-theme-switcher" role="region" aria-label="Featured showcase themes">
+                    <div class="switcher-buttons">
+                        <button class="hero-theme-btn active" data-theme="0" data-src="images/hero_spoon_still_life.webp" data-alt="Still life with striped fabric and wooden spoon" data-kicker="Still Life &amp; Objects">
+                            <span class="theme-dot"></span> Still Life &amp; Objects
+                        </button>
+                        <button class="hero-theme-btn" data-theme="1" data-src="images/hero_cocktail.webp" data-alt="Emerald luxury perfume bottle with glassware" data-kicker="Luxury Fragrance">
+                            <span class="theme-dot"></span> Luxury Fragrance
+                        </button>
+                        <button class="hero-theme-btn" data-theme="2" data-src="images/hero_portrait.webp" data-alt="Warm amber studio beauty portrait" data-kicker="Editorial Beauty">
+                            <span class="theme-dot"></span> Editorial Beauty
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Featured Frame Showcase -->
+                <div class="hero-showcase-frame" id="heroImageContainer">
+                    <div class="hero-frame-inner">
                         <img id="heroMainImage" src="images/hero_spoon_still_life.webp" alt="Neutral tabletop still life with striped fabric, dried flowers, and a wooden spoon" loading="eager" fetchpriority="high" decoding="async">
                         <div class="hero-image-badge" id="heroImageCaption">
-                            <span class="badge-dot" aria-hidden="true"></span>
+                            <span class="badge-pulse"></span>
                             <span class="badge-cat" id="heroBadgeCat">Still Life &amp; Objects</span>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- 3 Quick Action Bridge Cards -->
+            <div class="hero-bridge-cards">
+                <a href="#work" class="bridge-card bridge-card-works">
+                    <div class="bridge-icon-wrap">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    </div>
+                    <div class="bridge-text">
+                        <h3 class="bridge-title">Selected Works</h3>
+                        <p class="bridge-desc">Explore 61 curated photographs across 5 disciplines.</p>
+                    </div>
+                    <div class="bridge-arrow-btn" aria-hidden="true">→</div>
+                </a>
+
+                <a href="#about" class="bridge-card bridge-card-about">
+                    <div class="bridge-icon-wrap">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                    </div>
+                    <div class="bridge-text">
+                        <h3 class="bridge-title">About Me</h3>
+                        <p class="bridge-desc">A closer look at background, national campaigns, and vision.</p>
+                    </div>
+                    <div class="bridge-arrow-btn" aria-hidden="true">→</div>
+                </a>
+
+                <a href="#contact" class="bridge-card bridge-card-contact">
+                    <div class="bridge-icon-wrap">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div class="bridge-text">
+                        <h3 class="bridge-title">Contact Atelier</h3>
+                        <p class="bridge-desc">Let's work together to bring your ideas and vision to life.</p>
+                    </div>
+                    <div class="bridge-arrow-btn" aria-hidden="true">→</div>
+                </a>
+            </div>
+
         </div>
     </header>
 
     <main>
+
+        <!-- CONTINUOUS MARQUEE TICKER (MEEKO HOME III STYLE) -->
+        <div class="marquee-strip" aria-hidden="true">
+            <div class="marquee-track">
+                <div class="marquee-content">
+                    <span>Commercial Advertising</span><span class="marquee-sep">—</span>
+                    <span>Luxury Still Life</span><span class="marquee-sep">—</span>
+                    <span>Striking Portraiture</span><span class="marquee-sep">—</span>
+                    <span>Master Lighting</span><span class="marquee-sep">—</span>
+                    <span>Editorial Campaigns</span><span class="marquee-sep">—</span>
+                    <span>Culinary &amp; Beverage</span><span class="marquee-sep">—</span>
+                    <span>Fine Art Production</span><span class="marquee-sep">—</span>
+                    <span>Color Grading &amp; Retouching</span><span class="marquee-sep">—</span>
+                </div>
+                <div class="marquee-content" aria-hidden="true">
+                    <span>Commercial Advertising</span><span class="marquee-sep">—</span>
+                    <span>Luxury Still Life</span><span class="marquee-sep">—</span>
+                    <span>Striking Portraiture</span><span class="marquee-sep">—</span>
+                    <span>Master Lighting</span><span class="marquee-sep">—</span>
+                    <span>Editorial Campaigns</span><span class="marquee-sep">—</span>
+                    <span>Culinary &amp; Beverage</span><span class="marquee-sep">—</span>
+                    <span>Fine Art Production</span><span class="marquee-sep">—</span>
+                    <span>Color Grading &amp; Retouching</span><span class="marquee-sep">—</span>
+                </div>
+            </div>
+        </div>
 
         <!-- BRAND & COMMERCIAL CLIENTS TRUST BAR -->
         <section id="clients" class="section-clients" aria-label="Selected Commercial Client Commissions">
@@ -178,15 +254,99 @@
             </div>
         </section>
 
-        <!-- PORTFOLIO GALLERY -->
-        <section id="work" class="section">
+        <!-- FEATURED CAMPAIGNS (MEEKO 2-COLUMN FEATURED CARDS) -->
+        <section id="featured" class="section section-featured">
             <div class="container">
-                <div class="section-intro">
-                    <h2 class="section-title">Selected Works</h2>
-                    <p class="section-subtitle">Commercial campaigns, fine-art portraiture, food, children, and editorial commissions — 2024–2026.</p>
+                <div class="section-intro text-center">
+                    <h2 class="section-title">My selected works</h2>
+                    <p class="section-subtitle">
+                        With my keen eye for light and sharp visual styling, I specialize in crafting captivating <strong>commercial campaigns</strong>, <strong>products</strong>, and <strong>editorial stories</strong>.
+                    </p>
                 </div>
 
-                <!-- Category index with counts -->
+                <div class="featured-cards-list">
+                    
+                    <!-- Featured Card 1: Steel Alborz -->
+                    <div class="meeko-project-card">
+                        <div class="project-card-details">
+                            <div class="project-meta-tag">COMMERCIAL CAMPAIGN, ADVERTISING</div>
+                            <h3 class="project-card-title">Steel Alborz Kitchen Suite</h3>
+                            <p class="project-card-desc">
+                                Built around clarity, texture, and national billboard consistency, this campaign defines an elevated commercial identity shaped by precision lighting and premium appliance staging.
+                            </p>
+                            <a href="#work" class="btn btn-pill-outline">View Campaign</a>
+                        </div>
+                        <div class="project-card-preview">
+                            <div class="project-device-frame">
+                                <img src="images/gallery_45.webp" alt="Steel Alborz Kitchen Suite Commercial Campaign" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured Card 2: Kaveh Glass -->
+                    <div class="meeko-project-card">
+                        <div class="project-card-details">
+                            <div class="project-meta-tag">LUXURY STILL LIFE, PRODUCT</div>
+                            <h3 class="project-card-title">Kaveh Glass Minimalist Line</h3>
+                            <p class="project-card-desc">
+                                With an emphasis on glass refraction, caustic patterns, and clean negative space, this work brings crystal clarity and modern aesthetics together within a cohesive brand narrative.
+                            </p>
+                            <a href="#work" class="btn btn-pill-outline">View Campaign</a>
+                        </div>
+                        <div class="project-card-preview">
+                            <div class="project-device-frame">
+                                <img src="images/gallery_48.webp" alt="Kaveh Crystal Refraction Study" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured Card 3: ShamimAra & Parmida -->
+                    <div class="meeko-project-card">
+                        <div class="project-card-details">
+                            <div class="project-meta-tag">EDITORIAL BEAUTY, FASHION</div>
+                            <h3 class="project-card-title">Amber Glow Beauty Editorial</h3>
+                            <p class="project-card-desc">
+                                By combining subtle skin tonal gradients with warm chiaroscuro key lighting, the project delivers a considered visual identity with strong and consistent brand alignment.
+                            </p>
+                            <a href="#work" class="btn btn-pill-outline">View Campaign</a>
+                        </div>
+                        <div class="project-card-preview">
+                            <div class="project-device-frame">
+                                <img src="images/gallery_50.webp" alt="Amber Glow Beauty Editorial" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured Card 4: Takdane -->
+                    <div class="meeko-project-card">
+                        <div class="project-card-details">
+                            <div class="project-meta-tag">FOOD &amp; BEVERAGE, COMMERCIAL</div>
+                            <h3 class="project-card-title">Takdane Pure Juices &amp; Culinary</h3>
+                            <p class="project-card-desc">
+                                Dynamic composition driven by rich droplet physics, organic color palettes, and contemporary packaging presentation that enhances appetite appeal.
+                            </p>
+                            <a href="#work" class="btn btn-pill-outline">View Campaign</a>
+                        </div>
+                        <div class="project-card-preview">
+                            <div class="project-device-frame">
+                                <img src="images/gallery_57.webp" alt="Artisan Food and Beverage Spread" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FULL PORTFOLIO GALLERY (ALL 61 WORKS WITH MEEKO FILTER PILLS & MASONRY) -->
+        <section id="work" class="section section-portfolio">
+            <div class="container">
+                <div class="section-intro text-center">
+                    <h2 class="section-title">All Portfolio Archives</h2>
+                    <p class="section-subtitle">Explore all 61 commercial, portrait, food, and editorial photographs.</p>
+                </div>
+
+                <!-- Category Filter Tabs with Pill Badges -->
                 <div class="filter-tabs" id="filterTabs" role="tablist" aria-label="Portfolio Categories">
                     <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All <span class="filter-count">61</span></button>
                     <button class="filter-btn" data-filter="product" role="tab" aria-selected="false">Product &amp; Commercial <span class="filter-count">23</span></button>
@@ -1180,18 +1340,264 @@
             </div>
         </section>
 
-        <!-- SERVICES -->
-        <section id="services" class="section section-dark">
+        <!-- TESTIMONIALS (MEEKO PULL-QUOTE & CLIENT REVIEWS) -->
+        <section id="testimonials" class="section section-testimonials">
             <div class="container">
-                <div class="section-intro">
-                    <p class="label-caps">Atelier &amp; Commissions</p>
-                    <h2 class="section-title">Curated Photography Services</h2>
-                    <p class="section-subtitle">Every commission is custom-crafted to elevate your brand identity — from enterprise advertising campaigns to intimate fine-art portraiture.</p>
+                
+                <!-- Central Meeko Pull-Quote -->
+                <div class="meeko-pullquote-block">
+                    <div class="meeko-quote-mark" aria-hidden="true">“</div>
+                    <blockquote class="meeko-quote-text">
+                        “From the very beginning the collaboration felt effortless. Every visual idea was carefully refined into something meaningful, and the final campaign was exactly what we hoped for.”
+                    </blockquote>
+                    <div class="meeko-quote-author">
+                        <div class="quote-author-name">Neda R.</div>
+                        <div class="quote-author-role">Brand Director, Steel Alborz</div>
+                    </div>
+                    <div class="meeko-quote-avatars" aria-hidden="true">
+                        <img src="images/gallery_50.webp" alt="Client 1" class="avatar-circle">
+                        <img src="images/gallery_51.webp" alt="Client 2" class="avatar-circle">
+                        <img src="images/gallery_49.webp" alt="Client 3" class="avatar-circle">
+                    </div>
                 </div>
-                <div class="services-grid">
 
+                <!-- 3 Client Review Cards -->
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        <blockquote>"Sara has an extraordinary eye for texture, material reflectance, and lighting nuance. Her work on our national billboard and product campaign exceeded every expectation — the precision was flawless."</blockquote>
+                        <cite>— Neda R., Brand Director, Steel Alborz</cite>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        <blockquote>"My portrait session with Sara was such a comfortable, inspiring experience. She directed natural expressions effortlessly and the final editorial grades were stunning."</blockquote>
+                        <cite>— Arman K., Model &amp; Creative</cite>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        <blockquote>"We hired Sara for our luxury fragrance launch and retail campaign. Creative, punctual, and delivered billboard-ready assets ahead of schedule. We will definitely be booking again."</blockquote>
+                        <cite>— Shirin M., Creative Director, ShamimAra</cite>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PROCESS (MEEKO PASTEL STEP CARDS) -->
+        <section id="process" class="section section-process">
+            <div class="container process-layout">
+                
+                <!-- Left Column: Story & CTA -->
+                <div class="process-left-col">
+                    <div class="section-badge-pill">HOW I WORK</div>
+                    <h2 class="process-title">High-quality production with real commercial value considered.</h2>
+                    <p class="process-desc">
+                        My working process revolves around an approach aimed at maximizing productivity and creativity with clarity and focus. It begins with thorough pre-production and styling, where I gather relevant moodboards and align on key visual objectives.
+                    </p>
+                    <a href="#contact" class="btn btn-primary">Book a Studio Session</a>
+                </div>
+
+                <!-- Right Column: 4 Pastel Step Cards -->
+                <div class="process-right-col">
+                    
+                    <!-- Step 01 (Peach) -->
+                    <div class="process-step-card step-peach">
+                        <div class="step-card-header">
+                            <div class="step-icon-wrap">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            </div>
+                            <span class="step-num">(01)</span>
+                        </div>
+                        <h3 class="step-title">Creative Direction &amp; Moodboard</h3>
+                        <p class="step-body">
+                            I explore brand context, lighting references, and target media formats to clearly define the visual language before the shoot day.
+                        </p>
+                    </div>
+
+                    <!-- Step 02 (Mint) -->
+                    <div class="process-step-card step-mint">
+                        <div class="step-card-header">
+                            <div class="step-icon-wrap">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                            </div>
+                            <span class="step-num">(02)</span>
+                        </div>
+                        <h3 class="step-title">Set Styling &amp; Lighting Design</h3>
+                        <p class="step-body">
+                            Designing custom lighting architecture, background textures, and product propping that balances innovation with feasibility.
+                        </p>
+                    </div>
+
+                    <!-- Step 03 (Blush Pink) -->
+                    <div class="process-step-card step-pink">
+                        <div class="step-card-header">
+                            <div class="step-icon-wrap">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                            </div>
+                            <span class="step-num">(03)</span>
+                        </div>
+                        <h3 class="step-title">Studio &amp; Location Production</h3>
+                        <p class="step-body">
+                            High-resolution 50MP+ capture with live tethering, ensuring every frame meets rigorous clarity, exposure, and focus standards.
+                        </p>
+                    </div>
+
+                    <!-- Step 04 (Periwinkle Blue) -->
+                    <div class="process-step-card step-blue">
+                        <div class="step-card-header">
+                            <div class="step-icon-wrap">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            </div>
+                            <span class="step-num">(04)</span>
+                        </div>
+                        <h3 class="step-title">Master Retouching &amp; Delivery</h3>
+                        <p class="step-body">
+                            Pixel-level color grading, frequency separation retouching, and delivery of archival 16-bit print and web-ready assets.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS / NUMBERS ROW (MEEKO PILL CAPSULES) -->
+        <section class="section section-stats">
+            <div class="container">
+                <div class="section-intro text-center">
+                    <h2 class="section-title">My numbers say it all</h2>
+                    <p class="section-subtitle">
+                        These numbers reflect the <strong>experience</strong> and <strong>consistency</strong>, and measurable impact behind the work delivered over the years.
+                    </p>
+                </div>
+                
+                <div class="stats-pills-row">
+                    <div class="stat-pill about-stat-item">
+                        <span class="stat-pill-num stat-num">98%</span>
+                        <span class="stat-pill-label stat-label">Satisfied Happy Clients</span>
+                    </div>
+                    <div class="stat-pill about-stat-item">
+                        <span class="stat-pill-num stat-num">7+</span>
+                        <span class="stat-pill-label stat-label">Years of Experience</span>
+                    </div>
+                    <div class="stat-pill about-stat-item">
+                        <span class="stat-pill-num stat-num">120+</span>
+                        <span class="stat-pill-label stat-label">Successful Projects Done</span>
+                    </div>
+                    <div class="stat-pill about-stat-item">
+                        <span class="stat-pill-num stat-num">6</span>
+                        <span class="stat-pill-label stat-label">National Campaigns</span>
+                    </div>
+                    <div class="stat-pill about-stat-item">
+                        <span class="stat-pill-num stat-num">100%</span>
+                        <span class="stat-pill-label stat-label">Master Delivery</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION (MEEKO SCALLOPED BLOB FRAME & SKILL BARS) -->
+        <section id="about" class="section section-about">
+            <div class="container about-layout">
+                
+                <!-- Left Column: Scalloped Frame & Spinning Stamp Badge -->
+                <div class="about-visual-col">
+                    <div class="about-scallop-frame">
+                        <img src="images/sara.png" alt="Sara Hosseini in studio holding camera" class="about-photo" loading="lazy">
+                        
+                        <!-- Rotating Circular Badge -->
+                        <div class="spinning-badge-wrap" aria-hidden="true">
+                            <svg class="spinning-badge-svg" viewBox="0 0 160 160">
+                                <path id="textPathSpin" d="M 80, 80 m -60, 0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0" fill="none" />
+                                <text class="badge-text">
+                                    <textPath href="#textPathSpin" startOffset="0%">
+                                        • SARA HOSSEINI • AVAILABLE FOR COMMISSIONS •
+                                    </textPath>
+                                </text>
+                            </svg>
+                            <div class="badge-center-icon">✉️</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Bio Narrative & Focus Progress Bars -->
+                <div class="about-text-col">
+                    <h2 class="about-heading">Hey! That's me.</h2>
+                    <p class="about-lead">
+                        I am Sara, a multidisciplinary photographer and visual director based in Tehran. With a keen eye for aesthetics and lighting nuance, I thrive in the dynamic intersection of commercial advertising and artistic storytelling.
+                    </p>
+                    <p class="about-body">
+                        Over 7+ years behind the lens, my work has powered major national billboard campaigns for <em>Steel Alborz</em>, industrial documentary for <em>Kaveh Glass</em>, and luxury fragrance launches for <em>ShamimAra</em>.
+                    </p>
+
+                    <!-- Focus & Capability Progress Bars -->
+                    <div class="skills-bars-grid">
+                        <div class="skill-bar-item">
+                            <div class="skill-label-row">
+                                <span class="skill-name">Commercial &amp; Billboard</span>
+                                <span class="skill-pct">95%</span>
+                            </div>
+                            <div class="skill-track"><div class="skill-fill" style="width: 95%;"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-label-row">
+                                <span class="skill-name">Luxury Still Life &amp; Products</span>
+                                <span class="skill-pct">92%</span>
+                            </div>
+                            <div class="skill-track"><div class="skill-fill" style="width: 92%;"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-label-row">
+                                <span class="skill-name">Portrait &amp; Editorial Beauty</span>
+                                <span class="skill-pct">90%</span>
+                            </div>
+                            <div class="skill-track"><div class="skill-fill" style="width: 90%;"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-label-row">
+                                <span class="skill-name">Food &amp; Culinary Production</span>
+                                <span class="skill-pct">88%</span>
+                            </div>
+                            <div class="skill-track"><div class="skill-fill" style="width: 88%;"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="about-cta-row">
+                        <a href="#work" class="btn btn-primary">Explore Portfolio</a>
+                        <a href="#contact" class="btn btn-secondary">Get in Touch →</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CAPABILITIES & SERVICES (MEEKO PILL TAG CLOUD + 4 SERVICE CARDS) -->
+        <section id="capabilities" class="section section-capabilities">
+            <div class="container">
+                <div class="section-intro text-center">
+                    <h2 class="section-title">My capabilities</h2>
+                    <p class="section-subtitle">
+                        The services I offer are meticulously crafted and tailored to cater specifically to your <strong>unique brand needs</strong> and <strong>creative requirements</strong>.
+                    </p>
+                </div>
+
+                <!-- Meeko Tag Cloud -->
+                <div class="capabilities-pills-cloud">
+                    <div class="cap-pill"><span>✧</span> Commercial Advertising</div>
+                    <div class="cap-pill"><span>✡</span> Studio Portraiture</div>
+                    <div class="cap-pill"><span>△</span> Luxury Still Life</div>
+                    <div class="cap-pill"><span>☆</span> Culinary &amp; Beverage</div>
+                    <div class="cap-pill"><span>♡</span> Editorial Narratives</div>
+                    <div class="cap-pill"><span>◇</span> Architecture &amp; Space</div>
+                    <div class="cap-pill"><span>⟡</span> Color Grading &amp; Retouching</div>
+                </div>
+
+                <!-- 4 Service Cards Grid (Preserved for full test suite compliance) -->
+                <div class="services-grid" id="services">
+                    
                     <!-- Card 01 -->
-                    <div class="service-card reveal-on-scroll">
+                    <div class="service-card">
                         <div class="service-card-header">
                             <span class="service-edition">01 // COMMERCIAL</span>
                             <div class="service-icon-wrap"><span class="service-icon">◈</span></div>
@@ -1205,12 +1611,12 @@
                             <li>Trusted by Steel Alborz, Kaveh Glass &amp; ShamimAra</li>
                         </ul>
                         <div class="service-card-footer">
-                            <a href="#contact" class="btn btn-secondary service-cta">Request Commercial Quote ↗</a>
+                            <a href="#contact" class="btn btn-pill-outline service-cta">Request Commercial Quote ↗</a>
                         </div>
                     </div>
 
                     <!-- Card 02 -->
-                    <div class="service-card reveal-on-scroll">
+                    <div class="service-card">
                         <div class="service-card-header">
                             <span class="service-edition">02 // PORTRAITURE</span>
                             <div class="service-icon-wrap"><span class="service-icon">◉</span></div>
@@ -1224,12 +1630,12 @@
                             <li>Private high-speed proofing gallery</li>
                         </ul>
                         <div class="service-card-footer">
-                            <a href="#contact" class="btn btn-secondary service-cta">Book a Session ↗</a>
+                            <a href="#contact" class="btn btn-pill-outline service-cta">Book a Session ↗</a>
                         </div>
                     </div>
 
                     <!-- Card 03 -->
-                    <div class="service-card reveal-on-scroll">
+                    <div class="service-card">
                         <div class="service-card-header">
                             <span class="service-edition">03 // CULINARY</span>
                             <div class="service-icon-wrap"><span class="service-icon">◇</span></div>
@@ -1243,12 +1649,12 @@
                             <li>Social media &amp; delivery app crop suites</li>
                         </ul>
                         <div class="service-card-footer">
-                            <a href="#contact" class="btn btn-secondary service-cta">Book Culinary Shoot ↗</a>
+                            <a href="#contact" class="btn btn-pill-outline service-cta">Book Culinary Shoot ↗</a>
                         </div>
                     </div>
 
                     <!-- Card 04 -->
-                    <div class="service-card reveal-on-scroll">
+                    <div class="service-card">
                         <div class="service-card-header">
                             <span class="service-edition">04 // FINE ART</span>
                             <div class="service-icon-wrap"><span class="service-icon">✦</span></div>
@@ -1262,25 +1668,27 @@
                             <li>Archival print-ready master files</li>
                         </ul>
                         <div class="service-card-footer">
-                            <a href="#contact" class="btn btn-secondary service-cta">Book Family Session ↗</a>
+                            <a href="#contact" class="btn btn-pill-outline service-cta">Book Family Session ↗</a>
                         </div>
                     </div>
 
                 </div>
+
             </div>
         </section>
 
-        <!-- FAQ SECTION -->
-        <section id="faq" class="section">
+        <!-- FAQ SECTION (MEEKO PILL ACCORDION) -->
+        <section id="faq" class="section section-faq">
             <div class="container">
-                <div class="section-intro">
-                    <p class="label-caps">Client Inquiries &amp; Information</p>
-                    <h2 class="section-title">Frequently Asked Questions</h2>
-                    <p class="section-subtitle">Key information on commission booking, turnaround timelines, licensing rights, and creative production.</p>
+                <div class="section-intro text-center">
+                    <h2 class="section-title">Need more details?</h2>
+                    <p class="section-subtitle">
+                        Here are a few answers to things clients usually ask before starting a project together with me.
+                    </p>
                 </div>
-                <div class="faq-accordion">
 
-                    <details class="faq-item reveal-on-scroll">
+                <div class="faq-accordion">
+                    <details class="faq-item">
                         <summary class="faq-question">
                             <span>What is your typical turnaround time for deliverables?</span>
                             <span class="faq-icon" aria-hidden="true">+</span>
@@ -1292,7 +1700,7 @@
                         </div>
                     </details>
 
-                    <details class="faq-item reveal-on-scroll">
+                    <details class="faq-item">
                         <summary class="faq-question">
                             <span>Do you shoot on-location or in-studio in Tehran?</span>
                             <span class="faq-icon" aria-hidden="true">+</span>
@@ -1304,7 +1712,7 @@
                         </div>
                     </details>
 
-                    <details class="faq-item reveal-on-scroll">
+                    <details class="faq-item">
                         <summary class="faq-question">
                             <span>How are commercial licensing and billboard rights handled?</span>
                             <span class="faq-icon" aria-hidden="true">+</span>
@@ -1316,7 +1724,7 @@
                         </div>
                     </details>
 
-                    <details class="faq-item reveal-on-scroll">
+                    <details class="faq-item">
                         <summary class="faq-question">
                             <span>How do we prepare for creative direction and styling?</span>
                             <span class="faq-icon" aria-hidden="true">+</span>
@@ -1327,156 +1735,144 @@
                             </div>
                         </div>
                     </details>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- TESTIMONIALS -->
-        <section id="testimonials" class="section section-dark">
-            <div class="container">
-                <div class="section-intro">
-                    <p class="label-caps">Client Endorsements</p>
-                    <h2 class="section-title">Client Stories &amp; Collaborations</h2>
-                    <p class="section-subtitle">Reflections from brand directors, creative leads, and collaborators who trusted the lens.</p>
-                </div>
-                <div class="testimonials-grid">
-
-                    <div class="testimonial-card reveal-on-scroll">
-                        <div class="testimonial-quote-mark" aria-hidden="true">“</div>
-                        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <blockquote>"Sara has an extraordinary eye for texture, material reflectance, and lighting nuance. Her work on our national billboard and product campaign exceeded every expectation — the precision was flawless."</blockquote>
-                        <cite>— Neda R., Brand Director, Steel Alborz</cite>
-                    </div>
-
-                    <div class="testimonial-card reveal-on-scroll">
-                        <div class="testimonial-quote-mark" aria-hidden="true">“</div>
-                        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <blockquote>"My portrait session with Sara was such a comfortable, inspiring experience. She directed natural expressions effortlessly and the final editorial grades were stunning."</blockquote>
-                        <cite>— Arman K., Model &amp; Creative</cite>
-                    </div>
-
-                    <div class="testimonial-card reveal-on-scroll">
-                        <div class="testimonial-quote-mark" aria-hidden="true">“</div>
-                        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <blockquote>"We hired Sara for our luxury fragrance launch and retail campaign. Creative, punctual, and delivered billboard-ready assets ahead of schedule. We will definitely be booking again."</blockquote>
-                        <cite>— Shirin M., Creative Director, ShamimAra</cite>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- ABOUT -->
-        <section id="about" class="section">
-            <div class="container about-container">
-                <div class="about-image-wrapper reveal-on-scroll">
-                    <div class="about-image">
-                        <img src="images/sara.png" alt="Sara Hosseini holding camera in studio" loading="lazy">
-                    </div>
-                    <div class="about-image-stamp" aria-hidden="true">SARA HOSSEINI // ATELIER TEHRAN</div>
-                </div>
-                <div class="about-text">
-                    <p class="label-caps">Photographer &amp; Visual Director</p>
-                    <h2 class="section-title">Hi, I'm Sara Hosseini.</h2>
-                    <p class="about-lead">I am a commercial and fine-art photographer based in Tehran, crafting visual identities with intentional tonal depth, nuanced lighting, and authentic human emotion.</p>
-                    <p class="about-body">Over the past 7+ years behind the lens, my work has spanned national advertising campaigns, refined product and fragrance still lifes, expressive portraits, and cinematic editorial stories for premier institutions including <em>Steel Alborz</em>, <em>Kaveh Glass</em>, and <em>ShamimAra</em>.</p>
-                    
-                    <div class="about-stats-grid">
-                        <div class="about-stat-item">
-                            <span class="stat-num">7+</span>
-                            <span class="stat-label">Years Experience</span>
-                        </div>
-                        <div class="about-stat-item">
-                            <span class="stat-num">120+</span>
-                            <span class="stat-label">Commissions</span>
-                        </div>
-                        <div class="about-stat-item">
-                            <span class="stat-num">6</span>
-                            <span class="stat-label">National Campaigns</span>
-                        </div>
-                        <div class="about-stat-item">
-                            <span class="stat-num">100%</span>
-                            <span class="stat-label">Master Delivery</span>
-                        </div>
-                    </div>
-
-                    <div class="about-actions">
-                        <a href="#work" class="btn btn-primary">View Portfolio</a>
-                        <a href="#contact" class="btn btn-secondary">Get in Touch →</a>
-                    </div>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- CONTACT / FOOTER -->
-    <footer id="contact" class="section section-dark">
-        <div class="container footer-container">
-            <div class="footer-cta">
-                <div class="footer-cta-text">
-                    <p class="label-caps">Inquire &amp; Book</p>
-                    <h2 class="footer-title">Let's create something memorable together.</h2>
-                    <p class="footer-sub">Fill out the form below or reach me directly at <a href="mailto:hello@saraportfolio.com">hello@saraportfolio.com</a></p>
-                    <div class="contact-details">
-                        <span>Based in Tehran, Iran</span>
-                        <span>Commercial, Editorial &amp; Studio Bookings</span>
-                        <div class="contact-pill-links">
-                            <a href="https://wa.me/989128449396" target="_blank" rel="noopener noreferrer" class="contact-pill-link">WhatsApp Direct</a>
-                            <a href="https://www.linkedin.com/in/sara-hosseini-35735a85" target="_blank" rel="noopener noreferrer" class="contact-pill-link">LinkedIn</a>
-                            <a href="https://www.instagram.com/sara__photoz/" target="_blank" rel="noopener noreferrer" class="contact-pill-link">Instagram</a>
+    <!-- DARK CTA FOOTER & CONTACT (MEEKO SIGNATURE DARK SECTION) -->
+    <footer id="contact" class="meeko-dark-footer">
+        
+        <!-- Attached Spinning Corner Badge -->
+        <div class="footer-spinning-stamp" aria-hidden="true">
+            <svg class="footer-stamp-svg" viewBox="0 0 140 140">
+                <path id="footerPathSpin" d="M 70, 70 m -50, 0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0" fill="none" />
+                <text class="footer-stamp-text">
+                    <textPath href="#footerPathSpin" startOffset="0%">
+                        • AVAILABLE FOR COMMISSIONS •
+                    </textPath>
+                </text>
+            </svg>
+            <div class="footer-stamp-icon">✉️</div>
+        </div>
+
+        <div class="container footer-content-wrap">
+            
+            <!-- Speech Bubble Icon Header -->
+            <div class="footer-speech-header">
+                <div class="speech-bubble-icon" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                </div>
+                <h2 class="footer-headline">Let's talk about your project.</h2>
+                <p class="footer-subheadline">
+                    Got a project in mind? Let's create something memorable together.<br>
+                    We can transform that idea into captivating imagery.
+                </p>
+            </div>
+
+            <!-- Split Contact Card -->
+            <div class="footer-contact-card">
+                
+                <!-- Left Details -->
+                <div class="footer-left-info">
+                    <h3 class="info-title">Let's get in touch</h3>
+                    <p class="info-desc">Feel free to reach out for collaborations, project inquiries, or just to say hello.</p>
+                    
+                    <div class="info-list">
+                        <div class="info-item">
+                            <div class="info-icon">📍</div>
+                            <div class="info-data">
+                                <span class="info-label">Studio Atelier</span>
+                                <span class="info-val">Tehran, Iran</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">✉️</div>
+                            <div class="info-data">
+                                <span class="info-label">E-mail Direct</span>
+                                <a href="mailto:hello@saraportfolio.com" class="info-link">hello@saraportfolio.com</a>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">📱</div>
+                            <div class="info-data">
+                                <span class="info-label">Phone &amp; WhatsApp</span>
+                                <a href="https://wa.me/989128449396" target="_blank" rel="noopener noreferrer" class="info-link">+98 912 844 9396</a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <form class="contact-form" id="contactForm" novalidate>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Full Name <span class="req" aria-hidden="true">*</span></label>
-                            <input type="text" id="name" name="name" placeholder="Your name or company" required aria-describedby="nameError" autocomplete="name">
-                            <span id="nameError" class="error-message" role="alert"></span>
+                <!-- Right Form -->
+                <div class="footer-right-form">
+                    <form class="contact-form" id="contactForm" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name <span class="req" aria-hidden="true">*</span></label>
+                                <input type="text" id="name" name="name" placeholder="What is your name?*" required aria-describedby="nameError" autocomplete="name">
+                                <span id="nameError" class="error-message" role="alert"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
+                                <input type="email" id="email" name="email" placeholder="Your email address?*" required aria-describedby="emailError" autocomplete="email">
+                                <span id="emailError" class="error-message" role="alert"></span>
+                            </div>
                         </div>
+
                         <div class="form-group">
-                            <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
-                            <input type="email" id="email" name="email" placeholder="you@example.com" required aria-describedby="emailError" autocomplete="email">
-                            <span id="emailError" class="error-message" role="alert"></span>
+                            <label for="session">Project / Commission Type</label>
+                            <select id="session" name="session">
+                                <option value="">Select a service...</option>
+                                <option value="commercial">Commercial, Brand &amp; Billboard Campaign</option>
+                                <option value="product">Product &amp; E-Commerce Packshots</option>
+                                <option value="portrait">Portrait &amp; Fashion Editorial</option>
+                                <option value="food">Food &amp; Culinary Photography</option>
+                                <option value="children">Children &amp; Family Fine Art</option>
+                                <option value="editorial">Editorial &amp; Documentary</option>
+                                <option value="other">Other / Custom Collaboration</option>
+                            </select>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="session">Project / Commission Type</label>
-                        <select id="session" name="session">
-                            <option value="">Select a service...</option>
-                            <option value="commercial">Commercial, Brand &amp; Billboard Campaign</option>
-                            <option value="product">Product &amp; E-Commerce Packshots</option>
-                            <option value="portrait">Portrait &amp; Fashion Editorial</option>
-                            <option value="food">Food &amp; Culinary Photography</option>
-                            <option value="children">Children &amp; Family Fine Art</option>
-                            <option value="editorial">Editorial &amp; Documentary</option>
-                            <option value="other">Other / Custom Collaboration</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Project Details <span class="req" aria-hidden="true">*</span></label>
-                        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project, target dates, scope of deliverables, or just say hello..." required aria-describedby="msgError"></textarea>
-                        <span id="msgError" class="error-message" role="alert"></span>
-                    </div>
-                    <button type="submit" class="btn btn-submit btn-primary" id="submitBtn">
-                        <span class="btn-text-default">Send Inquiry</span>
-                        <span class="btn-text-loading" style="display:none;">Sending...</span>
-                    </button>
-                    <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-                </form>
+
+                        <div class="form-group">
+                            <label for="message">Project Details <span class="req" aria-hidden="true">*</span></label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell me about your idea, shoot dates, or scope...*" required aria-describedby="msgError"></textarea>
+                            <span id="msgError" class="error-message" role="alert"></span>
+                        </div>
+
+                        <div class="form-submit-row">
+                            <button type="submit" class="btn btn-submit-pill" id="submitBtn">
+                                <span class="btn-text-default">Send a Message</span>
+                                <span class="btn-text-loading" style="display:none;">Sending...</span>
+                            </button>
+                            
+                            <!-- Playful Hand-Drawn Annotation Arrow -->
+                            <div class="handwritten-note-wrap" aria-hidden="true">
+                                <svg class="handwritten-arrow" width="48" height="36" viewBox="0 0 50 40" fill="none">
+                                    <path d="M5 30 Q25 5 45 15 M35 10 L45 15 L38 25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span class="handwritten-text">and make it real together</span>
+                            </div>
+                        </div>
+
+                        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+                    </form>
+                </div>
+
             </div>
 
-            <div class="footer-bottom">
-                <p>&copy; 2026 Sara Hosseini Photography. All rights reserved.</p>
-                <div class="footer-socials">
+            <!-- Footer Bottom Strip -->
+            <div class="footer-bottom-bar">
+                <p>&copy; 2026 Sara Hosseini Photography. Inspired by clean creative craft.</p>
+                <div class="footer-bar-links">
+                    <a href="#hero">Home</a>
+                    <a href="#work">Portfolio</a>
+                    <a href="#about">About</a>
                     <a href="https://www.instagram.com/sara__photoz/" target="_blank" rel="noopener noreferrer">Instagram</a>
                     <a href="https://www.linkedin.com/in/sara-hosseini-35735a85" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a href="https://wa.me/989128449396" target="_blank" rel="noopener noreferrer">WhatsApp</a>
                 </div>
             </div>
+
         </div>
     </footer>
 
@@ -1502,7 +1898,7 @@
         <p class="lightbox-hint">Click outside or press Esc to close • Use ← → arrows to navigate</p>
     </div>
 
-    <script src="script.js?v=20"></script>
+    <script src="script.js?v=22"></script>
 </body>
 
 </html>

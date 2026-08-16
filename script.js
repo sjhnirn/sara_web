@@ -507,15 +507,25 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (form) {
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+
+        [nameInput, emailInput, messageInput].forEach(inp => {
+            if (inp) {
+                inp.addEventListener('input', () => {
+                    if (inp === nameInput) clearInputError(nameInput, 'nameError');
+                    if (inp === emailInput) clearInputError(emailInput, 'emailError');
+                    if (inp === messageInput) clearInputError(messageInput, 'msgError');
+                });
+            }
+        });
+
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             
             let isValid = true;
             let firstInvalidField = null;
-
-            const nameInput = document.getElementById('name');
-            const emailInput = document.getElementById('email');
-            const messageInput = document.getElementById('message');
 
             clearInputError(nameInput, 'nameError');
             clearInputError(emailInput, 'emailError');
@@ -555,6 +565,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            [nameInput, emailInput, messageInput].forEach(inp => {
+                if (inp) {
+                    inp.addEventListener('input', () => {
+                        if (inp === nameInput) clearInputError(nameInput, 'nameError');
+                        if (inp === emailInput) clearInputError(emailInput, 'emailError');
+                        if (inp === messageInput) clearInputError(messageInput, 'msgError');
+                    });
+                }
+            });
+
             // Simulation with real-feeling states
             const textDefault = submitBtn.querySelector('.btn-text-default');
             const textLoading = submitBtn.querySelector('.btn-text-loading');
@@ -579,14 +599,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     submitBtn.disabled = false;
                     submitBtn.classList.remove('is-success');
-                    if (textDefault) textDefault.textContent = 'Send Inquiry';
+                    if (textDefault) textDefault.textContent = 'Send a Message';
                     form.reset();
                     if (formStatus) {
                         formStatus.textContent = '';
                         formStatus.classList.remove('is-success');
                     }
-                }, 6000);
-            }, 600);
+                }, 4000);
+            }, 200);
         });
     }
 
